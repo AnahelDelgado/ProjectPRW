@@ -1,10 +1,121 @@
-h1{
+/*Interfaz menu*/
 
-    color: aquamarine;
-    font-size: 23px;
+.bodyLogin {
+
+    background-image: url("/img/fondoLogin.png");
 }
 
-body
+.CuadradoBlanco {
+
+    background-color: white;
+    max-width: 35em;
+    height: 35em;
+    border-radius: 2em;
+    left: 70em;
+    position: relative;
+    margin-top: -25em;
+
+}
+
+
+.f2 {
+
+    padding-top: 1em;
+    text-align: center;
+    font-size: 2em;
+
+}
+
+.sesion {
+
+    font-size: 2em;
+    text-align: center;
+    padding-top: 2em;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+
+}
+
+.boton {
+
+    text-align: center;
+    border-radius: 1.5em;
+    background-color: #335684;
+    width: 8em;
+    height: 2em;
+    color: aliceblue;
+
+}
+
+
+input {
+
+    font-size: 0.8em;
+    border-radius: 2em;
+    background-color: #335684;
+
+}
+
+.titulo {
+
+    color: white;
+    margin-left: 20em;
+    margin-top: 25em;
+
+
+}
+
+h2 {
+
+    font-size: 4.5em;
+
+}
+
+.tp {
+
+    font-size: 2em;
+    font-family: monospace;
+
+}
+
+::placeholder {
+    color: rgb(194, 190, 190);
+    text-align: center;
+    padding-top: 30px;
+    font-size: 0.8em;
+
+}
+
+.logo
 {
-    background-color: rgb(29, 165, 81);
+
+    width: 8em;
+    height:8em;
+    margin-left: 100em;
+    margin-top: 6em;
+}
+
+.link
+{
+
+    color: #4BA4ED;
+    margin-left: 6em;
+    margin-top: -2em;
+
+}
+
+.google-login
+{
+
+    border: 2px solid black;
+    width:25em;
+    margin-left: 5em;
+    border-radius: 2em;
+    
+}
+
+
+.google-icon {
+    
+    margin-left: 4em;
+    vertical-align: middle;
 }
