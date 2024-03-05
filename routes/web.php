@@ -14,3 +14,6 @@ use Illuminate\Support\Facades\Route;
 */
 
 
+use App\Http\Controllers\menuController;
+
+Route::get('/menu', "App\Http\Controllers\menuController@showMenu")->name("index.index");
