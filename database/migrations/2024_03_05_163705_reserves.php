@@ -19,6 +19,7 @@ return new class extends Migration
             $table->time('hora_inicio');
             $table->time('hora_fin');
             $table->integer('cantidad');
+            $table->timestamps();
         });
     }
 
