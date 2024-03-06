@@ -20,4 +20,3 @@ class teacher extends Model implements AuthenticatableContract
         'external_auth'
     ];
 }
-
