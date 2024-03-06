@@ -15,7 +15,7 @@ class teacher extends Model implements AuthenticatableContract
     protected $fillable = [
         'nombre',
         'email',
-        'imagen',
+        'avatar',
         'external_id',
         'external_auth'
     ];
