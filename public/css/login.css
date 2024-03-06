@@ -3,6 +3,8 @@
 .bodyLogin {
 
     background-image: url("/img/fondoLogin.png");
+    background-repeat: no-repeat;
+    background-size: cover;
 }
 
 .CuadradoBlanco {
@@ -13,7 +15,7 @@
     border-radius: 2em;
     left: 70em;
     position: relative;
-    margin-top: -25em;
+    margin-top: -30em;
 
 }
 
@@ -43,6 +45,7 @@
     width: 8em;
     height: 2em;
     color: aliceblue;
+    margin-top: 11em;
 
 }
 
@@ -59,7 +62,7 @@ input {
 
     color: white;
     margin-left: 20em;
-    margin-top: 25em;
+    margin-top: 30em;
 
 
 }
@@ -85,17 +88,15 @@ h2 {
 
 }
 
-.logo
-{
+.logo {
 
     width: 8em;
-    height:8em;
+    height: 8em;
     margin-left: 100em;
     margin-top: 6em;
 }
 
-.link
-{
+.link {
 
     color: #4BA4ED;
     margin-left: 6em;
@@ -103,20 +104,29 @@ h2 {
 
 }
 
-.google-login
-{
+.google-login {
 
     border: 2px solid black;
-    width:25em;
-    height: 5em;
-    margin-left: 5em;
+    width: 19em;
+    height: 4em;
+    margin-left: 8em;
     border-radius: 2em;
-    
+    margin-top: -12em;
+
 }
 
 
 .google-icon {
-    
-    margin-left: 4em;
+
+    margin-left: 2em;
     vertical-align: middle;
+    width: 2em;
+    margin-top: 1em;
 }
+
+.textoGoogle {
+    margin-left: 6em;
+    margin-top: -1.7em;
+
+}
+
