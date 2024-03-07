@@ -7,9 +7,19 @@ use Illuminate\Support\Facades\View;
 
 class reservasController extends Controller
 {
-    public function reserva1()
+    public function reservar()
     {
-        return view('secciones.reserva');   
+        $todasReservas= reserve::all();
+
+        $reservas = [];
+
+        foreach($todasReservas as $reserva){
+            $reservas[] = [
+                ''
+            ];
+        }
+
+        return view('reservas.añadir');   
     }
 
     public function reserva2()
