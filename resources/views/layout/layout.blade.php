@@ -43,10 +43,9 @@
             </ul>
         </div>
 
-
-        <div class="content">
-            @yield('content')
-        </div>
+        <!-- contenido -->
+        @yield('content')
+        
     </div>
 
     <footer class="footer">
