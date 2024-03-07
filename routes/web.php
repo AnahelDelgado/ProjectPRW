@@ -19,13 +19,15 @@ use Illuminate\Support\Facades\Auth;
 
 
 
+Route::get('/', 'App\Http\Controllers\reservasController@reserva1')->name('secciones.reserva');
+
 Route::get('/login', 'App\Http\Controllers\menuController@showLogin')->name('secciones.login');
 
 Route::get('/ReservaAula', 'App\Http\Controllers\reservasController@reserva1')->name('secciones.layout');
 
 Route::get('/ReservaMaterial', 'App\Http\Controllers\reservasController@reserva2')->name('secciones.layout');
 
-Route::get('/reservaAula', 'App\Http\Controllers\reservasController@reserva1')->name('secciones.reserva');
+//Route::get('/reservaAula', 'App\Http\Controllers\reservasController@reserva1')->name('secciones.reserva');
 
 Route::get('/reservaMaterial', 'App\Http\Controllers\reservasController@reserva2')->name('secciones.reserva2');
 
@@ -55,5 +57,6 @@ Route::get('/auth/google/callback', function () {
         Auth::login($userNew);
     }
 
-    return redirect('/login');
+    $viewData = ['imagen'=>$user->avatar];
+    return redirect('/')->with("viewData",$viewData);
 });
