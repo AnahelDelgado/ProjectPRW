@@ -19,7 +19,7 @@ use Illuminate\Support\Facades\Auth;
 
 // link para el menú principal 
 
-Route::get('/', 'App\Http\Controllers\reservasController@showhorario')->name('secciones.horario');
+Route::get('/', 'App\Http\Controllers\menuController@showhorario')->name('secciones.horario');
 
 Route::get('/login', 'App\Http\Controllers\menuController@showLogin')->name('secciones.login');
 
