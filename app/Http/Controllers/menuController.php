@@ -11,6 +11,11 @@ class menuController extends Controller
     {
         return view('secciones.login');
     }
+
+    public function showhorario()
+    {
+        return view('secciones.horario');
+    }
 }
 
 
