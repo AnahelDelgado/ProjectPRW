@@ -61,16 +61,23 @@
     height: 50px;
     border-radius: 50%;
     margin-bottom: 10px; /* Espacio entre la imagen y el texto */
-    margin-top: -1em;
+    margin-top: -3em;
     border: none; /* Eliminar borde */
 }
 
 .user-name {
     font-weight: bold;
     margin-left: -3.8em;
-    margin-top: -2em;
+    margin-top: -3em;
     text-decoration: none; 
 }
+
+.user a {
+    /* Elimina cualquier estilo de botón que esté aplicado */
+    text-decoration: none; /* Asegúrate de que el enlace no tenga subrayado */
+    color: inherit; /* Usa el color por defecto del texto */
+}
+
 
 .menu-link {
     color: #000; /* Cambiar color de texto para que sea visible */

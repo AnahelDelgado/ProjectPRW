@@ -61,7 +61,7 @@ input {
 .titulo {
 
     color: white;
-    margin-left: 20em;
+    margin-left: 15em;
     margin-top: 30em;
 
 
@@ -69,7 +69,7 @@ input {
 
 h2 {
 
-    font-size: 4.5em;
+    font-size: 4em;
 
 }
 
@@ -101,6 +101,8 @@ h2 {
     color: #4BA4ED;
     margin-left: 6em;
     margin-top: -2em;
+    background-color: aliceblue;
+    width: 7em;
 
 }
 

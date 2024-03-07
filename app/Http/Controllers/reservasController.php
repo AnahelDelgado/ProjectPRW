@@ -7,18 +7,8 @@ use Illuminate\Support\Facades\View;
 
 class reservasController extends Controller
 {
-    public function reservar()
+    public function reservar1()
     {
-        $todasReservas= reserve::all();
-
-        $reservas = [];
-
-        foreach($todasReservas as $reserva){
-            $reservas[] = [
-                ''
-            ];
-        }
-
         return view('reservas.añadir');   
     }
 
@@ -29,7 +19,7 @@ class reservasController extends Controller
 
     public function eleccionreserva()
     {
-        return view('secciones.eleccion');
+        return view('login.eleccion');
     }
 
     public function reserva3()
@@ -39,6 +29,13 @@ class reservasController extends Controller
 
     }
 
+
+    public function misReservas()
+    {
+
+        return view('secciones.misReservas');
+
+    }
 }
 
 

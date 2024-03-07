@@ -15,8 +15,8 @@ body {
     padding: 20px;
     background-color: rgba(255, 255, 255, 0.8); /* Fondo semi-transparente */
     border-radius: 30px;
-    width:60em;
-    height: 40em;
+    width:65em;
+    height: 45em;
 }
 
 .logo {
@@ -25,7 +25,7 @@ body {
     background-image: url('ruta/a/tu/logo.png');
     background-size: cover;
     margin-bottom: 20px;
-    margin-left: 26em;
+    margin-left: 29em;
 }
 
 h1 {
@@ -52,14 +52,14 @@ h1 {
     width: 20em;
     height: 3em; /* Altura del botón */
     color: aliceblue; /* Color del texto */
-    margin-top: 5em; /* Espacio superior */
+    margin-top: 4em; /* Espacio superior */
     line-height: 3em; /* Alineación vertical del texto */
     border: none; /* Eliminar borde */
     cursor: pointer; /* Cambiar cursor al pasar sobre el botón */
     text-decoration: none; /* Eliminar subrayado en los enlaces */
     display: block; /* Mostrar como bloque */
     margin-bottom: 5px; /* Espacio entre botones */
-    margin-left: 11em;
+    margin-left: 13em;
     font-size: 1.4em; /* Tamaño de la letra más grande */
 }
 

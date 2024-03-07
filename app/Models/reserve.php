@@ -8,4 +8,6 @@ use Illuminate\Database\Eloquent\Model;
 class reserve extends Model
 {
     use HasFactory;
+    
+    protected $fillable = ['id_profesor', 'id_aula', 'dia', 'hora_inicio', 'hora_fin', 'cantidad'];
 }
