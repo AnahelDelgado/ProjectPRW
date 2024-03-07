@@ -94,8 +94,8 @@
                         </div>
                     </div>
                     <div class="card-content">
-                        <h2 class="name">Impresora 3D</h2>
-                        <p class="description">Impresora 3D la cual se le puede dar uso para la impresión de casi cualquier diseño realizado por el alumnado.</p>
+                        <h2 class="name">Gafas VR</h2>
+                        <p class="description">Gafas de realidad virtual que se pueden usar para poder observar los avances en sus proyectos.</p>
                         <button class="button">Reservar</button>
                     </div>
                 </div>
@@ -107,8 +107,8 @@
                         </div>
                     </div>
                     <div class="card-content">
-                        <h2 class="name">Impresora 3D</h2>
-                        <p class="description">Impresora 3D la cual se le puede dar uso para la impresión de casi cualquier diseño realizado por el alumnado.</p>
+                        <h2 class="name">Gafas VR</h2>
+                        <p class="description">Gafas de realidad virtual que se pueden usar para poder observar los avances en sus proyectos.</p>
                         <button class="button">Reservar</button>
                     </div>
                 </div>
@@ -120,8 +120,8 @@
                         </div>
                     </div>
                     <div class="card-content">
-                        <h2 class="name">Impresora 3D</h2>
-                        <p class="description">Impresora 3D la cual se le puede dar uso para la impresión de casi cualquier diseño realizado por el alumnado.</p>
+                        <h2 class="name">Gafas VR</h2>
+                        <p class="description">Gafas de realidad virtual que se pueden usar para poder observar los avances en sus proyectos.</p>
                         <button class="button">Reservar</button>
                     </div>
                 </div>
@@ -133,8 +133,8 @@
                         </div>
                     </div>
                     <div class="card-content">
-                        <h2 class="name">Impresora 3D</h2>
-                        <p class="description">Impresora 3D la cual se le puede dar uso para la impresión de casi cualquier diseño realizado por el alumnado.</p>
+                        <h2 class="name">Gafas VR</h2>
+                        <p class="description">Gafas de realidad virtual que se pueden usar para poder observar los avances en sus proyectos.</p>
                         <button class="button">Reservar</button>
                     </div>
                 </div>
@@ -146,8 +146,8 @@
                         </div>
                     </div>
                     <div class="card-content">
-                        <h2 class="name">Impresora 3D</h2>
-                        <p class="description">Impresora 3D la cual se le puede dar uso para la impresión de casi cualquier diseño realizado por el alumnado.</p>
+                        <h2 class="name">Gafas VR</h2>
+                        <p class="description">Gafas de realidad virtual que se pueden usar para poder observar los avances en sus proyectos.</p>
                         <button class="button">Reservar</button>
                     </div>
                 </div>
@@ -159,8 +159,8 @@
                         </div>
                     </div>
                     <div class="card-content">
-                        <h2 class="name">Impresora 3D</h2>
-                        <p class="description">Impresora 3D la cual se le puede dar uso para la impresión de casi cualquier diseño realizado por el alumnado.</p>
+                        <h2 class="name">Gafas VR</h2>
+                        <p class="description">Gafas de realidad virtual que se pueden usar para poder observar los avances en sus proyectos.</p>
                         <button class="button">Reservar</button>
                     </div>
                 </div>
