@@ -9,8 +9,9 @@
     <link rel="stylesheet" href="{{asset('/css/reserva.css')}}">
     <link rel="stylesheet" href="{{asset('/css/agregar.css')}}">
     <title>Reserva Aula</title>
-    <link rel="stylesheet" href="CSS/swiper-bundle.min.css">
-    <link rel="stylesheet" href="CSS/style.css">
+    @yield('head')
+    <!-- <link rel="stylesheet" href="CSS/swiper-bundle.min.css"> -->
+    <!-- <link rel="stylesheet" href="CSS/style.css"> -->
 </head>
 
 <body class="bodyr1">
