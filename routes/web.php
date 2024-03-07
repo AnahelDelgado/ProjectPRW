@@ -21,7 +21,7 @@ use Illuminate\Support\Facades\Auth;
 
 Route::get('/', 'App\Http\Controllers\menuController@showhorario')->name('secciones.horario');
 
-Route::get('/login', 'App\Http\Controllers\menuController@showLogin')->name('secciones.login');
+Route::get('/login', 'App\Http\Controllers\menuController@showLogin')->name('login.eleccion');
 
 // link para la reserva del aula sin material
 
