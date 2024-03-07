@@ -15,4 +15,6 @@ use Illuminate\Support\Facades\Route;
 
 
 
-Route::get('/login', 'App\Http\Controllers\menuController@showLogin')->name('secciones.login');
+Route::get('/login', 'App\Http\Controllers\menuController@showLogin')->name('login.login');
+
+Route::get('/agregarReserva', 'App\Http\Controllers\menuController@showLogin')->name('reservas.login');
