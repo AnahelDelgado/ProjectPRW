@@ -5,10 +5,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Añadir reserva</title>
 </head>
-<body style="background-color: red;">
+<body>
     <section class="">
         <h3>Añadir una reserva</h3>
-        <div>
+        <div class="">
             <form action="">
                 <label for="diaReserva">Día de la reserva: </label>
                 <input type="date" name="diaReserva" id="diaReserva" required>
