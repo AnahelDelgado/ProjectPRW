@@ -16,9 +16,9 @@ body{
 }*/
 
 .slide-container{
-    max-width: 1120px;
+    max-width: 1320px;
     width: 100%;
-    padding: 40px 0;
+    padding: 300px 0;
 }
 
 .slide-content{
@@ -28,7 +28,7 @@ body{
 }
 
 .card{
-    border-radius: 25px;
+    border-radius: 50px 50px 25px 25px;
     background-color: #FFF;
 }
 
@@ -42,6 +42,7 @@ body{
 
 .image-content{
     position: relative;
+    height: auto;
     row-gap: 5px;
     padding: 25px 0;
 }
@@ -61,8 +62,8 @@ body{
     content: '';
     position: absolute;
     right: 0;
-    bottom: -40px;
-    height: 40px;
+    bottom: -20px;
+    height: 20px;
     width: 40px;
     background-color: #335684;
 }
@@ -74,8 +75,8 @@ body{
 
 .card-image{
     position: relative;
-    height: 150px;
-    width: 150px;
+    height: 250px;
+    width: 250px;
     border-radius: 20%;
     background-color: #FFF;
     padding: 3px;

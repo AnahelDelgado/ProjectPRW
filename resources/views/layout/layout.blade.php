@@ -6,6 +6,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="{{asset('/css/reserva.css')}}">
     <title>Reserva Aula</title>
+    <link rel="stylesheet" href="CSS/swiper-bundle.min.css">
+    <link rel="stylesheet" href="CSS/style.css">
 </head>
 
 <body class="bodyr1">
@@ -45,7 +47,7 @@
 
         <!-- contenido -->
         @yield('content')
-        
+
     </div>
 
     <footer class="footer">
@@ -67,5 +69,9 @@
         </div>
     </div>
 </body>
+<script src="JS/swiper-bundle.min.js"></script>
+
+<!-- JavaScript -->
+<script src="JS/script.js"></script>
 
 </html>
