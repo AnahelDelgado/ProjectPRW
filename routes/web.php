@@ -37,7 +37,7 @@ Route::get('/reservaAulayMaterial', 'App\Http\Controllers\reservasController@res
 
 // link para la elección del tipo de reserva
 
-Route::get('/eleccion', 'App\Http\Controllers\reservasController@eleccionreserva')->name('secciones.eleccion');
+Route::get('/eleccion', 'App\Http\Controllers\reservasController@eleccionreserva')->name('login.eleccion');
 
 
 

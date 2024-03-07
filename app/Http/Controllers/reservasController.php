@@ -19,7 +19,7 @@ class reservasController extends Controller
 
     public function eleccionreserva()
     {
-        return view('secciones.eleccion');
+        return view('login.eleccion');
     }
 
     public function reserva3()
