@@ -37,6 +37,9 @@ Route::get('/reservaAulayMaterial', 'App\Http\Controllers\reservasController@res
 
 Route::get('/eleccion', 'App\Http\Controllers\reservasController@eleccionreserva')->name('secciones.eleccion');
 
+// link para mis reservas
+
+Route::get('/misReservas', 'App\Http\Controllers\reservasController@misReservas')->name('secciones.misResevas');
 
 
 

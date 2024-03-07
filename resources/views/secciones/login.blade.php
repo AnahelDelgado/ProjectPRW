@@ -13,7 +13,7 @@
 
   <div class="titulo">
 
-    <h2>Reserva tu aula</h2>
+    <h2>Reserva tu aula y material</h2>
     <p class="tp">Inicia sesión aquí para poder reservar </p>
 
   </div>

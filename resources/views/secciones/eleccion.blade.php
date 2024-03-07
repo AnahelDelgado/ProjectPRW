@@ -21,6 +21,7 @@
         <div class="buttons">
             <a href="#" class="button">Reservar aula + material</a>
             <a href="#" class="button">Reservar material</a>
+            <a href="#" class="button">Reservar aula</a>
         </div>
 
 
