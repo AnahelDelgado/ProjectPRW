@@ -168,13 +168,15 @@ span{
 .misreservas {
     display: flex;
     justify-content: flex-end; /* Colocar el contenido al final del contenedor */
-    margin-top: -6em;
+    margin-top: -9em;
     position: fixed;
     right: 40px;
-    background-color: #5281BF;
-    padding: 10px;
+    padding: 13px;
     border-radius: 5px;
     cursor: pointer;
+    width: 12em;
+    height: 6em;
+    transition: background-color 0.3s; /* Transición suave para el cambio de color de fondo */
 }
 
 
@@ -186,9 +188,21 @@ span{
     padding: 10px 20px; /* Espaciado interno */
     font-size: 16px; /* Tamaño de la fuente */
     cursor: pointer; /* Cambiar cursor al pasar sobre el botón */
+    transition: background-color 0.3s; /* Transición suave para el cambio de color de fondo */
+    margin-left: 2em;
+
 }
 
 .boton:hover {
     background-color: #1a324e; /* Color de fondo al pasar el ratón */
 }
 
+
+.boton:hover {
+    background-color: #0056b3; /* Cambia el color de fondo al pasar el ratón */
+}
+
+/* Estilo para el contenedor */
+.cerrar-sesion {
+    text-align: center; /* Centra el botón horizontalmente */
+}

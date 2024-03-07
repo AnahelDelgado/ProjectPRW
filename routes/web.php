@@ -25,7 +25,7 @@ Route::get('/login', 'App\Http\Controllers\menuController@showLogin')->name('log
 
 // link para la reserva del aula sin material
 
-Route::get('/reservaAula', 'App\Http\Controllers\reservasController@reserva1')->name('reservas.añadir');
+Route::get('/reservaAula', 'App\Http\Controllers\reservasController@añadir')->name('reservas.añadir');
 
 // link para la reserva de solo el material sin el aula
 

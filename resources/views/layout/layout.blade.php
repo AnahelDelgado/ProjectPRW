@@ -26,6 +26,13 @@
                     <img src="/icons/user.png" alt="Usuario">
                     <span class="user-name">Usuario</span>
                 </a>
+
+            </div>
+
+            <div class="cerrar sesion">
+
+                <input type="submit" value="Cerrar sesión" class="boton">
+
             </div>
             <ul class="menu-options">
                 <li>
@@ -60,9 +67,11 @@
 
     <div class="misreservas">
 
-        <input type="submit" value="Mis reservas" class="boton">
+        <input type="submit" value="Mis reservas" class="boton2">
 
     </div>
+
+
 
     <!-- Dropdown para cambiar vista -->
     <div class="dropdown">
