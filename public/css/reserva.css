@@ -21,6 +21,7 @@
     background-color: #5281BF;
     color: #fff;
     padding: 20px;
+    align-items: center;
     
 }
 
@@ -68,8 +69,17 @@
 .user-name {
     font-weight: bold;
     margin-left: -3.8em;
-    margin-top: -2em;
-    text-decoration: none; 
+    margin-top: 20px;
+    text-align: center;
+}
+
+.user-link{
+    color: #fff; /* Cambiar color de texto */
+    text-decoration: none; /* Quitar subrayado */
+    padding: 5px 10px; /* Añadir espacio alrededor del texto */
+    border-radius: 5px; /* Añadir bordes redondeados */
+    transition: background-color 0.3s ease; /* Transición suave de color de fondo */
+
 }
 
 .menu-link {
