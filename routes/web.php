@@ -19,13 +19,13 @@ use Illuminate\Support\Facades\Auth;
 
 // link para el menú principal 
 
-Route::get('/', 'App\Http\Controllers\reservasController@reserva1')->name('secciones.reserva');
+Route::get('/', 'App\Http\Controllers\menuController@showhorario')->name('secciones.horario');
 
-Route::get('/login', 'App\Http\Controllers\menuController@showLogin')->name('secciones.login');
+Route::get('/login', 'App\Http\Controllers\menuController@showLogin')->name('login.login');
 
 // link para la reserva del aula sin material
 
-//Route::get('/reservaAula', 'App\Http\Controllers\reservasController@reserva1')->name('secciones.reserva');
+Route::get('/reservaAula', 'App\Http\Controllers\reservasController@reserva1')->name('reservas.añadir');
 
 // link para la reserva de solo el material sin el aula
 

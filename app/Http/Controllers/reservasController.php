@@ -9,7 +9,7 @@ class reservasController extends Controller
 {
     public function reserva1()
     {
-        return view('secciones.reserva');   
+        return view('reservas.añadir');   
     }
 
     public function reserva2()
@@ -19,7 +19,7 @@ class reservasController extends Controller
 
     public function eleccionreserva()
     {
-        return view('secciones.eleccion');
+        return view('login.eleccion');
     }
 
     public function reserva3()
