@@ -8,7 +8,7 @@ use App\Models\reserve;
 
 class reservasController extends Controller
 {
-    public function reservar1()
+    public function reserva1()
     {
         return view('reservas.añadir');
     }
