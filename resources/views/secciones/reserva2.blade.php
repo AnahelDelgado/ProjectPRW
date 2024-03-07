@@ -6,6 +6,7 @@
 @section('content')
     <!-- Contenido específico de esta página -->
     <div class="slide-container swiper">
+        <h1>Añadir materiales</h1>
         <div class="slide-content">
             <div class="card-wrapper swiper-wrapper">
                 <div class="card swiper-slide">
