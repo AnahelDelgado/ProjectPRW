@@ -4,7 +4,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+       <!-- Estilos -->
     <link rel="stylesheet" href="{{asset('/css/reserva.css')}}">
+    <link rel="stylesheet" href="{{asset('/css/agregar.css')}}">
     <title>Reserva Aula</title>
 </head>
 
