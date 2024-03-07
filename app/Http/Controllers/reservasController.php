@@ -22,6 +22,13 @@ class reservasController extends Controller
         return view('secciones.eleccion');
     }
 
+    public function reserva3()
+    {
+
+        return view('secciones.reserva3');
+
+    }
+
 }
 
 
