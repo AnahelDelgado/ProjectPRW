@@ -71,6 +71,9 @@
             <a href="#">Pestañas Grid</a>
         </div>
     </div>
+
+    <!-- Stack del calendario -->
+    @stack('scripts')
 </body>
 <script src="JS/swiper-bundle.min.js"></script>
 
