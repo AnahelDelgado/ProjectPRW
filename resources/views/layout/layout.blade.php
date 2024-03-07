@@ -17,8 +17,11 @@
             </div>
             <div class="user">
                 <a href="/perfil" class="user-link">
-                    <img src="/icons/user.png" alt="Usuario">
-                    <span class="user-name">Usuario</span>
+                    <!-- Avatar del usuario -->
+                    @yield('imagen')
+
+                    <!-- Nombre del usuario -->
+                    <h4 class="user-name">@yield('nombre')</h4>
                 </a>
             </div>
             <ul class="menu-options">
