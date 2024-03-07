@@ -7,7 +7,7 @@ use Illuminate\Support\Facades\View;
 
 class reservasController extends Controller
 {
-    public function reserva1()
+    public function añadir()
     {
         return view('reservas.añadir');   
     }
