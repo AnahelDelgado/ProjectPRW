@@ -14,10 +14,9 @@ return new class extends Migration
         Schema::create('teachers', function (Blueprint $table) {
             $table->id();
             $table->string('nombre');
-            $table->integer('capacidad');
             $table->string('email');
-            $table->string('avatar');
-            $table->string('password');
+            $table->string('avatar')->nullable();
+            $table->string('external_id');
             $table->string('external_auth');
             $table->timestamps();
         });

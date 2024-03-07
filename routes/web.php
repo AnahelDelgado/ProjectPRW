@@ -1,6 +1,10 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use Laravel\Socialite\Facades\Socialite;
+use App\Models\teacher;
+use Illuminate\Support\Facades\Auth;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -13,8 +17,51 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-
+// link para el menú principal 
 
 Route::get('/login', 'App\Http\Controllers\menuController@showLogin')->name('secciones.login');
-Route::get('/ReservaAula', 'App\Http\Controllers\reservasController@reserva1')->name('secciones.layout');
-Route::get('/ReservaMaterial', 'App\Http\Controllers\reservasController@reserva2')->name('secciones.layout');
+
+// link para la reserva del aula sin material
+
+Route::get('/reservaAula', 'App\Http\Controllers\reservasController@reserva1')->name('secciones.reserva');
+
+// link para la reserva de solo el material sin el aula
+
+Route::get('/reservaMaterial', 'App\Http\Controllers\reservasController@reserva2')->name('secciones.reserva2');
+
+// link para la reserva del aula y el material
+
+Route::get('/reservaAulayMaterial', 'App\Http\Controllers\reservasController@reserva3')->name('secciones.reserva3');
+
+// link para la elección del tipo de reserva
+
+Route::get('/eleccion', 'App\Http\Controllers\reservasController@eleccionreserva')->name('secciones.eleccion');
+
+
+
+
+//Rutas para la API de Google.
+Route::get('/auth/google', function () {
+    return Socialite::driver('google')->redirect();
+});
+
+Route::get('/auth/google/callback', function () {
+    $user = Socialite::driver('google')->stateless()->user();
+
+    $userExist = teacher::where('email', $user->email)->first();
+
+    if($userExist){
+        Auth::login($userExist);
+    }else {
+        $userNew = teacher::create([
+            'nombre' => $user->name,
+            'email' => $user->email,
+            'avatar' => $user->avatar,
+            'external_id' => (string) $user->id,
+            'external_auth' => 'google',
+        ]);
+        Auth::login($userNew);
+    }
+
+    return redirect('/login');
+});
