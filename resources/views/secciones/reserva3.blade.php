@@ -16,6 +16,8 @@ if (session()->get('user') === null) {
     <?php echo $viewData['nombre']?>
 @endsection
 
+@extends('layout.layout')
+
 @section('content')
 <!-- Contenido específico de esta página -->
 <section class="">
