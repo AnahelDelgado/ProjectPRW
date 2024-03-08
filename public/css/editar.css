@@ -1,11 +1,11 @@
 .cuadrado {
     width: 60em;
     height: 50em;
-    background-color: #84B2D8;
+    background-color: #f0f0f0;
     border-radius: 15px;
     text-align: center;
     margin-top: 4em;
-    margin-left: 15em;
+    margin-left: 10em;
 }
 
 .titulo {

@@ -23,7 +23,7 @@ if (session()->get('user') === null) {
 
 </div>
 @endsection
-@extends('layout.layout')
+
 
 @section('content')
     <!-- Contenido específico de esta página -->
