@@ -16,8 +16,8 @@ return new class extends Migration
             $table->foreignId('id_profesor')->constrained('teachers');
             $table->foreignId('id_aula')->constrained('classrooms');
             $table->date('dia');
-            $table->time('hora_inicio');
-            $table->time('hora_fin');
+            $table->dateTime('hora_inicio');
+            $table->dateTime('hora_fin');
             $table->integer('cantidad');
         });
     }
