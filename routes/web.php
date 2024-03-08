@@ -50,3 +50,5 @@ Route::get('/misReservas', 'App\Http\Controllers\reservasController@misReservas'
 Route::get('/auth/google','App\Http\Controllers\googleAPIController@redirectToGoogle');
 
 Route::get('/auth/google/callback', 'App\Http\Controllers\googleAPIController@handleGoogleCallback');
+
+Route::post('/logout', 'App\Http\Controllers\googleAPIController@logout');
