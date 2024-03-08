@@ -1,0 +1,55 @@
+/* Estilos generales */
+body {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+    background: linear-gradient(to bottom right, #00bfff, #ffff00); /* Degradado azul a amarillo */
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.container {
+    width: 55em;
+    margin: 50px auto;
+    padding: 20px;
+    background-color: #fdfdfd;
+    border-radius: 10px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+    height: 30em;
+}
+
+h1 {
+    text-align: center;
+    color: #333;
+    font-size: 3em;
+}
+
+.buttons {
+    display: flex;
+    justify-content: center;
+    margin-top: 30px;
+    
+}
+
+.button {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #007bff;
+    color: #fff;
+    text-decoration: none;
+    border-radius: 5px;
+    margin: 0 10px;
+    transition: background-color 0.3s ease;
+    width: 12em;
+    height:3em ;
+    text-align: center;
+    font-size: 1.5em;
+    margin-top: 2em;
+}
+
+.button:hover {
+    background-color: #0056b3;
+}

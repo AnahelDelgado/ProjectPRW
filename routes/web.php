@@ -45,28 +45,33 @@ Route::get('/misReservas', 'App\Http\Controllers\reservasController@misReservas'
 
 
 
+//Editar aula y material
+Route::get('/reservas/editarAula', 'App\Http\Controllers\reservasController@editar')->name('reservas.editar');
+
+Route::get('/reservas/editarmaterial', 'App\Http\Controllers\reservasController@editarMaterial')->name('secciones.editarMaterial');
+
+//Eliminar aula y material
+
+Route::get('/reservas/eliminar', 'App\Http\Controllers\reservasController@eliminar')->name('reservas.eliminar');
+
+Route::get('/reservas/eliminarMaterial', 'App\Http\Controllers\reservasController@eliminarMaterial')->name('reservas.eliminarMaterial');
+
+
+//eleccion de editar y eliminar
+
+Route::get('/reservas/editar/eleccioneliminar', 'App\Http\Controllers\reservasController@eleccioneliminar')->name('reservas.eleccioneliminar');
+
+Route::get('/reservas/editar/eleccioneditar', 'App\Http\Controllers\reservasController@eleccioneditar')->name('reservas.eleccioneditar');
+
+
+
+
+
+
 //Rutas para la API de Google.
-Route::get('/auth/google', function () {
-    return Socialite::driver('google')->redirect();
-});
 
-Route::get('/auth/google/callback', function () {
-    $user = Socialite::driver('google')->stateless()->user();
+Route::get('/auth/google','App\Http\Controllers\googleAPIController@redirectToGoogle');
 
-    $userExist = teacher::where('email', $user->email)->first();
+Route::get('/auth/google/callback', 'App\Http\Controllers\googleAPIController@handleGoogleCallback');
 
-    if($userExist){
-        Auth::login($userExist);
-    }else {
-        $userNew = teacher::create([
-            'nombre' => $user->name,
-            'email' => $user->email,
-            'avatar' => $user->avatar,
-            'external_id' => (string) $user->id,
-            'external_auth' => 'google',
-        ]);
-        Auth::login($userNew);
-    }
-
-    return redirect('/login');
-});
+Route::post('/logout', 'App\Http\Controllers\googleAPIController@logout');
