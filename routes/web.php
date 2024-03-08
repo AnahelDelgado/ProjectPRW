@@ -69,27 +69,9 @@ Route::get('/reservas/editar/eleccioneditar', 'App\Http\Controllers\reservasCont
 
 
 //Rutas para la API de Google.
-Route::get('/auth/google', function () {
-    return Socialite::driver('google')->redirect();
-});
 
-Route::get('/auth/google/callback', function () {
-    $user = Socialite::driver('google')->stateless()->user();
+Route::get('/auth/google','App\Http\Controllers\googleAPIController@redirectToGoogle');
 
-    $userExist = teacher::where('email', $user->email)->first();
+Route::get('/auth/google/callback', 'App\Http\Controllers\googleAPIController@handleGoogleCallback');
 
-    if($userExist){
-        Auth::login($userExist);
-    }else {
-        $userNew = teacher::create([
-            'nombre' => $user->name,
-            'email' => $user->email,
-            'avatar' => $user->avatar,
-            'external_id' => (string) $user->id,
-            'external_auth' => 'google',
-        ]);
-        Auth::login($userNew);
-    }
-
-    return redirect('/login');
-});
+Route::post('/logout', 'App\Http\Controllers\googleAPIController@logout');
