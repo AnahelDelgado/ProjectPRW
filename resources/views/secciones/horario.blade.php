@@ -17,13 +17,7 @@ if (session()->get('user') === null) {
 @endsection
 
 
-@section('content')
-<!-- Contenido específico de esta página -->
-<div class="content">
 
-</div>
-@endsection
-@extends('layout.layout')
 
 @section('content')
     <!-- Contenido específico de esta página -->
@@ -44,6 +38,7 @@ if (session()->get('user') === null) {
         });
         calendar.render();
     });
+    
 
 </script>
 @endpush
