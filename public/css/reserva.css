@@ -174,7 +174,7 @@ span{
     padding: 13px;
     border-radius: 5px;
     cursor: pointer;
-    width: 12em;
+    width: 17em;
     height: 6em;
     transition: background-color 0.3s; /* Transición suave para el cambio de color de fondo */
 }

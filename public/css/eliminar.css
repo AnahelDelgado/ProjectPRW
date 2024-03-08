@@ -1,0 +1,43 @@
+.contorno {
+    width: 60em;
+    margin: 4em auto;
+    padding: 20px;
+    background-color: #84B2D8;
+    border-radius: 15px;
+    text-align: center;
+    height: 30em;
+}
+
+.contorno h1 {
+    font-size: 24px;
+    margin-top: 20px;
+}
+
+.contorno form {
+    margin-top: 20px;
+}
+
+.contorno label {
+    display: block;
+    margin-bottom: 10px;
+}
+
+.contorno select, .contorno input[type="submit"] {
+    width: 80%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    margin-bottom: 20px;
+}
+
+.contorno input[type="submit"] {
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.contorno input[type="submit"]:hover {
+    background-color: #0056b3;
+}

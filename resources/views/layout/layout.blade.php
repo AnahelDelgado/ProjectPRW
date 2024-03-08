@@ -8,6 +8,8 @@
     <!-- Estilos -->
     <link rel="stylesheet" href="{{asset('/css/reserva.css')}}">
     <link rel="stylesheet" href="{{asset('/css/agregar.css')}}">
+    <link rel="stylesheet" href="{{asset('/css/editar.css')}}">
+    <link rel="stylesheet" href="{{asset('/css/eliminar.css')}}">
     <title>Reserva Aula</title>
     @yield('head')
     <!-- <link rel="stylesheet" href="CSS/swiper-bundle.min.css"> -->
@@ -36,13 +38,13 @@
             </div>
             <ul class="menu-options">
                 <li>
-                    <a href="/editar" class="menu-link">
+                    <a href="/reservas/editar/eleccioneditar" class="menu-link">
                         <img src="/icons/editar.png" alt="Editar">
                         <span>Editar</span>
                     </a>
                 </li>
                 <li>
-                    <a href="/eliminar" class="menu-link">
+                    <a href="/reservas/editar/eleccioneliminar" class="menu-link">
                         <img src="/icons/borrar.png" alt="Eliminar">
                         <span>Eliminar</span>
                     </a>
@@ -77,7 +79,7 @@
     <div class="dropdown">
         <span style="font-size: 20px;">Cambiar vista</span>
         <div class="dropdown-content">
-            <a href="#">Calendario</a>
+            <a href="/">Calendario</a>
             <a href="#">Pestañas Grid</a>
         </div>
     </div>

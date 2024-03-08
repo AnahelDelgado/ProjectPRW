@@ -5,10 +5,11 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\View;
 use App\Models\reserve;
+use App\Models\product;
 
 class reservasController extends Controller
 {
-    public function reserva1()
+    public function añadir()
     {
         return view('reservas.añadir');
     }
@@ -54,4 +55,57 @@ class reservasController extends Controller
 
         return view('secciones.horario', compact('reservas'));
     }
+
+
+
+    //editar
+    public function editar()
+    {
+
+        return view('reservas.editar');
+    }
+
+
+    public function editarMaterial()
+    {
+
+        return view('secciones.editarMaterial');
+    }
+
+    //eliminar
+
+    public function eliminar()
+    {
+
+       return view('reservas.eliminar');
+    }
+
+    public function eliminarMaterial()
+    {
+
+       return view('secciones.eliminarMaterial');
+    }
+
+
+
+
+    //eleccion editar
+
+
+    public function eleccioneditar()
+    {
+
+       return view('reservas.eleccioneditar');
+    }
+
+
+    //eleccion eliminar
+
+
+  public function eleccioneliminar()
+    {
+
+       return view('reservas.eleccioneliminar');
+    }
+
 }

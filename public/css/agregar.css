@@ -6,8 +6,8 @@ form {
 
 .formulario {
     background-color: #84B2D8;
-    height: 30em;
-    width: 40em;
+    height: 40em;
+    width: 45em;
     margin: 0 auto; /* Centra horizontalmente el formulario */
     border-radius: 10px; /* Aplica bordes redondos al formulario */
     padding: 30px; /* Agrega un poco de espacio interno al formulario */
