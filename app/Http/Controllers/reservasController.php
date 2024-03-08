@@ -52,7 +52,6 @@ class reservasController extends Controller
                 'hora_fin' => $reserva->hora_fin
             ];
         }
-
         return view('secciones.horario', compact('reservas'));
     }
 

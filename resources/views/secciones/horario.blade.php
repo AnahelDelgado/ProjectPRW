@@ -29,6 +29,7 @@ if (session()->get('user') === null) {
     <!-- Contenido específico de esta página -->
     <div>
      <div id='calendar'></div>
+
     </div>
 @endsection
 
@@ -37,10 +38,17 @@ if (session()->get('user') === null) {
 <script src="https://cdn.jsdelivr.net/npm/fullcalendar@6.1.11/index.global.min.js"></script>
 <script>
     document.addEventListener('DOMContentLoaded', function() {
-        const calendarEl = document.getElementById('calendar');
+        let calendarEl = document.getElementById('calendar');
 
-        const calendar = new FullCalendar.Calendar(calendarEl, {
-          initialView: 'dayGridMonth',
+        let calendar = new FullCalendar.Calendar(calendarEl, {
+            initialView: 'dayGridMonth',
+            locale:"es",
+            headerToolbar: {
+                left: 'prev,next today',
+                center: 'title',
+                right: 'dayGridMonth,timeGridWeek,listWeek'
+            },
+            reservas: @json($reservas)
         });
         calendar.render();
     });
