@@ -10,8 +10,6 @@
     <link rel="stylesheet" href="{{asset('/css/agregar.css')}}">
     <title>Reserva Aula</title>
     @yield('head')
-    <!-- <link rel="stylesheet" href="CSS/swiper-bundle.min.css"> -->
-    <!-- <link rel="stylesheet" href="CSS/style.css"> -->
 </head>
 
 <body class="bodyr1">
@@ -85,9 +83,7 @@
     <!-- Stack del calendario -->
     @stack('scripts')
 </body>
-<script src="JS/swiper-bundle.min.js"></script>
 
-<!-- JavaScript -->
-<script src="JS/script.js"></script>
+@yield('scriptProducts')
 
 </html>
