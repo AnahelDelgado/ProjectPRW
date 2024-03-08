@@ -7,9 +7,9 @@ use Illuminate\Support\Facades\View;
 
 class reservasController extends Controller
 {
-    public function reserva1()
+    public function añadir()
     {
-        return view('secciones.reserva');   
+        return view('reservas.añadir');   
     }
 
     public function reserva2()
@@ -29,6 +29,13 @@ class reservasController extends Controller
 
     }
 
+
+    public function misReservas()
+    {
+
+        return view('secciones.misReservas');
+
+    }
 }
 
 

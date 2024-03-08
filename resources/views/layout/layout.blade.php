@@ -4,8 +4,19 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <?php
+        if (session()->get('user') === null) {
+            header("Location: /login");
+            exit;
+        }?>
+        
+    <!-- Estilos -->
     <link rel="stylesheet" href="{{asset('/css/reserva.css')}}">
+    <link rel="stylesheet" href="{{asset('/css/agregar.css')}}">
     <title>Reserva Aula</title>
+    @yield('head')
+    <!-- <link rel="stylesheet" href="CSS/swiper-bundle.min.css"> -->
+    <!-- <link rel="stylesheet" href="CSS/style.css"> -->
 </head>
 
 <body class="bodyr1">
@@ -23,6 +34,16 @@
                     <!-- Nombre del usuario -->
                     <h4 class="user-name">@yield('nombre')</h4>
                 </a>
+
+            </div>
+
+            <div class="cerrar sesion">
+
+                <form action="/logout" method="POST">
+                    @csrf
+                    <input type="submit" value="Cerrar sesión" class="boton">
+                </form>
+
             </div>
             <ul class="menu-options">
                 <li>
@@ -38,7 +59,7 @@
                     </a>
                 </li>
                 <li>
-                    <a href="/agregar" class="menu-link">
+                    <a href="/eleccion" class="menu-link">
                         <img src="/icons/agregar.png" alt="Agregar">
                         <span>Agregar</span>
                     </a>
@@ -46,10 +67,9 @@
             </ul>
         </div>
 
+        <!-- contenido -->
+        @yield('content')
 
-        <div class="content">
-            @yield('content')
-        </div>
     </div>
 
     <footer class="footer">
@@ -58,9 +78,11 @@
 
     <div class="misreservas">
 
-    <input type="submit" value="Mis reservas" class="boton">
+        <input type="submit" value="Mis reservas" class="boton2">
 
     </div>
+
+
 
     <!-- Dropdown para cambiar vista -->
     <div class="dropdown">
@@ -71,5 +93,9 @@
         </div>
     </div>
 </body>
+<script src="JS/swiper-bundle.min.js"></script>
+
+<!-- JavaScript -->
+<script src="JS/script.js"></script>
 
 </html>

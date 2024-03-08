@@ -7,20 +7,26 @@
     <title>Eleccion</title>
 </head>
 <body>
-    
+
 <div class="container">
         <!-- Logo -->
         <div class="logo">
             <img src="img/a_de_ateca.png" alt="Logo" width="100">
         </div>
-        
+        <?php
+        if (session()->get('user') === null) {
+            header("Location: /login");
+            exit;
+        }
+        ?>
         <!-- Título -->
         <h1>¿Qué quieres hacer?</h1>
         
         <!-- Botones -->
         <div class="buttons">
-            <a href="#" class="button">Reservar aula + material</a>
-            <a href="#" class="button">Reservar material</a>
+            <a href="/reservaAulayMaterial" class="button">Reservar aula + material</a>
+            <a href="/reservaMaterial" class="button">Reservar material</a>
+            <a href="/reservaAula" class="button">Reservar aula</a>
         </div>
 
 
