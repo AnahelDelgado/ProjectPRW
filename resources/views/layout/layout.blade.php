@@ -17,6 +17,8 @@
     <link rel="stylesheet" href="{{asset('/css/editar.css')}}">
     <link rel="stylesheet" href="{{asset('/css/eliminar.css')}}">
     <title>Reserva Aula</title>
+
+    
     @yield('head')
     <!-- <link rel="stylesheet" href="CSS/swiper-bundle.min.css"> -->
     <!-- <link rel="stylesheet" href="CSS/style.css"> -->
