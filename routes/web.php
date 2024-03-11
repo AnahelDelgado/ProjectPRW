@@ -91,3 +91,5 @@ Route::get('/events',[App\Http\Controllers\reservasController::class, 'getEvents
 Route::get('reservarAula/{fecha}', 'App\Http\Controllers\reservasController@horasDisponibles');
 
 Route::get('reservarAula/{fecha}/{aula}', 'App\Http\Controllers\reservasController@horafecha');
+
+Route::post('reservarAula/add', 'App\Http\Controllers\reservasController@store')->name("reserve.add");
