@@ -17,7 +17,7 @@ if (session()->get('user') === null) {
 @endsection
 
 
-@extends('layout.layout')
+
 
 @section('content')
 
