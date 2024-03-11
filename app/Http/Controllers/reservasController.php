@@ -19,19 +19,13 @@ class reservasController extends Controller
 
     public function horasDisponibles($fecha)
     {
-        
-        $fechaSeleccionada = $fecha;
+        $horas['horasInicio'] = ["08:00","08:55","09:50","11:15","12:10","13:05"];
+        $horas['horasFin'] = ["08:55","09:50","11:15","12:10","13:05","14:00"];
 
-        
-        $horas['horasInicio'] = ["08:00:00","08:55:00","09:50:00","11:15:00","12:10:00","13:05:00"];
-        $horas['horasFin'] = ["08:55:00","09:50:00","11:15:00","12:10:00","13:05:00","14:00:00"];
+        $hayReservas = reserve::where('dia', $fecha)->count();
 
-        
-
-        $hayReservas = reserve::where('dia', $fechaSeleccionada)->count();
         $reservas = reserve::where('dia', $fecha)
-        ->where('id_aula', 3)
-        ->select('hora_inicio', 'hora_fin')
+        ->selectRaw("TIME_FORMAT(hora_inicio, '%H:%i') as hora_inicio, TIME_FORMAT(hora_fin, '%H:%i') as hora_fin")
         ->get();
 
         if($hayReservas == 0){
@@ -46,15 +40,12 @@ class reservasController extends Controller
             }
         }
 
-
         $aulas = classroom::all()->pluck('nombre');
 
-
-
-        return view('reservas.añadir', ['horas' => $horas, 'fecha' => $fechaSeleccionada, 'aulas' => $aulas]);
+        return view('reservas.añadir', ['horas' => $horas, 'fecha' => $fecha, 'aulas' => $aulas]);
     }
 
-    public function horasDisponibles2($fecha, $aula)
+    public function horafecha($fecha, $aula)
     {
         $idaula =classroom::where('nombre', $aula)->first()->id;
 
@@ -81,10 +72,8 @@ class reservasController extends Controller
                 $horas['horasFin'] = array_diff($horas['horasFin'], [$reserva['hora_fin']]);
             }
         }
-
         $aulas = classroom::all()->pluck('nombre');
-        $aulaSeleccionada = $aula;
-        return view('reservas.añadir', ['horas' => $horas, 'fecha' => $fecha, 'aulas' => $aulas, 'aulaSeleccionada' => $aulaSeleccionada]);
+        return view('reservas.añadir', ['horas' => $horas, 'fecha' => $fecha, 'aulas' => $aulas, 'aulaSeleccionada' => $aula]);
 
     }
 

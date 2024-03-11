@@ -1,34 +1,4 @@
-<!-- 
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Añadir reserva</title>
-</head>
-<body style="background-color: red;">
-    <section class="">
-        <h3>Añadir una reserva</h3>
-        <div>
-            <form action="">
-                <label for="diaReserva">Día de la reserva: </label>
-                <input type="date" name="diaReserva" id="diaReserva" required>
 
-                <label for="horaInicioReserva">Hora de inicio de la reserva: </label>
-                <input type="time" name="horaInicioReserva" id="horaInicioReserva" value="08:00" required>
-
-                <label for="horaFinalReserva">Hora final de la reserva: </label>
-                <input type="time" name="horaFinalReserva" id="horaFinalReserva" value="14:00" required>
-
-                <label for="cantidadAlumnos"> Cantidad de alumnado: </label>
-                <input type="number" name="cantidadAlumnos" id="cantidadAlumnos" required>
-
-                <input type="submit" value="Reservar">
-            </form>
-        </div>
-    </section>
-</body>
-</html> -->
 <?php $viewData = session()->get('viewData'); ?>
 <?php
 if (session()->get('user') === null) {
@@ -58,12 +28,46 @@ if (session()->get('user') === null) {
         <h3>Añadir Aula</h3>
         <form action="">
 
+
+
             <label for="diaReserva">Día de la reserva: </label>
             <input type="date" name="diaReserva" id="diaReserva" value="<?php if (isset($fecha)) echo $fecha ?>" required>
             <script>
                 document.getElementById('diaReserva').addEventListener('change', function() {
                     var newDate = this.value;
                     location.href = "/reservarAula/" + newDate;
+                })
+            </script>
+
+            <label for="aula">Aula a reservar: </label>
+            <select name="aula" id="aula" required>
+                <?php
+                if(isset($aulas))
+                    foreach($aulas as $aula)
+                    {
+                        if( isset($aulaSeleccionada)  && $aula == $aulaSeleccionada)
+                            echo "<option value='$aula' selected>$aula</option>";
+                        else
+                            echo "<option value='$aula'>$aula</option>";
+                    }
+                ?>
+            </select>
+            <script>
+
+
+                document.getElementById('aula').addEventListener('change', function() {
+                    if(window.location.href.includes('reservarAula') && window.location.href.split('/').length === 6)
+                    {
+                        let url = window.location.href;
+                        let newURL = url.split('/');
+                        newURL.pop();
+                        newURL.push(this.value);
+
+
+                        location.href = newURL.join('/');
+                    }
+                    else
+                        location.href += "/" + this.value;
                 })
             </script>
 
@@ -88,8 +92,6 @@ if (session()->get('user') === null) {
 
             </select>
 
-            <label for="cantidadAlumnos"> Cantidad de alumnado: </label>
-            <input type="number" name="cantidadAlumnos" id="cantidadAlumnos" required>
 
             <input type="submit" value="Reservar">
         </form>
