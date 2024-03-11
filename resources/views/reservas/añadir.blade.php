@@ -26,9 +26,9 @@ if (session()->get('user') === null) {
     <div class="formulario">
 
         <h3>Añadir Aula</h3>
-        <form action="">
-
-
+        <form method="POST" action="{{ route('reserve.add') }}" >
+            @csrf
+            @method('POST')
 
             <label for="diaReserva">Día de la reserva: </label>
             <input type="date" name="diaReserva" id="diaReserva" value="<?php if (isset($fecha)) echo $fecha ?>" required>
@@ -53,8 +53,6 @@ if (session()->get('user') === null) {
                 ?>
             </select>
             <script>
-
-
                 document.getElementById('aula').addEventListener('change', function() {
                     if(window.location.href.includes('reservarAula') && window.location.href.split('/').length === 6)
                     {
@@ -73,7 +71,7 @@ if (session()->get('user') === null) {
 
             <!-- Se mostrarán la horas disponibles del dia seleccionado -->
             <label for="horaInicioReserva">Hora de inicio de la reserva: </label>
-            <select name="horaInicioReserva" id="" required>
+            <select name="horaInicioReserva" id="horaInicioReserva" required>
                 <?php if (isset($horas)) {
                     foreach ($horas['horasInicio'] as $hora) {
                         echo "<option value='$hora'>$hora</option>";
@@ -83,7 +81,7 @@ if (session()->get('user') === null) {
 
             <label for="horaFinalReserva">Hora final de la reserva: </label>
 
-            <select name="" id="" required>
+            <select name="horaFinalReserva" id="horaFinalReserva" required>
                 <?php if (isset($horas)) {
                     foreach ($horas['horasFin'] as $hora) {
                         echo "<option value='$hora'>$hora</option>";
