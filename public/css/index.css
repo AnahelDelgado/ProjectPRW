@@ -1,121 +1,85 @@
 /*Interfaz menu*/
-
-.bodyLogin {
-
+body {
+    padding: 0;
+    margin: 0;
     background-image: url("/img/fondoLogin.png");
+    background-repeat: no-repeat;
+    background-size: cover;
+    min-height: 100dvh;
+    font-family: "Poppins", sans-serif;
 }
 
-.CuadradoBlanco {
+.container {
+    display: flex;
+    width: 100dvw;
+    min-height: 100dvh;
+    justify-content: center;
+    align-content: space-around;
+    flex-wrap: wrap;
+}
 
-    background-color: white;
-    max-width: 35em;
-    height: 35em;
-    border-radius: 2em;
-    left: 70em;
+.content {
+    width: 600px;
+    height: 600px;
+}
+
+.content .logoAteca{
     position: relative;
-    margin-top: -25em;
-
+    width: 90%;
+}
+.content:first-child {
+    display: flex;
 }
 
+.content:last-child {
+    background-color: rgba(255, 255, 255, 0.725);
+    border-radius: 12px;
+    box-shadow: 3px 3px 20px  rgba(0, 0, 0, 0.428);
+}
 
-.f2 {
-
-    padding-top: 1em;
+.wrapper-form{
+    height: fit-content;
+    padding: 0 50px;
+}
+.wrapper-form h3{
+    font-size: 48px;
+    font-style: italic;
     text-align: center;
-    font-size: 2em;
-
 }
 
-.sesion {
-
-    font-size: 2em;
-    text-align: center;
-    padding-top: 2em;
-    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
-
+.wrapper-input {
+    margin: 40px 0px 7px 0px;
 }
 
-.boton {
-
-    text-align: center;
-    border-radius: 1.5em;
-    background-color: #335684;
-    width: 8em;
-    height: 2em;
-    color: aliceblue;
-
+label {
+    color: rgb(24, 24, 24);
+    text-decoration: underline;
+    font-weight: 600;
 }
-
-
 input {
-
-    font-size: 0.8em;
-    border-radius: 2em;
-    background-color: #335684;
-
+    width: 90%;
+    height: 50%;
+    box-shadow: 4px 4px 12px rgba(41, 41, 41, 0.247);
+    border: none;
+    border-radius: 70px;
+    outline: 2px rgb(192, 192, 192) solid;
+    height: 40px;
 }
 
-.titulo {
+input::placeholder{
+    color: rgb(27, 27, 27);
+    padding-left: 10px;
+}
+input[type="submit"]{
+    margin-top: 80px;
+    width: 100px;
+    font-weight: 600;
+}
 
+input[type="submit"]:hover{
+    margin-top: 80px;
+    width: 100px;
+    font-weight: 600;
+    background-color: black;
     color: white;
-    margin-left: 20em;
-    margin-top: 25em;
-
-
-}
-
-h2 {
-
-    font-size: 4.5em;
-
-}
-
-.tp {
-
-    font-size: 2em;
-    font-family: monospace;
-
-}
-
-::placeholder {
-    color: rgb(194, 190, 190);
-    text-align: center;
-    padding-top: 30px;
-    font-size: 0.8em;
-
-}
-
-.logo
-{
-
-    width: 8em;
-    height:8em;
-    margin-left: 100em;
-    margin-top: 6em;
-}
-
-.link
-{
-
-    color: #4BA4ED;
-    margin-left: 6em;
-    margin-top: -2em;
-
-}
-
-.google-login
-{
-
-    border: 2px solid black;
-    width:25em;
-    margin-left: 5em;
-    border-radius: 2em;
-    
-}
-
-
-.google-icon {
-    
-    margin-left: 4em;
-    vertical-align: middle;
 }
