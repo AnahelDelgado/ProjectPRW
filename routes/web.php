@@ -83,3 +83,9 @@ Route::post('/logout', 'App\Http\Controllers\googleAPIController@logout');
 
 Route::get('/events',[App\Http\Controllers\reservasController::class, 'getEvents']);
 
+
+
+
+//Consultas
+
+Route::get('reservarAula/{fecha}', 'App\Http\Controllers\reservasController@horasDisponibles');
