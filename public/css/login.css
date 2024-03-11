@@ -5,8 +5,11 @@ body {
     background-image: url("/img/fondoLogin.png");
     background-repeat: no-repeat;
     background-size: cover;
+<<<<<<< HEAD:public/css/index.css
     min-height: 100dvh;
     font-family: "Poppins", sans-serif;
+=======
+>>>>>>> b35ade7570f7be639f2c43e6f2456b75a1fcbcb3:public/css/login.css
 }
 
 .container {
@@ -25,10 +28,15 @@ body {
 
 .content .logoAteca{
     position: relative;
+<<<<<<< HEAD:public/css/index.css
     width: 90%;
 }
 .content:first-child {
     display: flex;
+=======
+    margin-top: -30em;
+
+>>>>>>> b35ade7570f7be639f2c43e6f2456b75a1fcbcb3:public/css/login.css
 }
 
 .content:last-child {
@@ -51,10 +59,23 @@ body {
     margin: 40px 0px 7px 0px;
 }
 
+<<<<<<< HEAD:public/css/index.css
 label {
     color: rgb(24, 24, 24);
     text-decoration: underline;
     font-weight: 600;
+=======
+.boton {
+
+    text-align: center;
+    border-radius: 1.5em;
+    background-color: #335684;
+    width: 8em;
+    height: 2em;
+    color: aliceblue;
+    margin-top: 11em;
+
+>>>>>>> b35ade7570f7be639f2c43e6f2456b75a1fcbcb3:public/css/login.css
 }
 input {
     width: 90%;
@@ -82,4 +103,78 @@ input[type="submit"]:hover{
     font-weight: 600;
     background-color: black;
     color: white;
+<<<<<<< HEAD:public/css/index.css
 }
+=======
+    margin-left: 15em;
+    margin-top: 30em;
+
+
+}
+
+h2 {
+
+    font-size: 4em;
+
+}
+
+.tp {
+
+    font-size: 2em;
+    font-family: monospace;
+
+}
+
+::placeholder {
+    color: rgb(194, 190, 190);
+    text-align: center;
+    padding-top: 30px;
+    font-size: 0.8em;
+
+}
+
+.logo {
+
+    width: 8em;
+    height: 8em;
+    margin-left: 100em;
+    margin-top: 6em;
+}
+
+.link {
+
+    color: #4BA4ED;
+    margin-left: 6em;
+    margin-top: -2em;
+    background-color: aliceblue;
+    width: 7em;
+
+}
+
+.google-login {
+
+    border: 2px solid black;
+    width: 19em;
+    height: 4em;
+    margin-left: 8em;
+    border-radius: 2em;
+    margin-top: -12em;
+
+}
+
+
+.google-icon {
+
+    margin-left: 2em;
+    vertical-align: middle;
+    width: 2em;
+    margin-top: 1em;
+}
+
+.textoGoogle {
+    margin-left: 6em;
+    margin-top: -1.7em;
+
+}
+
+>>>>>>> b35ade7570f7be639f2c43e6f2456b75a1fcbcb3:public/css/login.css

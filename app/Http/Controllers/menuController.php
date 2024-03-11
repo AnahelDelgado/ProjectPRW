@@ -9,8 +9,19 @@ class menuController extends Controller
 {
     public function showLogin()
     {
-        return view('secciones.login');
+        return view('login.login');
     }
+
+    public function showhorario()
+    {
+        return view('secciones.horario');
+    }
+
+    public function showgrid()
+    {
+        return view('secciones.grid');
+    }
+
 }
 
 

@@ -1,0 +1,54 @@
+form {
+    margin-top: 9em;
+    text-align: center;
+    margin-top:3em;
+}
+
+.formulario {
+    background-color: #84B2D8;
+    height: 40em;
+    width: 45em;
+    margin: 0 auto; 
+    border-radius:8em; 
+    padding: 30px;
+    margin-top: 10em;
+}
+
+label {
+    display: block;
+    margin-bottom: 5px;
+   
+}
+
+input[type="date"],
+input[type="time"],
+input[type="number"],
+input[type="submit"] {
+    width: 60%;
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background-color: #335684;
+    color:#fff;
+    text-align: center;
+    font-size: 1em
+    
+}
+
+input[type="submit"] {
+    background-color: #007bff;
+    color: #fff;
+    cursor: pointer;
+}
+
+input[type="submit"]:hover {
+    background-color: #0056b3;
+}
+
+
+h3{
+
+    text-align: center;
+    font-size: 1.5em
+}

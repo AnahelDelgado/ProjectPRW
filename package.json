@@ -11,6 +11,13 @@
         "vite": "^5.0.0"
     },
     "dependencies": {
+<<<<<<< HEAD
         "normalize.css": "^8.0.1"
+=======
+        "@fullcalendar/core": "^6.1.11",
+        "@fullcalendar/daygrid": "^6.1.11",
+        "@fullcalendar/list": "^6.1.11",
+        "@fullcalendar/timegrid": "^6.1.11"
+>>>>>>> b35ade7570f7be639f2c43e6f2456b75a1fcbcb3
     }
 }
