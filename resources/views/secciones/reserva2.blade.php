@@ -104,7 +104,7 @@ if (session()->get('user') === null) {
                 <div class="image-content">
                     <span class="overlay"></span>
                     <div class="card-image">
-                        <img src="img/Metaquest3.jpg"" alt="" class=" card-img">
+                        <img src="img/Metaquest3.jpg" alt="" class=" card-img">
                     </div>
                 </div>
                 <div class="card-content">
@@ -117,7 +117,7 @@ if (session()->get('user') === null) {
                 <div class="image-content">
                     <span class="overlay"></span>
                     <div class="card-image">
-                        <img src="img/Metaquest3.jpg"" alt="" class=" card-img">
+                        <img src="img/Metaquest3.jpg" alt="" class=" card-img">
                     </div>
                 </div>
                 <div class="card-content">
@@ -130,7 +130,7 @@ if (session()->get('user') === null) {
                 <div class="image-content">
                     <span class="overlay"></span>
                     <div class="card-image">
-                        <img src="img/Metaquest3.jpg"" alt="" class=" card-img">
+                        <img src="img/Metaquest3.jpg" alt="" class=" card-img">
                     </div>
                 </div>
                 <div class="card-content">
@@ -143,7 +143,7 @@ if (session()->get('user') === null) {
                 <div class="image-content">
                     <span class="overlay"></span>
                     <div class="card-image">
-                        <img src="img/Metaquest3.jpg"" alt="" class=" card-img">
+                        <img src="img/Metaquest3.jpg" alt="" class=" card-img">
                     </div>
                 </div>
                 <div class="card-content">
@@ -156,7 +156,7 @@ if (session()->get('user') === null) {
                 <div class="image-content">
                     <span class="overlay"></span>
                     <div class="card-image">
-                        <img src="img/Metaquest3.jpg"" alt="" class=" card-img">
+                        <img src="img/Metaquest3.jpg" alt="" class=" card-img">
                     </div>
                 </div>
                 <div class="card-content">
@@ -169,7 +169,7 @@ if (session()->get('user') === null) {
                 <div class="image-content">
                     <span class="overlay"></span>
                     <div class="card-image">
-                        <img src="img/Metaquest3.jpg"" alt="" class=" card-img">
+                        <img src="img/Metaquest3.jpg" alt="" class=" card-img">
                     </div>
                 </div>
                 <div class="card-content">
