@@ -39,24 +39,23 @@ class reservasController extends Controller
 
     public function index()
     {
+        $events = [];
+
         $todasReservas = reserve::all();
 
-        $reservas = [];
 
         foreach ($todasReservas as $reserva) {
-            $reservas[] = [
-                'id_profesor' => $reserva->id_profesor,
-                'id_aula' => $reserva->id_aula,
-                'dia' => $reserva->dia,
-                'hora_inicio' => $reserva->hora_inicio,
-                'hora_fin' => $reserva->hora_fin
+            $events[] = [
+                'title' => 'Reservation',
+                'start' => $reserva->dia . 'T' . $reserva->hora_inicio,
+                'end' => $reserva->dia . 'T' . $reserva->hora_fin,
             ];
         }
-        return view('secciones.horario', compact('reservas'));
+
+        return view('secciones.horario', compact('events'));
     }
 
-
-
+ 
     //editar
     public function editar()
     {

@@ -1,4 +1,10 @@
 <?php $viewData = session()->get('viewData'); ?>
+<?php
+if (session()->get('user') === null) {
+    header("Location: /login");
+    exit;
+}
+?>
 
 @extends('layout.layout')
 
@@ -11,13 +17,10 @@
 @endsection
 
 
-@section('content')
-<!-- Contenido específico de esta página -->
-<div class="content">
 
 </div>
-@endsection
-@extends('layout.layout')
+
+
 
 @section('content')
     <!-- Contenido específico de esta página -->
@@ -27,23 +30,21 @@
 @endsection
 
 @push('scripts')
+
+
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/fullcalendar@6.1.11/index.global.min.css" rel="stylesheet"/>
-<script src="https://cdn.jsdelivr.net/npm/fullcalendar@6.1.11/index.global.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/fullcalendar@5.11.3/main.min.js"></script>
 <script>
-    document.addEventListener('DOMContentLoaded', function() {
         let calendarEl = document.getElementById('calendar');
 
         let calendar = new FullCalendar.Calendar(calendarEl, {
-            initialView: 'dayGridMonth',
-            locale:"es",
             headerToolbar: {
                 left: 'prev,next today',
                 center: 'title',
                 right: 'dayGridMonth,timeGridWeek,listWeek'
-            },           
+            },
+            reservas: @json($reservas)
         });
         calendar.render();
-    });
-
 </script>
 @endpush

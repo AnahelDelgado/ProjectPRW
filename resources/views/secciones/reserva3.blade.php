@@ -16,7 +16,7 @@ if (session()->get('user') === null) {
     <?php echo $viewData['nombre']?>
 @endsection
 
-@extends('layout.layout')
+
 
 @section('content')
 <!-- Contenido específico de esta página -->
@@ -24,7 +24,7 @@ if (session()->get('user') === null) {
     <div class="formulario">
 
         <h3>Añadir Aula y material</h3>
-        <form action="">
+        <form action="/reservaMaterial">
             <label for="diaReserva">Día de la reserva: </label>
             <input type="date" name="diaReserva" id="diaReserva" required>
 
@@ -38,6 +38,7 @@ if (session()->get('user') === null) {
             <input type="number" name="cantidadAlumnos" id="cantidadAlumnos" required>
 
             <input type="submit" value="Continuar">
+            <input type="submit" value="Cancelar">
         </form>
     </div>
 </section>

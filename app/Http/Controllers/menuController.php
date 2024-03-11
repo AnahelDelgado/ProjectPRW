@@ -16,6 +16,12 @@ class menuController extends Controller
     {
         return view('secciones.horario');
     }
+
+    public function showgrid()
+    {
+        return view('secciones.grid');
+    }
+
 }
 
 
