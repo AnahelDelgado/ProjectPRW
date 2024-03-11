@@ -5,25 +5,17 @@ if (session()->get('user') === null) {
     exit;
 }
 ?>
-
-
 @extends('layout.layout')
 @section('imagen')
 <img class="avatar" src="<?php echo $viewData['avatar'] ?>" alt="" srcset="">
 @endsection
-
 @section('nombre')
 <?php echo $viewData['nombre'] ?>
 @endsection
-
 @section('content')
-
-    
 <div class="contorno">
-
 <!-- Título -->
 <h1>Eliminar Aula</h1>
-
 <!-- Formulario -->
 <form action="/reservas/eliminaraula" method="POST">
     @csrf
@@ -35,9 +27,5 @@ if (session()->get('user') === null) {
     </select><br>
     <input type="submit" value="Eliminar Aula">
 </form>
-
 </div>
-
 @endsection
-
-

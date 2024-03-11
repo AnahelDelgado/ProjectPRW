@@ -34,6 +34,9 @@ Route::get('/reservaAula', 'App\Http\Controllers\reservasController@añadir')->n
 
 Route::get('/reservaMaterial', 'App\Http\Controllers\reservasController@reserva2')->name('secciones.reserva2');
 
+//link de prueba para la reserva de solo el material sin el aula
+Route::get('/reservaPrueba', 'App\Http\Controllers\reservasController@reservaPrueba')->name('secciones.reservaPrueba');
+
 // link para la reserva del aula y el material
 
 Route::get('/reservaAulayMaterial', 'App\Http\Controllers\reservasController@reserva3')->name('secciones.reserva3');

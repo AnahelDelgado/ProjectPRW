@@ -10,7 +10,6 @@
         exit;
     } ?>
 
-
     <!-- Estilos -->
     <link rel="stylesheet" href="{{asset('/css/reserva.css')}}">
     <link rel="stylesheet" href="{{asset('/css/agregar.css')}}">
@@ -18,11 +17,7 @@
     <link rel="stylesheet" href="{{asset('/css/eliminar.css')}}">
 
     <title>Reserva Aula</title>
-
-    
     @yield('head')
-    <!-- <link rel="stylesheet" href="CSS/swiper-bundle.min.css"> -->
-    <!-- <link rel="stylesheet" href="CSS/style.css"> -->
 </head>
 
 <body class="bodyr1">
@@ -40,18 +35,13 @@
                     <!-- Nombre del usuario -->
                     <h4 class="user-name">@yield('nombre')</h4>
                 </a>
-
             </div>
-
             <div class="cerrar sesion">
-
                 <form action="/logout" method="POST">
                     @csrf
                     <input type="submit" value="Cerrar sesión" class="boton">
                 </form>
-
             </div>
-
             <ul class="menu-options">
                 <li>
                     <a href="/reservas/editar/eleccioneditar" class="menu-link">
