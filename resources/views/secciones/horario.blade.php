@@ -19,6 +19,9 @@ if (session()->get('user') === null) {
 
 
 
+</div>
+@endsection
+
 
 @section('content')
     <!-- Contenido específico de esta página -->

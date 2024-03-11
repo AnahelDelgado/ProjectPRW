@@ -217,8 +217,10 @@ if (session()->get('user') === null) {
         <div class="swiper-pagination"></div>
     </div>
 
-    @section('scriptProducts')
-        <script src="JS/swiper-bundle.min.js"></script>
-        <script src="JS/script.js"></script>
+
     @endsection
-@endsection
+
+    @section('scriptProducts')
+    <script src="JS/swiper-bundle.min.js"></script>
+    <script src="JS/script.js"></script>
+    @endsection

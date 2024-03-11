@@ -49,6 +49,7 @@ if (session()->get('user') === null) {
 
 
 
+
 @section('content')
 <!-- Contenido específico de esta página -->
 <section class="">

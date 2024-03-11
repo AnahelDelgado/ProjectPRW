@@ -5,11 +5,11 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <?php
-        if (session()->get('user') === null) {
-            header("Location: /login");
-            exit;
-        }?>
-        
+    if (session()->get('user') === null) {
+        header("Location: /login");
+        exit;
+    } ?>
+
 
     <!-- Estilos -->
     <link rel="stylesheet" href="{{asset('/css/reserva.css')}}">
@@ -80,10 +80,9 @@
     </footer>
 
     <div class="misreservas">
-
-        <input type="submit" value="Mis reservas" class="boton2">
-
+        <a href="/misReservas" class="boton2">Mis reservas</a>
     </div>
+
 
 
 
@@ -99,11 +98,6 @@
     <!-- Stack del calendario -->
     @stack('scripts')
 </body>
-<script src="JS/swiper-bundle.min.js"></script>
-
-<!-- JavaScript -->
-<script src="JS/script.js"></script>
-
 @yield('scriptProducts')
 
 </html>

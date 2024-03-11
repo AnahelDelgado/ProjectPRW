@@ -37,17 +37,17 @@ h1 {
 .button {
     display: inline-block;
     padding: 10px 20px;
-    background-color: #007bff;
+    background-color: #335684;
     color: #fff;
     text-decoration: none;
-    border-radius: 5px;
+    border-radius: 3em;
     margin: 0 10px;
     transition: background-color 0.3s ease;
     width: 12em;
-    height:3em ;
+    height:2em ;
     text-align: center;
     font-size: 1.5em;
-    margin-top: 2em;
+    margin-top: 3em;
 }
 
 .button:hover {
