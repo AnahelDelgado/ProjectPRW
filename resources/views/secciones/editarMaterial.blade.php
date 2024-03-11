@@ -17,9 +17,6 @@ if (session()->get('user') === null) {
 <?php echo $viewData['nombre'] ?>
 @endsection
 
-
-@extends('layout.layout')
-
 @section('content')
 <div class="cuadrado">
         <h2 class="titulo">Editar Material</h2>

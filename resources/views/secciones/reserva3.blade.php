@@ -24,7 +24,7 @@ if (session()->get('user') === null) {
     <div class="formulario">
 
         <h3>Añadir Aula y material</h3>
-        <form action="">
+        <form action="/reservaMaterial">
             <label for="diaReserva">Día de la reserva: </label>
             <input type="date" name="diaReserva" id="diaReserva" required>
 
