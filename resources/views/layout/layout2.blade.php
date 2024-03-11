@@ -15,11 +15,7 @@
             exit;
         }
         ?>
-        <!-- Título -->
         <h1>¿Qué quieres hacer?</h1>
-        
-
         @yield('content')
-        <!-- Botones -->
 </body>
 </html>

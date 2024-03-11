@@ -61,6 +61,6 @@ VITE_PUSHER_APP_CLUSTER="${PUSHER_APP_CLUSTER}"
 
 
 
-#Para lo de google
+#Para que funcione lo de google
 GOOGLE_CLIENT_ID="746207471202-oer3rjfg08mgpr8ud9h6g0u1ia4eo43u.apps.googleusercontent.com"
 GOOGLE_CLIENT_SECRET="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"

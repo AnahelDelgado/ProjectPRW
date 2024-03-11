@@ -7,5 +7,4 @@
     <a href="/reservas/editarAula" class="button">Editar reserva aula</a>
     <a href="/reservas/editarmaterial" class="button">Editar reserva material</a>
 </div>
-
 @endsection
