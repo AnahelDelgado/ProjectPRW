@@ -15,7 +15,6 @@
     <link rel="stylesheet" href="{{asset('/css/agregar.css')}}">
     <link rel="stylesheet" href="{{asset('/css/editar.css')}}">
     <link rel="stylesheet" href="{{asset('/css/eliminar.css')}}">
-    <link rel="stylesheet" href="{{asset('/css/grid.css')}}">
 
     <title>Reserva Aula</title>
     @yield('head')

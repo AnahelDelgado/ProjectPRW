@@ -13,6 +13,9 @@ if (session()->get('user') === null) {
 @section('nombre')
     <?php echo $viewData['nombre']?>
 @endsection
+
+
+
 @section('content')
 <!-- Contenido específico de esta página -->
 <section class="">
