@@ -6,7 +6,6 @@ if (session()->get('user') === null) {
     exit;
 }
 
-// Obtener todos los productos de la base de datos
 $productos = \App\Models\Product::all();
 ?>
 
