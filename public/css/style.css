@@ -20,6 +20,7 @@ body{
     width: 100%;
     padding: 200px 0;
     text-align: center;
+    padding-top: -1em;
     /* background-color: blue; */
 }
 
