@@ -16,9 +16,6 @@ if (session()->get('user') === null) {
 <?php echo $viewData['nombre'] ?>
 @endsection
 
-
-
-
 @section('content')
 
     

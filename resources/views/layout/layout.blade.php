@@ -19,6 +19,8 @@
     <link rel="stylesheet" href="{{asset('/css/grid.css')}}">
 
     <title>Reserva Aula</title>
+
+    
     @yield('head')
     <!-- <link rel="stylesheet" href="CSS/swiper-bundle.min.css"> -->
     <!-- <link rel="stylesheet" href="CSS/style.css"> -->

@@ -20,10 +20,3 @@ if (session()->get('user') === null) {
 
 @section('content')
 <!-- Contenido específico de esta página -->
-
-@extends('layout.layout')
-
-@section('content')
-    <!-- Contenido específico de esta página -->
-    
-@endsection
