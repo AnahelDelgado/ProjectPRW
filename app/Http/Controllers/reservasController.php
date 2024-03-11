@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\View;
 use App\Models\reserve;
 use App\Models\product;
+use App\Models\teacher;
 use PhpParser\Node\Stmt\TryCatch;
 
 class reservasController extends Controller
@@ -49,8 +50,8 @@ class reservasController extends Controller
     {
         $idaula =classroom::where('nombre', $aula)->first()->id;
 
-        $horas['horasInicio'] = ["08:00:00","08:55:00","09:50:00","11:15:00","12:10:00","13:05:00"];
-        $horas['horasFin'] = ["08:55:00","09:50:00","11:15:00","12:10:00","13:05:00","14:00:00"];
+        $horas['horasInicio'] = ["08:00","08:55","09:50","11:15","12:10","13:05"];
+        $horas['horasFin'] = ["08:55","09:50","11:15","12:10","13:05","14:00"];
 
         $hayReservas = reserve::where('dia', $fecha)
         ->where('id_aula', $idaula)
@@ -76,6 +77,48 @@ class reservasController extends Controller
         return view('reservas.añadir', ['horas' => $horas, 'fecha' => $fecha, 'aulas' => $aulas, 'aulaSeleccionada' => $aula]);
 
     }
+
+    public function store(Request $request)
+    {
+
+        $request->input('diaReserva', 'horaInicioReserva', 'horaFinalReserva', 'aula');
+        
+        if( empty($request->input('diaReserva')) )
+        {
+            dd('No se ha seleccionado una fecha');
+        }
+
+        $request->validate([
+            'diaReserva' => 'required|date',
+            'horaInicioReserva' => 'required',
+            'horaFinalReserva' => 'required',
+            'aula' => 'required'
+        ]);
+
+        $nuevaReserva = new reserve();
+        $nuevaReserva->dia = $request->input('diaReserva');
+        $nuevaReserva->hora_inicio = $request->input('horaInicioReserva');
+        $nuevaReserva->hora_fin = $request->input('horaFinalReserva');
+        $nuevaReserva->id_aula = classroom::where('nombre', $request->input('aula'))->first()->id;
+        $nuevaReserva->id_profesor = teacher::where('email', session()->get('user'))->first()->id;
+        $nuevaReserva->save();
+
+        return redirect()->route('secciones.horario');
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
     public function reserva2()
