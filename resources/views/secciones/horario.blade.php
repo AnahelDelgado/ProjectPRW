@@ -1,10 +1,4 @@
 <?php $viewData = session()->get('viewData'); ?>
-<?php
-if (session()->get('user') === null) {
-    header("Location: /login");
-    exit;
-}
-?>
 
 @extends('layout.layout')
 
@@ -29,7 +23,6 @@ if (session()->get('user') === null) {
     <!-- Contenido específico de esta página -->
     <div>
      <div id='calendar'></div>
-
     </div>
 @endsection
 
@@ -47,8 +40,7 @@ if (session()->get('user') === null) {
                 left: 'prev,next today',
                 center: 'title',
                 right: 'dayGridMonth,timeGridWeek,listWeek'
-            },
-            reservas: @json($reservas)
+            },           
         });
         calendar.render();
     });

@@ -9,7 +9,7 @@ if (session()->get('user') === null) {
 @extends('layout.layout')
 
     <script src="JS/swiper-bundle.min.js"></script>
-    <script src="JS/script.js"></script>
+    <script src="JS/slider.js"></script>
 @endsection
 @section('content')
     <!-- Contenido específico de esta página -->
@@ -19,6 +19,6 @@ if (session()->get('user') === null) {
 
     @section('scriptProducts')
         <script src="JS/swiper-bundle.min.js"></script>
-        <script src="JS/script.js"></script>
+        <script src="JS/slider.js"></script>
     @endsection
 @endsection

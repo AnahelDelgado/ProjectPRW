@@ -19,7 +19,7 @@ class GoogleAPIController extends Controller
 
         $userExist = teacher::where('email', $user->email)->first();
 
-        if ($user) {
+        if ($userExist) {
             Auth::login($userExist, true);
             session()->save();
         } else {
