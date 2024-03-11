@@ -48,6 +48,8 @@
                 </form>
 
             </div>
+
+            
             <ul class="menu-options">
                 <li>
                     <a href="/reservas/editar/eleccioneditar" class="menu-link">

@@ -45,7 +45,7 @@
 .user {
    
     align-items: center;
-    flex-direction: column; /* Cambiar la dirección de la columna */
+    flex-direction: column; 
     margin-bottom: 20px;
     margin-left: 75px;
 }
@@ -54,7 +54,7 @@
     width: 50px;
     height: 50px;
     border-radius: 50%;
-    margin-bottom: 10px; /* Espacio entre la imagen y el texto */
+    margin-bottom: 10px; 
     margin-top: -1em;
     text-decoration: none; 
 }
@@ -63,9 +63,9 @@
     width: 50px;
     height: 50px;
     border-radius: 50%;
-    margin-bottom: 10px; /* Espacio entre la imagen y el texto */
+    margin-bottom: 10px; 
     margin-top: -3em;
-    border: none; /* Eliminar borde */
+    border: none; 
 }
 
 .user-name {
@@ -76,23 +76,23 @@
 }
 
 .user a {
-    /* Elimina cualquier estilo de botón que esté aplicado */
-    text-decoration: none; /* Asegúrate de que el enlace no tenga subrayado */
-    color: inherit; /* Usa el color por defecto del texto */
+    
+    text-decoration: none; 
+    color: inherit; 
 }
 
 
 .menu-link {
-    color: #000; /* Cambiar color de texto para que sea visible */
+    color: #000; 
     text-decoration: none;
     padding: 5px 10px;
-    border-radius: 5px; /* Añadir bordes redondeados */
-    transition: background-color 0.3s ease; /* Transición suave de color de fondo */
+    border-radius: 5px; 
+    transition: background-color 0.3s ease; 
 }
 
 .menu-link:hover {
-    background-color: #5281BF; /* Cambiar color de fondo al pasar el ratón */
-    color: #fff; /* Cambiar color de texto al pasar el ratón */
+    background-color: #5281BF; 
+    color: #fff; 
 }
 
 
@@ -172,26 +172,26 @@ span{
 
 .misreservas {
     display: flex;
-    justify-content: flex-end; /* Colocar el contenido al final del contenedor */
+    justify-content: flex-end; 
     margin-top: -9em;
     right: 40px;
     padding: 13px;
     border-radius: 5px;
     cursor: pointer;
     height: 5em;
-    transition: background-color 0.3s; /* Transición suave para el cambio de color de fondo */
+    transition: background-color 0.3s; 
 }
 
 
 .boton {
-    background-color: #335684; /* Color de fondo */
-    color: aliceblue; /* Color del texto */
-    border: none; /* Eliminar borde */
-    border-radius: 5px; /* Borde redondeado */
-    padding: 10px 20px; /* Espaciado interno */
-    font-size: 16px; /* Tamaño de la fuente */
-    cursor: pointer; /* Cambiar cursor al pasar sobre el botón */
-    transition: background-color 0.3s; /* Transición suave para el cambio de color de fondo */
+    background-color: #335684; 
+    color: aliceblue;
+    border: none; 
+    border-radius: 5px; 
+    padding: 10px 20px; 
+    font-size: 2em; 
+    cursor: pointer; 
+    transition: background-color 0.3s; 
     margin-left: -1em;
 
 }
