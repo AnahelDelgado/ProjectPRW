@@ -16,7 +16,14 @@ class reservasController extends Controller
 
     public function reserva2()
     {
-        return view('secciones.reserva2');
+        $viewData = [];
+        $viewData["products"] = Product::all();
+        return view('secciones.reserva2')->with("viewData", $viewData);
+    }
+
+    public function reservaPrueba()
+    {
+        return view('secciones.reservaPrueba');
     }
 
     public function eleccionreserva()

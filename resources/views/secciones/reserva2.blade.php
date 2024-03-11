@@ -5,7 +5,6 @@ if (session()->get('user') === null) {
     exit;
 }
 ?>
-
 @extends('layout.layout')
 @section('nombre')
 <?php echo $viewData['nombre'] ?>
@@ -17,9 +16,6 @@ if (session()->get('user') === null) {
 @section('imagen')
 <img class="avatar" src="<?php echo $viewData['avatar'] ?>" alt="" srcset="">
 @endsection
-
-
-
 @section('content')
 <!-- Contenido específico de esta página -->
 <div class="slide-container swiper">
@@ -36,7 +32,6 @@ if (session()->get('user') === null) {
                 <div class="card-content">
                     <h2 class="name">Impresora 3D</h2>
                     <p class="description">Impresora 3D la cual se le puede dar uso para la impresión de casi cualquier diseño realizado por el alumnado.</p>
-
                     <button class="button add-product" id_producto="1">Añadir</button>
                 </div>
             </div>
@@ -50,7 +45,6 @@ if (session()->get('user') === null) {
                 <div class="card-content">
                     <h2 class="name">Impresora 3D</h2>
                     <p class="description">Impresora 3D la cual se le puede dar uso para la impresión de casi cualquier diseño realizado por el alumnado.</p>
-
                     <button class="button add-product" id_producto="1">Añadir</button>
                 </div>
             </div>
@@ -64,7 +58,6 @@ if (session()->get('user') === null) {
                 <div class="card-content">
                     <h2 class="name">Impresora 3D</h2>
                     <p class="description">Impresora 3D la cual se le puede dar uso para la impresión de casi cualquier diseño realizado por el alumnado.</p>
-
                     <button class="button add-product" id_producto="1">Añadir</button>
                 </div>
             </div>
@@ -78,7 +71,6 @@ if (session()->get('user') === null) {
                 <div class="card-content">
                     <h2 class="name">Impresora 3D</h2>
                     <p class="description">Impresora 3D la cual se le puede dar uso para la impresión de casi cualquier diseño realizado por el alumnado.</p>
-
                     <button class="button add-product" id_producto="1">Añadir</button>
                 </div>
             </div>
@@ -203,15 +195,11 @@ if (session()->get('user') === null) {
     <div>
         <button type="submit" class="button">Reservar </button>
     </div>
-
     <div class="swiper-button-next swiper-navBtn"></div>
     <div class="swiper-button-prev swiper-navBtn"></div>
     <div class="swiper-pagination"></div>
 </div>
-
-
 @endsection
-
 @section('scriptProducts')
 <script src="JS/swiper-bundle.min.js"></script>
 <script src="JS/script.js"></script>
