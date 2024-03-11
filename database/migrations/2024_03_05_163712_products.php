@@ -18,7 +18,7 @@ return new class extends Migration
             $table->string('imagen');
             $table->boolean('disponible');
             $table->string('enlace');
-            $table->foreignId('id_reserva')->constrained('reserves');
+            $table->foreignId('id_reserva')->constrained('events');
             $table->timestamps();
         });
     }

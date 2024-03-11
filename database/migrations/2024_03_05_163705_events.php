@@ -11,14 +11,12 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('reserves', function (Blueprint $table) {
+        Schema::create('events', function (Blueprint $table) {
             $table->id();
             $table->foreignId('id_profesor')->constrained('teachers');
             $table->foreignId('id_aula')->constrained('classrooms');
-            $table->date('dia');
-            $table->dateTime('hora_inicio');
-            $table->dateTime('hora_fin');
-            $table->integer('cantidad');
+            $table->dateTime('start_date');
+            $table->dateTime('end_date');
             $table->timestamps();
         });
     }

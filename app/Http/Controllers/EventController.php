@@ -4,10 +4,10 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\View;
-use App\Models\reserve;
+use App\Models\event;
 use App\Models\product;
 
-class reservasController extends Controller
+class EventController extends Controller
 {
     public function añadir()
     {
@@ -39,23 +39,13 @@ class reservasController extends Controller
 
     public function index()
     {
-        $events = [];
-
-        $todasReservas = reserve::all();
-
-
-        foreach ($todasReservas as $reserva) {
-            $events[] = [
-                'title' => 'Reservation',
-                'start' => $reserva->dia . 'T' . $reserva->hora_inicio,
-                'end' => $reserva->dia . 'T' . $reserva->hora_fin,
-            ];
-        }
-
-        return view('secciones.horario', compact('events'));
+       return view('secciones.horario');
     }
 
- 
+    public function show(event $evento){
+        $evento = event::all();
+        return response()->json($evento);
+    }
     //editar
     public function editar()
     {
