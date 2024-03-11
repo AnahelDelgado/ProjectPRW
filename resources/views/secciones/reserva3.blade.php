@@ -17,7 +17,6 @@ if (session()->get('user') === null) {
 @endsection
 
 
-
 @section('content')
 <!-- Contenido específico de esta página -->
 <section class="">

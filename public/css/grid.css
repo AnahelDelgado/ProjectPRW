@@ -1,0 +1,105 @@
+.SeccionGrid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr); 
+    grid-gap: 20px; 
+    height: 2em;
+    width: 2em;
+}
+
+
+.dentro, .dentro2 {
+    background-color: #5aa9dd;
+    padding: 20px;
+    border-radius: 10px;
+    text-align: center;
+    margin-left: 4em;
+    margin-top: 4em;
+    border: solid 3px black;
+    box-shadow: 0px 0px 10px 5px rgba(10, 154, 211, 0.5);
+    transition: transform 0.3s ease; 
+}
+
+.dentro:hover, .dentro2:hover {
+    transform: scale(1.1); 
+    z-index: 1;
+}
+
+.fotog {
+    text-align: center;
+}
+
+.fotog img {
+    width: 100px;
+    height: 100px; 
+    border-radius: 50%;
+}
+
+.n1, .f1, .t1 {
+    display: block;
+    margin-bottom: 10px;
+}
+
+.aula, .material {
+    text-align: center;
+    font-family: monospace;
+    color: white;
+}
+
+/* Menú hamburguesa */
+.el {
+    display: none;
+}
+
+.menu2:checked ~ .el {
+    display: block;
+}
+
+.menu2 {
+    display: none;
+}
+
+.menu {
+    box-sizing: border-box;
+    display: inline-block;
+    border: 1px solid black;
+    border-radius: 5px;
+    width: 30px;
+    height: 30px;
+    line-height: 30px;
+    font-weight: bold;
+    text-align: center;
+    user-select: none;
+}
+
+.menu2:hover {
+    background: grey;
+}
+
+.menu2:checked ~ label {
+    background: lightgrey; 
+}
+
+.el {
+    margin-top: 0;
+    padding: 0;
+    width: 200px;
+}
+
+.opcion {
+    display: block;
+    background: rgb(12, 122, 196);
+    margin: 0;
+    padding: 10px;
+    list-style: none;
+    border-bottom: 1px solid grey;
+    color: white;
+}
+
+.opcion:hover {
+    filter: brightness(110%);
+}
+
+
+.mh {
+    margin-left: 9em;
+}
