@@ -46,13 +46,22 @@ class EventController extends Controller
 
     public function index()
     {
-       return view('secciones.horario');
+        $events = array();
+        $bookings = Event::all();
+        foreach($bookings as $evento){
+            $events[] = [
+                'title' => 'Reservation',
+                'id_profesor' => $evento->id_profesor,
+                'id_aula' => $evento->id_aula,
+                'start' => $evento->start_date,
+                'end' => $evento->end_date
+            ];
+
+            return view('secciones.horario', ['events' => $events]);
+        }
     }
 
-    public function show(event $evento){
-        $evento = event::all();
-        return response()->json($evento);
-    }
+
     //editar
     public function editar()
     {
@@ -72,13 +81,13 @@ class EventController extends Controller
     public function eliminar()
     {
 
-       return view('reservas.eliminar');
+        return view('reservas.eliminar');
     }
 
     public function eliminarMaterial()
     {
 
-       return view('secciones.eliminarMaterial');
+        return view('secciones.eliminarMaterial');
     }
 
 
@@ -90,17 +99,16 @@ class EventController extends Controller
     public function eleccioneditar()
     {
 
-       return view('reservas.eleccioneditar');
+        return view('reservas.eleccioneditar');
     }
 
 
     //eleccion eliminar
 
 
-  public function eleccioneliminar()
+    public function eleccioneliminar()
     {
 
-       return view('reservas.eleccioneliminar');
+        return view('reservas.eleccioneliminar');
     }
-
 }

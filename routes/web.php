@@ -20,7 +20,7 @@ use Illuminate\Support\Facades\Auth;
 // link para el menú principal 
 
 Route::get('/', [App\Http\Controllers\EventController::class, 'index']);
-Route::get('/mostrar', [App\Http\Controllers\EventController::class, 'show']);
+// Route::get('/mostrar', [App\Http\Controllers\EventController::class, 'show']);
 
 Route::get('/login', 'App\Http\Controllers\menuController@showLogin')->name('login.login');
 
