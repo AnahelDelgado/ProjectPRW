@@ -6,13 +6,43 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\View;
 use App\Models\reserve;
 use App\Models\product;
+use PhpParser\Node\Stmt\TryCatch;
 
 class reservasController extends Controller
 {
     public function añadir()
     {
+        
         return view('reservas.añadir');
     }
+
+    public function horasDisponibles($fecha)
+    {
+        
+        $fechaSeleccionada = $fecha;
+
+
+        $horas['horasInicio'] = ["08:00","08:55","09:50","11:15","12:10","13:05"];
+        $horas['horasFin'] = ["08:55","09:50","11:15","12:10","13:05","14:00"];
+
+        $hayReservas = reserve::where('dia', $fechaSeleccionada)->count();
+        $reservas = reserve::where('dia', $fecha)->select('hora_inicio', 'hora_fin')->get();
+
+        if($hayReservas == 0){
+            $horas['horasInicio'] = ["08:00","08:55","09:50","11:15","12:10","13:05"];
+            $horas['horasFin'] = ["08:55","09:50","11:15","12:10","13:05","14:00"];
+        }
+        else
+        {
+            foreach ($reservas as $reserva) {
+                $horas['horasInicio'] = array_diff($horas['horasInicio'], [$reserva->hora_inicio]);
+                $horas['horasFin'] = array_diff($horas['horasFin'], [$reserva->hora_fin]);
+            }
+        }
+
+        return view('reservas.añadir', ['horas' => $horas, 'fecha' => $fechaSeleccionada]);
+    }
+
 
     public function reserva2()
     {
