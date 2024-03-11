@@ -57,14 +57,36 @@ if (session()->get('user') === null) {
 
         <h3>Añadir Aula</h3>
         <form action="">
-            <label for="diaReserva">Día de la reserva: </label>
-            <input type="date" name="diaReserva" id="diaReserva" required>
 
+            <label for="diaReserva">Día de la reserva: </label>
+            <input type="date" name="diaReserva" id="diaReserva" value="<?php if (isset($fecha)) echo $fecha ?>" required>
+            <script>
+                document.getElementById('diaReserva').addEventListener('change', function() {
+                    var newDate = this.value;
+                    location.href = "/reservarAula/" + newDate;
+                })
+            </script>
+
+            <!-- Se mostrarán la horas disponibles del dia seleccionado -->
             <label for="horaInicioReserva">Hora de inicio de la reserva: </label>
-            <input type="time" name="horaInicioReserva" id="horaInicioReserva" value="08:00" required>
+            <select name="horaInicioReserva" id="" required>
+                <?php if (isset($horas)) {
+                    foreach ($horas['horasInicio'] as $hora) {
+                        echo "<option value='$hora'>$hora</option>";
+                    }
+                } ?>
+            </select>
 
             <label for="horaFinalReserva">Hora final de la reserva: </label>
-            <input type="time" name="horaFinalReserva" id="horaFinalReserva" value="14:00" required>
+
+            <select name="" id="" required>
+                <?php if (isset($horas)) {
+                    foreach ($horas['horasFin'] as $hora) {
+                        echo "<option value='$hora'>$hora</option>";
+                    }
+                } ?>
+
+            </select>
 
             <label for="cantidadAlumnos"> Cantidad de alumnado: </label>
             <input type="number" name="cantidadAlumnos" id="cantidadAlumnos" required>
