@@ -20,7 +20,7 @@ if (session()->get('user') === null) {
 
 
 </div>
-@endsection
+
 
 
 @section('content')

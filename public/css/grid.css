@@ -1,0 +1,34 @@
+.SeccionGrid
+
+{
+    background-color: #4E8BBD;
+    width: 30%;
+    height: 30%;
+    border-radius: 5%;
+    margin-left: 9em;
+    margin-top:6%;
+
+}
+
+.dentro
+{
+
+margin-left:20em;
+margin-top:10%;
+width: 30%;
+}
+
+input#nombre
+{
+    width: 70%;
+   
+}
+
+img
+{
+
+    width: 15em;
+    height: 10em;
+    margin-left: -180%;
+}
+

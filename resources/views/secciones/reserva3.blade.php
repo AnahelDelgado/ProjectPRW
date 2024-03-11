@@ -38,6 +38,7 @@ if (session()->get('user') === null) {
             <input type="number" name="cantidadAlumnos" id="cantidadAlumnos" required>
 
             <input type="submit" value="Continuar">
+            <input type="submit" value="Cancelar">
         </form>
     </div>
 </section>

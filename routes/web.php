@@ -23,6 +23,9 @@ Route::get('/', 'App\Http\Controllers\reservasController@index')->name('seccione
 
 Route::get('/login', 'App\Http\Controllers\menuController@showLogin')->name('login.login');
 
+Route::get('/grid', 'App\Http\Controllers\menuController@showgrid')->name('secciones.grid');
+
+
 // link para la reserva del aula sin material
 
 Route::get('/reservaAula', 'App\Http\Controllers\reservasController@añadir')->name('reservas.añadir');
