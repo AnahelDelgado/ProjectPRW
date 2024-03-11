@@ -6,6 +6,7 @@ if (session()->get('user') === null) {
 }
 ?>
 
+
 @extends('layout.layout')
 
 @section('imagen')
@@ -28,25 +29,23 @@ if (session()->get('user') === null) {
 @endsection
 
 @push('scripts')
+
+
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/fullcalendar@6.1.11/index.global.min.css" rel="stylesheet"/>
-<script src="https://cdn.jsdelivr.net/npm/fullcalendar@6.1.11/index.global.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/fullcalendar@5.11.3/main.min.js"></script>
 <script>
-    document.addEventListener('DOMContentLoaded', function() {
         let calendarEl = document.getElementById('calendar');
 
         let calendar = new FullCalendar.Calendar(calendarEl, {
-            initialView: 'dayGridMonth',
-            locale:"es",
             headerToolbar: {
                 left: 'prev,next today',
                 center: 'title',
-                right: 'dayGridMonth,timeGridWeek,listWeek'
+                right: 'dayGridMonth,timeGridWeek,listWeek',
             },
-            reservas: @json($reservas)
+            initialView: 'dayGridMonth',
+            locale:"es",
+            events: '/events',
         });
         calendar.render();
-    });
-    
-
 </script>
 @endpush

@@ -75,3 +75,11 @@ Route::get('/auth/google','App\Http\Controllers\googleAPIController@redirectToGo
 Route::get('/auth/google/callback', 'App\Http\Controllers\googleAPIController@handleGoogleCallback');
 
 Route::post('/logout', 'App\Http\Controllers\googleAPIController@logout');
+
+
+
+
+//Calendario
+
+Route::get('/events',[App\Http\Controllers\reservasController::class, 'getEvents']);
+
