@@ -5,12 +5,6 @@
 @endsection
 
 @section('content')
-        <?php
-        if (session()->get('user') === null) {
-            header("Location: /login");
-            exit;
-        }
-        ?>
 
 <div class="buttons">
     <a href="/reservaAulayMaterial" class="button">Reservar aula + material</a>
