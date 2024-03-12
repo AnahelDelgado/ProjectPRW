@@ -20,8 +20,6 @@ if (session()->get('user') === null) {
 
 </div>
 
-
-
 @section('content')
     <!-- Contenido específico de esta página -->
     <div>
@@ -42,6 +40,7 @@ if (session()->get('user') === null) {
                 right: 'dayGridMonth,timeGridWeek,listWeek'
             },
             events: @json($events)
+            
         });
         calendar.render();
     });
