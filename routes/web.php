@@ -66,9 +66,9 @@ Route::get('/reservas/eliminarMaterial', 'App\Http\Controllers\EventController@e
 
 //eleccion de editar y eliminar
 
-Route::get('/reservas/editar/eleccioneliminar', 'App\Http\Controllers\reservasController@eleccioneliminar')->name('reservas.eleccioneliminar');
+Route::get('/reservas/editar/eleccioneliminar', 'App\Http\Controllers\EventController@eleccioneliminar')->name('reservas.eleccioneliminar');
 
-Route::get('/reservas/editar/eleccioneditar', 'App\Http\Controllers\reservasController@eleccioneditar')->name('reservas.eleccioneditar');
+Route::get('/reservas/editar/eleccioneditar', 'App\Http\Controllers\EventController@eleccioneditar')->name('reservas.eleccioneditar');
 
 
 
