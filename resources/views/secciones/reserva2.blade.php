@@ -183,16 +183,12 @@ if (session()->get('user') === null) {
     <div>
         <button type="submit" class="button">Reservar </button>
     </div>
-<<<<<<< HEAD
 
-<<<<<<< HEAD
+
     @section('scriptProducts')
         <script src="JS/swiper-bundle.min.js"></script>
         <script src="JS/slider.js"></script>
     @endsection
-=======
-=======
->>>>>>> 555a1d004495ab8c6ec68741a5c0947925be4096
     <div class="swiper-button-next swiper-navBtn"></div>
     <div class="swiper-button-prev swiper-navBtn"></div>
     <div class="swiper-pagination"></div>
@@ -201,5 +197,5 @@ if (session()->get('user') === null) {
 @section('scriptProducts')
 <script src="JS/swiper-bundle.min.js"></script>
 <script src="JS/script.js"></script>
->>>>>>> bbe7f57b028c3fd944b91025536289ea4b73e8e8
+
 @endsection
