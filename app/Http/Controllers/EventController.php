@@ -2,18 +2,124 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\classroom;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\View;
 use App\Models\event;
 use App\Models\product;
-use App\Models\Reserva;
+use App\Models\teacher;
+use PhpParser\Node\Stmt\TryCatch;
 
 class EventController extends Controller
 {
     public function añadir()
     {
+        
         return view('reservas.añadir');
     }
+
+    public function horasDisponibles($fecha)
+    {
+        $horas['horasInicio'] = ["08:00","08:55","09:50","11:15","12:10","13:05"];
+        $horas['horasFin'] = ["08:55","09:50","11:15","12:10","13:05","14:00"];
+
+        $hayReservas = event::where('dia', $fecha)->count();
+
+        $reservas = event::where('dia', $fecha)
+        ->selectRaw("TIME_FORMAT(hora_inicio, '%H:%i') as hora_inicio, TIME_FORMAT(hora_fin, '%H:%i') as hora_fin")
+        ->get();
+
+        if($hayReservas == 0){
+            $horas['horasInicio'] = ["08:00","08:55","09:50","11:15","12:10","13:05"];
+            $horas['horasFin'] = ["08:55","09:50","11:15","12:10","13:05","14:00"];
+        }
+        else
+        {
+            foreach ($reservas as $reserva) {
+                $horas['horasInicio'] = array_diff($horas['horasInicio'], [$reserva['hora_inicio']]);
+                $horas['horasFin'] = array_diff($horas['horasFin'], [$reserva['hora_fin']]);
+            }
+        }
+
+        $aulas = classroom::all()->pluck('nombre');
+
+        return view('reservas.añadir', ['horas' => $horas, 'fecha' => $fecha, 'aulas' => $aulas]);
+    }
+
+    public function horafecha($fecha, $aula)
+    {
+        $idaula =classroom::where('nombre', $aula)->first()->id;
+
+        $horas['horasInicio'] = ["08:00","08:55","09:50","11:15","12:10","13:05"];
+        $horas['horasFin'] = ["08:55","09:50","11:15","12:10","13:05","14:00"];
+
+        $hayReservas = event::where('dia', $fecha)
+        ->where('id_aula', $idaula)
+        ->count();
+
+        $reservas = event::where('dia', $fecha)
+        ->where('id_aula', $idaula)
+        ->select('hora_inicio', 'hora_fin')
+        ->get();
+
+        if($hayReservas == 0){
+            $horas['horasInicio'] = ["08:00","08:55","09:50","11:15","12:10","13:05"];
+            $horas['horasFin'] = ["08:55","09:50","11:15","12:10","13:05","14:00"];
+        }
+        else
+        {
+            foreach ($reservas as $reserva) {
+                $horas['horasInicio'] = array_diff($horas['horasInicio'], [$reserva['hora_inicio']]);
+                $horas['horasFin'] = array_diff($horas['horasFin'], [$reserva['hora_fin']]);
+            }
+        }
+        $aulas = classroom::all()->pluck('nombre');
+        return view('reservas.añadir', ['horas' => $horas, 'fecha' => $fecha, 'aulas' => $aulas, 'aulaSeleccionada' => $aula]);
+
+    }
+
+    public function store(Request $request)
+    {
+
+        $request->input('diaReserva', 'horaInicioReserva', 'horaFinalReserva', 'aula');
+        
+        if( empty($request->input('diaReserva')) )
+        {
+            dd('No se ha seleccionado una fecha');
+        }
+
+        $request->validate([
+            'diaReserva' => 'required|date',
+            'horaInicioReserva' => 'required',
+            'horaFinalReserva' => 'required',
+            'aula' => 'required'
+        ]);
+
+        $nuevaReserva = new event();
+        $nuevaReserva->dia = $request->input('diaReserva');
+        $nuevaReserva->hora_inicio = $request->input('horaInicioReserva');
+        $nuevaReserva->hora_fin = $request->input('horaFinalReserva');
+        $nuevaReserva->id_aula = classroom::where('nombre', $request->input('aula'))->first()->id;
+        $nuevaReserva->id_profesor = teacher::where('email', session()->get('user'))->first()->id;
+        $nuevaReserva->save();
+
+        return redirect()->route('secciones.index');
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
     public function reserva2()
     {

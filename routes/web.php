@@ -19,7 +19,7 @@ use App\Http\Controllers\EventController;
 
 // link para el menú principal 
 
-Route::get('/', [App\Http\Controllers\EventController::class, 'index']);
+Route::get('/', [App\Http\Controllers\EventController::class, 'index'])->name('secciones.index');
 // Route::get('/mostrar', [App\Http\Controllers\EventController::class, 'show']);
 
 Route::get('/login', 'App\Http\Controllers\menuController@showLogin')->name('login.login');
@@ -94,3 +94,13 @@ Route::post('/logout', 'App\Http\Controllers\googleAPIController@logout');
 
 Route::get('/events',[App\Http\Controllers\reservasController::class, 'getEvents']);
 
+
+
+
+//Consultas
+
+Route::get('reservarAula/{fecha}', 'App\Http\Controllers\EventController@horasDisponibles');
+
+Route::get('reservarAula/{fecha}/{aula}', 'App\Http\Controllers\EventController@horafecha');
+
+Route::post('reservarAula/add', 'App\Http\Controllers\EventController@store')->name("reserve.add");
