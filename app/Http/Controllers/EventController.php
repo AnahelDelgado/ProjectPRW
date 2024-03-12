@@ -144,6 +144,52 @@ class EventController extends Controller
         }
     }
 
+    //Editar reserva
+
+
+    public function mostrarFormularioEditarReserva()
+{
+    $reservas = Event::all(); // Obtener todas las reservas
+    return view('reservas.editar', ['reservas' => $reservas]);
+}
+
+
+public function editarReserva(Request $request)
+{
+    // Validar los datos del formulario
+    $request->validate([
+        'reserva' => 'required|exists:events,id',
+        'diaReserva' => 'required|date',
+        'horaInicioReserva' => 'required|date_format:H:i',
+        'horaFinalReserva' => 'required|date_format:H:i|after:horaInicioReserva'
+        
+    ]);
+
+    try {
+        // Obtener el ID de la reserva a editar desde la solicitud
+        $idReserva = $request->input('reserva');
+
+        // Buscar la reserva en la base de datos
+        $reserva = Event::findOrFail($idReserva);
+
+        // Actualizar los campos de la reserva con los datos del formulario
+        $reserva->dia = $request->input('diaReserva');
+        $reserva->hora_inicio = $request->input('horaInicioReserva');
+        $reserva->hora_fin = $request->input('horaFinalReserva');
+      
+
+        // Guardar los cambios en la base de datos
+        $reserva->save();
+
+        // Redireccionar con un mensaje de éxito
+        return redirect()->route('reservas.editar')->with('success', 'Reserva editada correctamente');
+    } catch (\Exception $e) {
+        // Manejar cualquier error que pueda ocurrir durante la edición
+        return redirect()->route('reservas.editar')->with('error', 'Error al editar la reserva');
+    }
+}
+
+
 
 
 

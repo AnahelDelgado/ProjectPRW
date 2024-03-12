@@ -57,7 +57,15 @@ Route::get('/misReservas', 'App\Http\Controllers\EventController@misReservas')->
 
 
 //Editar aula y material
-Route::get('/reservas/editarAula', 'App\Http\Controllers\EventController@editar')->name('reservas.editar');
+
+// Ruta para mostrar el formulario de edición de reservas
+Route::get('/reservas/editarAula', [EventController::class, 'mostrarFormularioEditarReserva'])->name('reservas.editar');
+
+// Ruta para procesar la edición de la reserva
+Route::post('/reservas/editarAula', [EventController::class, 'editarReserva'])->name('reservas.editar');
+
+
+
 
 Route::get('/reservas/editarmaterial', 'App\Http\Controllers\EventController@editarMaterial')->name('secciones.editarMaterial');
 
