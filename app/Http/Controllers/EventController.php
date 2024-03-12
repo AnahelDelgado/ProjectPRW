@@ -107,16 +107,42 @@ class EventController extends Controller
     }
 
 
+    //eliminar reserva 
 
-
-
-
-
-
-
-
-
-
+   
+    public function mostrarFormularioEliminarAula()
+    {
+        $reservas = Event::all();
+        return view('reservas.eliminar', ['reservas' => $reservas]);
+    }
+    
+    public function eliminarReserva(Request $request)
+    {
+        // Validar el ID de la reserva recibido
+        $request->validate([
+            'reserva' => 'required|exists:events,id',
+        ]);
+    
+        try {
+            // Obtener el ID de la reserva a eliminar desde la solicitud
+            $idReserva = $request->input('reserva');
+    
+            // Buscar la reserva en la base de datos
+            $reserva = Event::findOrFail($idReserva);
+    
+            // Eliminar la reserva
+            $reserva->delete();
+    
+            // Obtener todas las reservas nuevamente después de eliminar
+            $reservas = Event::all();
+    
+            // Redireccionar con un mensaje de éxito y las reservas actualizadas
+            return redirect()->route('reservas.eliminar')->with(['success' => 'Reserva eliminada correctamente', 'reservas' => $reservas]);
+        } catch (\Exception $e) {
+            // Manejar cualquier error que pueda ocurrir durante la eliminación
+            return redirect()->route('reservas.eliminar')->with('error', 'Error al eliminar la reserva');
+        }
+    }
 
 
 

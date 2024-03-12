@@ -63,7 +63,12 @@ Route::get('/reservas/editarmaterial', 'App\Http\Controllers\EventController@edi
 
 //Eliminar aula y material
 
-Route::get('/reservas/eliminar', 'App\Http\Controllers\EventController@eliminar')->name('reservas.eliminar');
+
+Route::get('/reservas/eliminar', 'App\Http\Controllers\EventController@mostrarFormularioEliminarAula')->name('reservas.eliminar');
+
+Route::delete('/reservas/eliminar', 'App\Http\Controllers\EventController@eliminarReserva')->name('reservas.eliminar');
+
+
 
 Route::get('/reservas/eliminarMaterial', 'App\Http\Controllers\EventController@eliminarMaterial')->name('reservas.eliminarMaterial');
 
