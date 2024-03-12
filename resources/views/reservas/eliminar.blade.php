@@ -17,15 +17,17 @@ if (session()->get('user') === null) {
 <!-- Título -->
 <h1>Eliminar Aula</h1>
 <!-- Formulario -->
-<form action="/reservas/eliminaraula" method="POST">
+<form action="{{ route('reservas.eliminar') }}" method="POST">
     @csrf
-    <label for="aula">Seleccionar aula a eliminar:</label><br>
-    <select name="aula" id="aula" required>
-        <option value="aula1">Aula 1</option>
-        <option value="aula2">Aula 2</option>
-        <!-- Agrega más opciones según las aulas disponibles -->
+    @method('DELETE')
+    <label for="reserva">Seleccionar reserva a eliminar:</label><br>
+    <select name="reserva" id="reserva" required>
+        @foreach($reservas as $reserva)
+            <option value="{{ $reserva->id }}">{{ $reserva->dia }} - {{ $reserva->hora_inicio }} a {{ $reserva->hora_fin }}</option>
+        @endforeach
     </select><br>
-    <input type="submit" value="Eliminar Aula">
+    <input type="submit" value="Eliminar Reserva">
 </form>
+
 </div>
 @endsection

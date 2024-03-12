@@ -5,16 +5,18 @@ if (session()->get('user') === null) {
     exit;
 }
 ?>
-@extends('layout.layout')
-<<<<<<< HEAD
 
-    <script src="JS/swiper-bundle.min.js"></script>
-    <script src="JS/slider.js"></script>
-=======
+@extends('layout.layout')
+
+@section('imagen')
+<img class="avatar" src="<?php echo $viewData['avatar'] ?>" alt="" srcset="">
+@endsection
+
 @section('nombre')
 <?php echo $viewData['nombre'] ?>
->>>>>>> bbe7f57b028c3fd944b91025536289ea4b73e8e8
 @endsection
+
+
 @section('head')
 <link rel="stylesheet" href="CSS/swiper-bundle.min.css">
 <link rel="stylesheet" href="CSS/style.css">
@@ -23,189 +25,179 @@ if (session()->get('user') === null) {
 <img class="avatar" src="<?php echo $viewData['avatar'] ?>" alt="" srcset="">
 @endsection
 @section('content')
-<!-- Contenido específico de esta página -->
-<div class="slide-container swiper">
-    <h1>Añadir materiales</h1>
-    <div class="slide-content">
-        <div class="card-wrapper swiper-wrapper">
-            <div class="card swiper-slide">
-                <div class="image-content">
-                    <span class="overlay"></span>
-                    <div class="card-image">
-                        <img src="img/Impresora3D.jpg" alt="" class="card-img">
+    <!-- Contenido específico de esta página -->
+    <div class="slide-container swiper">
+        <h1>Añadir materiales</h1>
+        <div class="slide-content">
+            <div class="card-wrapper swiper-wrapper">
+                <div class="card swiper-slide">
+                    <div class="image-content">
+                        <span class="overlay"></span>
+                        <div class="card-image">
+                            <img src="img/Impresora3D.jpg" alt="" class="card-img">
+                        </div>
+                    </div>
+                    <div class="card-content">
+                        <h2 class="name">Impresora 3D</h2>
+                        <p class="description">Impresora 3D la cual se le puede dar uso para la impresión de casi cualquier diseño realizado por el alumnado.</p>
+                        <button class="button add-product" id_producto="1">Añadir</button>
                     </div>
                 </div>
-                <div class="card-content">
-                    <h2 class="name">Impresora 3D</h2>
-                    <p class="description">Impresora 3D la cual se le puede dar uso para la impresión de casi cualquier diseño realizado por el alumnado.</p>
-                    <button class="button add-product" id_producto="1">Añadir</button>
-                </div>
-            </div>
-            <div class="card swiper-slide">
-                <div class="image-content">
-                    <span class="overlay"></span>
-                    <div class="card-image">
-                        <img src="img/Impresora3D.jpg" alt="" class="card-img">
+                <div class="card swiper-slide">
+                    <div class="image-content">
+                        <span class="overlay"></span>
+                        <div class="card-image">
+                            <img src="img/Impresora3D.jpg" alt="" class="card-img">
+                        </div>
+                    </div>
+                    <div class="card-content">
+                        <h2 class="name">Impresora 3D</h2>
+                        <p class="description">Impresora 3D la cual se le puede dar uso para la impresión de casi cualquier diseño realizado por el alumnado.</p>
+                        <button class="button add-product" id_producto="1">Añadir</button>
                     </div>
                 </div>
-                <div class="card-content">
-                    <h2 class="name">Impresora 3D</h2>
-                    <p class="description">Impresora 3D la cual se le puede dar uso para la impresión de casi cualquier diseño realizado por el alumnado.</p>
-                    <button class="button add-product" id_producto="1">Añadir</button>
-                </div>
-            </div>
-            <div class="card swiper-slide">
-                <div class="image-content">
-                    <span class="overlay"></span>
-                    <div class="card-image">
-                        <img src="img/Impresora3D.jpg" alt="" class="card-img">
+                <div class="card swiper-slide">
+                    <div class="image-content">
+                        <span class="overlay"></span>
+                        <div class="card-image">
+                            <img src="img/Impresora3D.jpg" alt="" class="card-img">
+                        </div>
+                    </div>
+                    <div class="card-content">
+                        <h2 class="name">Impresora 3D</h2>
+                        <p class="description">Impresora 3D la cual se le puede dar uso para la impresión de casi cualquier diseño realizado por el alumnado.</p>
+                        <button class="button add-product" id_producto="1">Añadir</button>
                     </div>
                 </div>
-                <div class="card-content">
-                    <h2 class="name">Impresora 3D</h2>
-                    <p class="description">Impresora 3D la cual se le puede dar uso para la impresión de casi cualquier diseño realizado por el alumnado.</p>
-                    <button class="button add-product" id_producto="1">Añadir</button>
-                </div>
-            </div>
-            <div class="card swiper-slide">
-                <div class="image-content">
-                    <span class="overlay"></span>
-                    <div class="card-image">
-                        <img src="img/Impresora3D.jpg" alt="" class="card-img">
+                <div class="card swiper-slide">
+                    <div class="image-content">
+                        <span class="overlay"></span>
+                        <div class="card-image">
+                            <img src="img/Impresora3D.jpg" alt="" class="card-img">
+                        </div>
+                    </div>
+                    <div class="card-content">
+                        <h2 class="name">Impresora 3D</h2>
+                        <p class="description">Impresora 3D la cual se le puede dar uso para la impresión de casi cualquier diseño realizado por el alumnado.</p>
+                        <button class="button add-product" id_producto="1">Añadir</button>
                     </div>
                 </div>
-                <div class="card-content">
-                    <h2 class="name">Impresora 3D</h2>
-                    <p class="description">Impresora 3D la cual se le puede dar uso para la impresión de casi cualquier diseño realizado por el alumnado.</p>
-                    <button class="button add-product" id_producto="1">Añadir</button>
-                </div>
-            </div>
-            <div class="card swiper-slide">
-                <div class="image-content">
-                    <span class="overlay"></span>
-                    <div class="card-image">
-                        <img src="img/Impresora3D.jpg" alt="" class="card-img">
+                <div class="card swiper-slide">
+                    <div class="image-content">
+                        <span class="overlay"></span>
+                        <div class="card-image">
+                            <img src="img/Impresora3D.jpg" alt="" class="card-img">
+                        </div>
+                    </div>
+                    <div class="card-content">
+                        <h2 class="name">Impresora 3D</h2>
+                        <p class="description">Impresora 3D la cual se le puede dar uso para la impresión de casi cualquier diseño realizado por el alumnado.</p>
+                        <button class="button add-product" id_producto="1">Añadir</button>
                     </div>
                 </div>
-                <div class="card-content">
-                    <h2 class="name">Impresora 3D</h2>
-                    <p class="description">Impresora 3D la cual se le puede dar uso para la impresión de casi cualquier diseño realizado por el alumnado.</p>
-                    <button class="button add-product" id_producto="1">Añadir</button>
-                </div>
-            </div>
-            <div class="card swiper-slide">
-                <div class="image-content">
-                    <span class="overlay"></span>
-                    <div class="card-image">
-                        <img src="img/Impresora3D.jpg" alt="" class="card-img">
+                <div class="card swiper-slide">
+                    <div class="image-content">
+                        <span class="overlay"></span>
+                        <div class="card-image">
+                            <img src="img/Impresora3D.jpg" alt="" class="card-img">
+                        </div>
+                    </div>
+                    <div class="card-content">
+                        <h2 class="name">Impresora 3D</h2>
+                        <p class="description">Impresora 3D la cual se le puede dar uso para la impresión de casi cualquier diseño realizado por el alumnado.</p>
+                        <button class="button add-product" id_producto="1">Añadir</button>
                     </div>
                 </div>
-                <div class="card-content">
-                    <h2 class="name">Impresora 3D</h2>
-                    <p class="description">Impresora 3D la cual se le puede dar uso para la impresión de casi cualquier diseño realizado por el alumnado.</p>
-                    <button class="button add-product" id_producto="1">Añadir</button>
-                </div>
-            </div>
-            <div class="card swiper-slide">
-                <div class="image-content">
-                    <span class="overlay"></span>
-                    <div class="card-image">
-                        <img src="img/Metaquest3.jpg" alt="" class=" card-img">
+                <div class="card swiper-slide">
+                    <div class="image-content">
+                        <span class="overlay"></span>
+                        <div class="card-image">
+                            <img src="img/Metaquest3.jpg"" alt="" class="card-img">
+                        </div>
+                    </div>
+                    <div class="card-content">
+                        <h2 class="name">Gafas VR</h2>
+                        <p class="description">Gafas de realidad virtual que se pueden usar para poder observar los avances en sus proyectos.</p>
+                        <button class="button add-product" id_producto="1">Añadir</button>
                     </div>
                 </div>
-                <div class="card-content">
-                    <h2 class="name">Gafas VR</h2>
-                    <p class="description">Gafas de realidad virtual que se pueden usar para poder observar los avances en sus proyectos.</p>
-                    <button class="button add-product" id_producto="1">Añadir</button>
-                </div>
-            </div>
-            <div class="card swiper-slide">
-                <div class="image-content">
-                    <span class="overlay"></span>
-                    <div class="card-image">
-                        <img src="img/Metaquest3.jpg" alt="" class=" card-img">
+                <div class="card swiper-slide">
+                    <div class="image-content">
+                        <span class="overlay"></span>
+                        <div class="card-image">
+                            <img src="img/Metaquest3.jpg"" alt="" class="card-img">
+                        </div>
+                    </div>
+                    <div class="card-content">
+                        <h2 class="name">Gafas VR</h2>
+                        <p class="description">Gafas de realidad virtual que se pueden usar para poder observar los avances en sus proyectos.</p>
+                        <button class="button add-product" id_producto="1">Añadir</button>
                     </div>
                 </div>
-                <div class="card-content">
-                    <h2 class="name">Gafas VR</h2>
-                    <p class="description">Gafas de realidad virtual que se pueden usar para poder observar los avances en sus proyectos.</p>
-                    <button class="button add-product" id_producto="1">Añadir</button>
-                </div>
-            </div>
-            <div class="card swiper-slide">
-                <div class="image-content">
-                    <span class="overlay"></span>
-                    <div class="card-image">
-                        <img src="img/Metaquest3.jpg" alt="" class=" card-img">
+                <div class="card swiper-slide">
+                    <div class="image-content">
+                        <span class="overlay"></span>
+                        <div class="card-image">
+                            <img src="img/Metaquest3.jpg"" alt="" class="card-img">
+                        </div>
+                    </div>
+                    <div class="card-content">
+                        <h2 class="name">Gafas VR</h2>
+                        <p class="description">Gafas de realidad virtual que se pueden usar para poder observar los avances en sus proyectos.</p>
+                        <button class="button add-product" id_producto="1">Añadir</button>
                     </div>
                 </div>
-                <div class="card-content">
-                    <h2 class="name">Gafas VR</h2>
-                    <p class="description">Gafas de realidad virtual que se pueden usar para poder observar los avances en sus proyectos.</p>
-                    <button class="button add-product" id_producto="1">Añadir</button>
-                </div>
-            </div>
-            <div class="card swiper-slide">
-                <div class="image-content">
-                    <span class="overlay"></span>
-                    <div class="card-image">
-                        <img src="img/Metaquest3.jpg" alt="" class=" card-img">
+                <div class="card swiper-slide">
+                    <div class="image-content">
+                        <span class="overlay"></span>
+                        <div class="card-image">
+                            <img src="img/Metaquest3.jpg"" alt="" class="card-img">
+                        </div>
+                    </div>
+                    <div class="card-content">
+                        <h2 class="name">Gafas VR</h2>
+                        <p class="description">Gafas de realidad virtual que se pueden usar para poder observar los avances en sus proyectos.</p>
+                        <button class="button add-product" id_producto="1">Añadir</button>
                     </div>
                 </div>
-                <div class="card-content">
-                    <h2 class="name">Gafas VR</h2>
-                    <p class="description">Gafas de realidad virtual que se pueden usar para poder observar los avances en sus proyectos.</p>
-                    <button class="button add-product" id_producto="1">Añadir</button>
-                </div>
-            </div>
-            <div class="card swiper-slide">
-                <div class="image-content">
-                    <span class="overlay"></span>
-                    <div class="card-image">
-                        <img src="img/Metaquest3.jpg" alt="" class=" card-img">
+                <div class="card swiper-slide">
+                    <div class="image-content">
+                        <span class="overlay"></span>
+                        <div class="card-image">
+                            <img src="img/Metaquest3.jpg"" alt="" class="card-img">
+                        </div>
+                    </div>
+                    <div class="card-content">
+                        <h2 class="name">Gafas VR</h2>
+                        <p class="description">Gafas de realidad virtual que se pueden usar para poder observar los avances en sus proyectos.</p>
+                        <button class="button add-product" id_producto="1">Añadir</button>
                     </div>
                 </div>
-                <div class="card-content">
-                    <h2 class="name">Gafas VR</h2>
-                    <p class="description">Gafas de realidad virtual que se pueden usar para poder observar los avances en sus proyectos.</p>
-                    <button class="button add-product" id_producto="1">Añadir</button>
-                </div>
-            </div>
-            <div class="card swiper-slide">
-                <div class="image-content">
-                    <span class="overlay"></span>
-                    <div class="card-image">
-                        <img src="img/Metaquest3.jpg" alt="" class=" card-img">
+                <div class="card swiper-slide">
+                    <div class="image-content">
+                        <span class="overlay"></span>
+                        <div class="card-image">
+                            <img src="img/Metaquest3.jpg"" alt="" class="card-img">
+                        </div>
                     </div>
-                </div>
-                <div class="card-content">
-                    <h2 class="name">Gafas VR</h2>
-                    <p class="description">Gafas de realidad virtual que se pueden usar para poder observar los avances en sus proyectos.</p>
-                    <button class="button add-product" id_producto="1">Añadir</button>
+                    <div class="card-content">
+                        <h2 class="name">Gafas VR</h2>
+                        <p class="description">Gafas de realidad virtual que se pueden usar para poder observar los avances en sus proyectos.</p>
+                        <button class="button add-product" id_producto="1">Añadir</button>
+                    </div>
                 </div>
             </div>
         </div>
-    </div>
-    <div>
-        <button type="submit" class="button">Reservar </button>
-    </div>
-<<<<<<< HEAD
+        <div>
+            <button type="submit" class="button">Reservar </button>
+        </div>
 
-<<<<<<< HEAD
     @section('scriptProducts')
         <script src="JS/swiper-bundle.min.js"></script>
         <script src="JS/slider.js"></script>
     @endsection
-=======
-=======
->>>>>>> 555a1d004495ab8c6ec68741a5c0947925be4096
     <div class="swiper-button-next swiper-navBtn"></div>
     <div class="swiper-button-prev swiper-navBtn"></div>
     <div class="swiper-pagination"></div>
 </div>
-@endsection
-@section('scriptProducts')
-<script src="JS/swiper-bundle.min.js"></script>
-<script src="JS/script.js"></script>
->>>>>>> bbe7f57b028c3fd944b91025536289ea4b73e8e8
 @endsection

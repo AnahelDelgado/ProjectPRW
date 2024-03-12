@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Route;
 use Laravel\Socialite\Facades\Socialite;
 use App\Models\teacher;
 use Illuminate\Support\Facades\Auth;
-
+use App\Http\Controllers\EventController;
 
 /*
 |--------------------------------------------------------------------------
@@ -19,7 +19,7 @@ use Illuminate\Support\Facades\Auth;
 
 // link para el menú principal 
 
-Route::get('/', [App\Http\Controllers\EventController::class, 'index']);
+Route::get('/', [App\Http\Controllers\EventController::class, 'index'])->name('secciones.index');
 // Route::get('/mostrar', [App\Http\Controllers\EventController::class, 'show']);
 
 Route::get('/login', 'App\Http\Controllers\menuController@showLogin')->name('login.login');
@@ -29,7 +29,11 @@ Route::get('/grid', 'App\Http\Controllers\menuController@showgrid')->name('secci
 
 // link para la reserva del aula sin material
 
-Route::get('/reservaAula', 'App\Http\Controllers\EventController@añadir')->name('reservas.añadir');
+// Ruta para mostrar el formulario de reserva
+Route::get('/reservaAula', [EventController::class, 'añadir'])->name('reservas.añadir');
+
+// Ruta para almacenar la reserva (solicitud POST desde el formulario)
+Route::post('/reservaAula', [EventController::class, 'store'])->name('reservas.store');
 
 // link para la reserva de solo el material sin el aula
 
@@ -53,22 +57,35 @@ Route::get('/misReservas', 'App\Http\Controllers\EventController@misReservas')->
 
 
 //Editar aula y material
-Route::get('/reservas/editarAula', 'App\Http\Controllers\EventController@editar')->name('reservas.editar');
+
+// Ruta para mostrar el formulario de edición de reservas
+Route::get('/reservas/editarAula', [EventController::class, 'mostrarFormularioEditarReserva'])->name('reservas.editar');
+
+// Ruta para procesar la edición de la reserva
+Route::post('/reservas/editarAula', [EventController::class, 'editarReserva'])->name('reservas.editar');
+
+
+
 
 Route::get('/reservas/editarmaterial', 'App\Http\Controllers\EventController@editarMaterial')->name('secciones.editarMaterial');
 
 //Eliminar aula y material
 
-Route::get('/reservas/eliminar', 'App\Http\Controllers\EventController@eliminar')->name('reservas.eliminar');
+
+Route::get('/reservas/eliminar', 'App\Http\Controllers\EventController@mostrarFormularioEliminarAula')->name('reservas.eliminar');
+
+Route::delete('/reservas/eliminar', 'App\Http\Controllers\EventController@eliminarReserva')->name('reservas.eliminar');
+
+
 
 Route::get('/reservas/eliminarMaterial', 'App\Http\Controllers\EventController@eliminarMaterial')->name('reservas.eliminarMaterial');
 
 
 //eleccion de editar y eliminar
 
-Route::get('/reservas/editar/eleccioneliminar', 'App\Http\Controllers\reservasController@eleccioneliminar')->name('reservas.eleccioneliminar');
+Route::get('/reservas/editar/eleccioneliminar', 'App\Http\Controllers\EventController@eleccioneliminar')->name('reservas.eleccioneliminar');
 
-Route::get('/reservas/editar/eleccioneditar', 'App\Http\Controllers\reservasController@eleccioneditar')->name('reservas.eleccioneditar');
+Route::get('/reservas/editar/eleccioneditar', 'App\Http\Controllers\EventController@eleccioneditar')->name('reservas.eleccioneditar');
 
 
 
@@ -90,3 +107,13 @@ Route::post('/logout', 'App\Http\Controllers\googleAPIController@logout');
 
 Route::get('/events',[App\Http\Controllers\reservasController::class, 'getEvents']);
 
+
+
+
+//Consultas
+
+Route::get('reservarAula/{fecha}', 'App\Http\Controllers\EventController@horasDisponibles');
+
+Route::get('reservarAula/{fecha}/{aula}', 'App\Http\Controllers\EventController@horafecha');
+
+Route::post('reservarAula/add', 'App\Http\Controllers\EventController@store')->name("reserve.add");

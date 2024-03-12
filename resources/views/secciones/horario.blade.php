@@ -16,6 +16,12 @@ if (session()->get('user') === null) {
 <?php echo $viewData['nombre'] ?>
 @endsection
 
+
+
+</div>
+
+
+
 @section('content')
 <!-- Contenido específico de esta página -->
 <div id='calendar'></div>
@@ -37,6 +43,7 @@ if (session()->get('user') === null) {
             },
             height:1200,
             events: @json($events)
+            
         });
         calendar.render();
     });
