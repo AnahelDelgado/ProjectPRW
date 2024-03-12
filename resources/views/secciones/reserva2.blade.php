@@ -9,7 +9,6 @@ if (session()->get('user') === null) {
 
     <script src="JS/swiper-bundle.min.js"></script>
     <script src="JS/slider.js"></script>
-@endsection
 @section('head')
 <link rel="stylesheet" href="CSS/swiper-bundle.min.css">
 <link rel="stylesheet" href="CSS/style.css">
