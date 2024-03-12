@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\View;
 use App\Models\event;
 use App\Models\product;
+use App\Models\Reserva;
 
 class EventController extends Controller
 {
@@ -61,6 +62,8 @@ class EventController extends Controller
         }
     }
 
+
+    
 
     //editar
     public function editar()

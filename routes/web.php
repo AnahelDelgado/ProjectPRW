@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Route;
 use Laravel\Socialite\Facades\Socialite;
 use App\Models\teacher;
 use Illuminate\Support\Facades\Auth;
-
+use App\Http\Controllers\EventController;
 
 /*
 |--------------------------------------------------------------------------
@@ -29,7 +29,11 @@ Route::get('/grid', 'App\Http\Controllers\menuController@showgrid')->name('secci
 
 // link para la reserva del aula sin material
 
-Route::get('/reservaAula', 'App\Http\Controllers\EventController@añadir')->name('reservas.añadir');
+// Ruta para mostrar el formulario de reserva
+Route::get('/reservaAula', [EventController::class, 'añadir'])->name('reservas.añadir');
+
+// Ruta para almacenar la reserva (solicitud POST desde el formulario)
+Route::post('/reservaAula', [EventController::class, 'store'])->name('reservas.store');
 
 // link para la reserva de solo el material sin el aula
 
