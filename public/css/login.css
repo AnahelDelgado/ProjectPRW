@@ -1,70 +1,42 @@
 /*Interfaz menu*/
-body {
-    padding: 0;
-    margin: 0;
+
+.bodyLogin {
+
     background-image: url("/img/fondoLogin.png");
     background-repeat: no-repeat;
     background-size: cover;
-<<<<<<< HEAD:public/css/index.css
-    min-height: 100dvh;
-    font-family: "Poppins", sans-serif;
-=======
->>>>>>> b35ade7570f7be639f2c43e6f2456b75a1fcbcb3:public/css/login.css
 }
 
-.container {
-    display: flex;
-    width: 100dvw;
-    min-height: 100dvh;
-    justify-content: center;
-    align-content: space-around;
-    flex-wrap: wrap;
-}
+.CuadradoBlanco {
 
-.content {
-    width: 600px;
-    height: 600px;
-}
-
-.content .logoAteca{
+    background-color: white;
+    max-width: 35em;
+    height: 35em;
+    border-radius: 2em;
+    left: 70em;
     position: relative;
-<<<<<<< HEAD:public/css/index.css
-    width: 90%;
-}
-.content:first-child {
-    display: flex;
-=======
     margin-top: -30em;
 
->>>>>>> b35ade7570f7be639f2c43e6f2456b75a1fcbcb3:public/css/login.css
 }
 
-.content:last-child {
-    background-color: rgba(255, 255, 255, 0.725);
-    border-radius: 12px;
-    box-shadow: 3px 3px 20px  rgba(0, 0, 0, 0.428);
-}
 
-.wrapper-form{
-    height: fit-content;
-    padding: 0 50px;
-}
-.wrapper-form h3{
-    font-size: 48px;
-    font-style: italic;
+.f2 {
+
+    padding-top: 1em;
     text-align: center;
+    font-size: 2em;
+
 }
 
-.wrapper-input {
-    margin: 40px 0px 7px 0px;
+.sesion {
+
+    font-size: 2em;
+    text-align: center;
+    padding-top: 2em;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+
 }
 
-<<<<<<< HEAD:public/css/index.css
-label {
-    color: rgb(24, 24, 24);
-    text-decoration: underline;
-    font-weight: 600;
-=======
 .boton {
 
     text-align: center;
@@ -75,37 +47,20 @@ label {
     color: aliceblue;
     margin-top: 11em;
 
->>>>>>> b35ade7570f7be639f2c43e6f2456b75a1fcbcb3:public/css/login.css
 }
+
+
 input {
-    width: 90%;
-    height: 50%;
-    box-shadow: 4px 4px 12px rgba(41, 41, 41, 0.247);
-    border: none;
-    border-radius: 70px;
-    outline: 2px rgb(192, 192, 192) solid;
-    height: 40px;
+
+    font-size: 0.8em;
+    border-radius: 2em;
+    background-color: #335684;
+
 }
 
-input::placeholder{
-    color: rgb(27, 27, 27);
-    padding-left: 10px;
-}
-input[type="submit"]{
-    margin-top: 80px;
-    width: 100px;
-    font-weight: 600;
-}
+.titulo {
 
-input[type="submit"]:hover{
-    margin-top: 80px;
-    width: 100px;
-    font-weight: 600;
-    background-color: black;
     color: white;
-<<<<<<< HEAD:public/css/index.css
-}
-=======
     margin-left: 15em;
     margin-top: 30em;
 
@@ -176,5 +131,3 @@ h2 {
     margin-top: -1.7em;
 
 }
-
->>>>>>> b35ade7570f7be639f2c43e6f2456b75a1fcbcb3:public/css/login.css
