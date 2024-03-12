@@ -7,6 +7,16 @@ if (session()->get('user') === null) {
 ?>
 
 @extends('layout.layout')
+
+@section('imagen')
+<img class="avatar" src="<?php echo $viewData['avatar'] ?>" alt="" srcset="">
+@endsection
+
+@section('nombre')
+<?php echo $viewData['nombre'] ?>
+@endsection
+
+@extends('layout.layout')
 @section('head')
 <link rel="stylesheet" href="CSS/swiper-bundle.min.css">
 <link rel="stylesheet" href="CSS/style.css">
