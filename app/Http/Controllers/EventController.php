@@ -169,6 +169,8 @@ class EventController extends Controller
     }
 
 
+    
+
     //editar
     public function editar()
     {

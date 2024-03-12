@@ -85,6 +85,7 @@ if (session()->get('user') === null) {
 
 
             <input type="submit" value="Reservar">
+            <input type="submit" value="Cancelar">
         </form>
     </div>
 </section>
