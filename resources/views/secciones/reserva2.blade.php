@@ -6,8 +6,9 @@ if (session()->get('user') === null) {
 }
 ?>
 @extends('layout.layout')
-@section('nombre')
-<?php echo $viewData['nombre'] ?>
+
+    <script src="JS/swiper-bundle.min.js"></script>
+    <script src="JS/slider.js"></script>
 @endsection
 @section('head')
 <link rel="stylesheet" href="CSS/swiper-bundle.min.css">
