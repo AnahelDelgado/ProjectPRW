@@ -108,16 +108,31 @@ class EventController extends Controller
 
 
 
+    public function reservaMaterial()
+    {
+        $horas['horasInicio'] = ["08:00","08:55","09:50","11:15","12:10","13:05"];
+        $horas['horasFin'] = ["08:55","09:50","11:15","12:10","13:05","14:00"];
 
 
 
+        return view('reservas.material', ['horas' => $horas]);
+    }
+
+    public function materialDisponible($fecha)
+    {
+        $productosDisponibles = product::whereNotIn('id', function($query) use ($fecha) {
+            $query->select('id_product')
+                ->from('eventsproducts')
+                ->where('id_reserva', function($subquery) use ($fecha) {
+                    $subquery->select('id')
+                        ->from('events')
+                        ->where('dia', $fecha);
+                });
+        })->get();
 
 
-
-
-
-
-
+        return view('secciones.reserva2', ['productosDisponibles' => $productosDisponibles]);
+    }
 
 
 
@@ -125,6 +140,8 @@ class EventController extends Controller
     {
         $viewData = [];
         $viewData["products"] = Product::all();
+
+
         return view('secciones.reserva2')->with("viewData", $viewData);
     }
 

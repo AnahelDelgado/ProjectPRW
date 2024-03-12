@@ -27,7 +27,6 @@ Route::get('/login', 'App\Http\Controllers\menuController@showLogin')->name('log
 Route::get('/grid', 'App\Http\Controllers\menuController@showgrid')->name('secciones.grid');
 
 
-// link para la reserva del aula sin material
 
 // Ruta para mostrar el formulario de reserva
 Route::get('/reservaAula', [EventController::class, 'añadir'])->name('reservas.añadir');
@@ -37,7 +36,6 @@ Route::post('/reservaAula', [EventController::class, 'store'])->name('reservas.s
 
 // link para la reserva de solo el material sin el aula
 
-Route::get('/reservaMaterial', 'App\Http\Controllers\EventController@reserva2')->name('secciones.reserva2');
 
 //link de prueba para la reserva de solo el material sin el aula
 Route::get('/reservaPrueba', 'App\Http\Controllers\reservasController@reservaPrueba')->name('secciones.reservaPrueba');
@@ -97,10 +95,16 @@ Route::get('/events',[App\Http\Controllers\reservasController::class, 'getEvents
 
 
 
-//Consultas
+//Consultas para la reserva de aulas
 
 Route::get('reservarAula/{fecha}', 'App\Http\Controllers\EventController@horasDisponibles');
 
 Route::get('reservarAula/{fecha}/{aula}', 'App\Http\Controllers\EventController@horafecha');
 
 Route::post('reservarAula/add', 'App\Http\Controllers\EventController@store')->name("reserve.add");
+
+//Consutas para la reserva de material
+
+Route::get('reservaMaterial', 'App\Http\Controllers\EventController@reservaMaterial')->name('reservas.material');
+
+Route::get('reservarMaterial/{fecha}', 'App\Http\Controllers\EventController@materialDisponible')->name('secciones.reserva2');

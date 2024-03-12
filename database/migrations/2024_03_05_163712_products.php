@@ -18,7 +18,6 @@ return new class extends Migration
             $table->string('imagen');
             $table->boolean('disponible')->default(1);
             $table->string('enlace');
-            $table->string('id_reserva')->nullable();
             $table->timestamps();
         });
     }
