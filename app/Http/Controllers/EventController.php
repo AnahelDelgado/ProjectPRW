@@ -14,27 +14,25 @@ class EventController extends Controller
 {
     public function añadir()
     {
-        
+
         return view('reservas.añadir');
     }
 
     public function horasDisponibles($fecha)
     {
-        $horas['horasInicio'] = ["08:00","08:55","09:50","11:15","12:10","13:05"];
-        $horas['horasFin'] = ["08:55","09:50","11:15","12:10","13:05","14:00"];
+        $horas['horasInicio'] = ["08:00", "08:55", "09:50", "11:15", "12:10", "13:05"];
+        $horas['horasFin'] = ["08:55", "09:50", "11:15", "12:10", "13:05", "14:00"];
 
         $hayReservas = event::where('dia', $fecha)->count();
 
         $reservas = event::where('dia', $fecha)
-        ->selectRaw("TIME_FORMAT(hora_inicio, '%H:%i') as hora_inicio, TIME_FORMAT(hora_fin, '%H:%i') as hora_fin")
-        ->get();
+            ->selectRaw("TIME_FORMAT(hora_inicio, '%H:%i') as hora_inicio, TIME_FORMAT(hora_fin, '%H:%i') as hora_fin")
+            ->get();
 
-        if($hayReservas == 0){
-            $horas['horasInicio'] = ["08:00","08:55","09:50","11:15","12:10","13:05"];
-            $horas['horasFin'] = ["08:55","09:50","11:15","12:10","13:05","14:00"];
-        }
-        else
-        {
+        if ($hayReservas == 0) {
+            $horas['horasInicio'] = ["08:00", "08:55", "09:50", "11:15", "12:10", "13:05"];
+            $horas['horasFin'] = ["08:55", "09:50", "11:15", "12:10", "13:05", "14:00"];
+        } else {
             foreach ($reservas as $reserva) {
                 $horas['horasInicio'] = array_diff($horas['horasInicio'], [$reserva['hora_inicio']]);
                 $horas['horasFin'] = array_diff($horas['horasFin'], [$reserva['hora_fin']]);
@@ -48,26 +46,24 @@ class EventController extends Controller
 
     public function horafecha($fecha, $aula)
     {
-        $idaula =classroom::where('nombre', $aula)->first()->id;
+        $idaula = classroom::where('nombre', $aula)->first()->id;
 
-        $horas['horasInicio'] = ["08:00","08:55","09:50","11:15","12:10","13:05"];
-        $horas['horasFin'] = ["08:55","09:50","11:15","12:10","13:05","14:00"];
+        $horas['horasInicio'] = ["08:00", "08:55", "09:50", "11:15", "12:10", "13:05"];
+        $horas['horasFin'] = ["08:55", "09:50", "11:15", "12:10", "13:05", "14:00"];
 
         $hayReservas = event::where('dia', $fecha)
-        ->where('id_aula', $idaula)
-        ->count();
+            ->where('id_aula', $idaula)
+            ->count();
 
         $reservas = event::where('dia', $fecha)
-        ->where('id_aula', $idaula)
-        ->select('hora_inicio', 'hora_fin')
-        ->get();
+            ->where('id_aula', $idaula)
+            ->select('hora_inicio', 'hora_fin')
+            ->get();
 
-        if($hayReservas == 0){
-            $horas['horasInicio'] = ["08:00","08:55","09:50","11:15","12:10","13:05"];
-            $horas['horasFin'] = ["08:55","09:50","11:15","12:10","13:05","14:00"];
-        }
-        else
-        {
+        if ($hayReservas == 0) {
+            $horas['horasInicio'] = ["08:00", "08:55", "09:50", "11:15", "12:10", "13:05"];
+            $horas['horasFin'] = ["08:55", "09:50", "11:15", "12:10", "13:05", "14:00"];
+        } else {
             foreach ($reservas as $reserva) {
                 $horas['horasInicio'] = array_diff($horas['horasInicio'], [$reserva['hora_inicio']]);
                 $horas['horasFin'] = array_diff($horas['horasFin'], [$reserva['hora_fin']]);
@@ -75,16 +71,14 @@ class EventController extends Controller
         }
         $aulas = classroom::all()->pluck('nombre');
         return view('reservas.añadir', ['horas' => $horas, 'fecha' => $fecha, 'aulas' => $aulas, 'aulaSeleccionada' => $aula]);
-
     }
 
     public function store(Request $request)
     {
 
         $request->input('diaReserva', 'horaInicioReserva', 'horaFinalReserva', 'aula');
-        
-        if( empty($request->input('diaReserva')) )
-        {
+
+        if (empty($request->input('diaReserva'))) {
             dd('No se ha seleccionado una fecha');
         }
 
@@ -109,33 +103,33 @@ class EventController extends Controller
 
     //eliminar reserva 
 
-   
+
     public function mostrarFormularioEliminarAula()
     {
         $reservas = Event::all();
         return view('reservas.eliminar', ['reservas' => $reservas]);
     }
-    
+
     public function eliminarReserva(Request $request)
     {
         // Validar el ID de la reserva recibido
         $request->validate([
             'reserva' => 'required|exists:events,id',
         ]);
-    
+
         try {
             // Obtener el ID de la reserva a eliminar desde la solicitud
             $idReserva = $request->input('reserva');
-    
+
             // Buscar la reserva en la base de datos
             $reserva = Event::findOrFail($idReserva);
-    
+
             // Eliminar la reserva
             $reserva->delete();
-    
+
             // Obtener todas las reservas nuevamente después de eliminar
             $reservas = Event::all();
-    
+
             // Redireccionar con un mensaje de éxito y las reservas actualizadas
             return redirect()->route('reservas.eliminar')->with(['success' => 'Reserva eliminada correctamente', 'reservas' => $reservas]);
         } catch (\Exception $e) {
@@ -148,46 +142,46 @@ class EventController extends Controller
 
 
     public function mostrarFormularioEditarReserva()
-{
-    $reservas = Event::all(); // Obtener todas las reservas
-    return view('reservas.editar', ['reservas' => $reservas]);
-}
-
-
-public function editarReserva(Request $request)
-{
-    // Validar los datos del formulario
-    $request->validate([
-        'reserva' => 'required|exists:events,id',
-        'diaReserva' => 'required|date',
-        'horaInicioReserva' => 'required|date_format:H:i',
-        'horaFinalReserva' => 'required|date_format:H:i|after:horaInicioReserva'
-        
-    ]);
-
-    try {
-        // Obtener el ID de la reserva a editar desde la solicitud
-        $idReserva = $request->input('reserva');
-
-        // Buscar la reserva en la base de datos
-        $reserva = Event::findOrFail($idReserva);
-
-        // Actualizar los campos de la reserva con los datos del formulario
-        $reserva->dia = $request->input('diaReserva');
-        $reserva->hora_inicio = $request->input('horaInicioReserva');
-        $reserva->hora_fin = $request->input('horaFinalReserva');
-      
-
-        // Guardar los cambios en la base de datos
-        $reserva->save();
-
-        // Redireccionar con un mensaje de éxito
-        return redirect()->route('reservas.editar')->with('success', 'Reserva editada correctamente');
-    } catch (\Exception $e) {
-        // Manejar cualquier error que pueda ocurrir durante la edición
-        return redirect()->route('reservas.editar')->with('error', 'Error al editar la reserva');
+    {
+        $reservas = Event::all(); // Obtener todas las reservas
+        return view('reservas.editar', ['reservas' => $reservas]);
     }
-}
+
+
+    public function editarReserva(Request $request)
+    {
+        // Validar los datos del formulario
+        $request->validate([
+            'reserva' => 'required|exists:events,id',
+            'diaReserva' => 'required|date',
+            'horaInicioReserva' => 'required|date_format:H:i',
+            'horaFinalReserva' => 'required|date_format:H:i|after:horaInicioReserva'
+
+        ]);
+
+        try {
+            // Obtener el ID de la reserva a editar desde la solicitud
+            $idReserva = $request->input('reserva');
+
+            // Buscar la reserva en la base de datos
+            $reserva = Event::findOrFail($idReserva);
+
+            // Actualizar los campos de la reserva con los datos del formulario
+            $reserva->dia = $request->input('diaReserva');
+            $reserva->hora_inicio = $request->input('horaInicioReserva');
+            $reserva->hora_fin = $request->input('horaFinalReserva');
+
+
+            // Guardar los cambios en la base de datos
+            $reserva->save();
+
+            // Redireccionar con un mensaje de éxito
+            return redirect()->route('reservas.editar')->with('success', 'Reserva editada correctamente');
+        } catch (\Exception $e) {
+            // Manejar cualquier error que pueda ocurrir durante la edición
+            return redirect()->route('reservas.editar')->with('error', 'Error al editar la reserva');
+        }
+    }
 
 
 
@@ -225,23 +219,28 @@ public function editarReserva(Request $request)
 
     public function index()
     {
-        $events = array();
+        $events = [];
         $bookings = Event::all();
-        foreach($bookings as $evento){
+        foreach ($bookings as $evento) {
+            // Concatenamos las fechas y horas para formar un formato de fecha y hora adecuado.
+            $startDateTime = $evento->dia . 'T' . $evento->hora_inicio;
+            $endDateTime = $evento->dia . 'T' . $evento->hora_fin;
+
             $events[] = [
                 'title' => 'Reservation',
                 'id_profesor' => $evento->id_profesor,
                 'id_aula' => $evento->id_aula,
-                'start' => $evento->start_date,
-                'end' => $evento->end_date
+                'start' => $startDateTime,
+                'end' => $endDateTime,
             ];
-
-            return view('secciones.horario', ['events' => $events]);
         }
+
+        // Devolvemos la vista con los eventos.
+        return view('secciones.horario', compact('events'));
     }
 
 
-    
+
 
     //editar
     public function editar()

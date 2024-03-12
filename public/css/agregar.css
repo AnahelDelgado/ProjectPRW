@@ -1,5 +1,12 @@
+#add-form{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100dvh;
+    inset: 0;
+}
+
 form {
-    margin-top: 9em;
     text-align: center;
     margin-top:3em;
 }
@@ -7,26 +14,21 @@ form {
 .formulario {
     background-color: #84B2D8;
     height: 40em;
-    width: 45em;
-    margin: 0 auto; 
-    border-radius:8em; 
-    padding: 30px;
-    margin-top: 10em;
+    width: 45em; 
+    border-radius:10px; 
 }
 
 label {
     display: block;
-    margin-bottom: 5px;
-   
 }
 
 input[type="date"],
 input[type="time"],
 input[type="number"],
 input[type="submit"] {
-    width: 60%;
+    width: 80%;
     padding: 10px;
-    margin-bottom: 10px;
+    margin-bottom: 10px 0px 30px 0px;
     border: 1px solid #ccc;
     border-radius: 5px;
     background-color: #335684;

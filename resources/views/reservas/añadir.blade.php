@@ -1,4 +1,3 @@
-
 <?php $viewData = session()->get('viewData'); ?>
 <?php
 if (session()->get('user') === null) {
@@ -15,11 +14,11 @@ if (session()->get('user') === null) {
 @endsection
 @section('content')
 <!-- Contenido específico de esta página -->
-<section class="">
+<section id="add-form">
     <div class="formulario">
 
         <h3>Añadir Aula</h3>
-        <form method="POST" action="{{ route('reserve.add') }}" >
+        <form method="POST" action="{{ route('reserve.add') }}">
             @csrf
             @method('POST')
 
@@ -35,10 +34,9 @@ if (session()->get('user') === null) {
             <label for="aula">Aula a reservar: </label>
             <select name="aula" id="aula" required>
                 <?php
-                if(isset($aulas))
-                    foreach($aulas as $aula)
-                    {
-                        if( isset($aulaSeleccionada)  && $aula == $aulaSeleccionada)
+                if (isset($aulas))
+                    foreach ($aulas as $aula) {
+                        if (isset($aulaSeleccionada)  && $aula == $aulaSeleccionada)
                             echo "<option value='$aula' selected>$aula</option>";
                         else
                             echo "<option value='$aula'>$aula</option>";
@@ -47,8 +45,7 @@ if (session()->get('user') === null) {
             </select>
             <script>
                 document.getElementById('aula').addEventListener('change', function() {
-                    if(window.location.href.includes('reservarAula') && window.location.href.split('/').length === 6)
-                    {
+                    if (window.location.href.includes('reservarAula') && window.location.href.split('/').length === 6) {
                         let url = window.location.href;
                         let newURL = url.split('/');
                         newURL.pop();
@@ -56,8 +53,7 @@ if (session()->get('user') === null) {
 
 
                         location.href = newURL.join('/');
-                    }
-                    else
+                    } else
                         location.href += "/" + this.value;
                 })
             </script>

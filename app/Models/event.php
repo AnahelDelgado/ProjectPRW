@@ -8,16 +8,5 @@ use Illuminate\Database\Eloquent\Model;
 class Event extends Model
 {
     use HasFactory;
-    public function up(): void
-    {
-        Schema::create('events', function (Blueprint $table) {
-            $table->id();
-            $table->foreignId('id_profesor')->constrained('teachers');
-            $table->foreignId('id_aula')->constrained('classrooms');
-            $table->date('dia');
-            $table->Time('hora_inicio');
-            $table->Time('hora_fin');
-            $table->timestamps();
-        });
-    }
+    protected $fillable = ['id_profesor', 'id_aula', 'dia', 'hora_inicio', 'hora_fin'];
 }
