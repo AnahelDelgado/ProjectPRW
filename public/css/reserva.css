@@ -6,16 +6,19 @@
     box-sizing: border-box;
     
 }
-
+body{
+    min-height: 100dvh;
+}
 .bodyr1 {
     font-family: Arial, sans-serif;
     background-image: url("/img/fondo2.png");
+    background-repeat: no-repeat;
+    background-size: cover;
 }
 
 .container {
     display: grid;
     grid-template-columns: 250px 1fr;
-    min-height: 100vh;
 }
 
 .sidebar {
@@ -23,7 +26,7 @@
     color: #fff;
     padding: 20px;
     align-items: center;
-    height: 59em;
+    height: 100vh;
     
 }
 
@@ -130,17 +133,6 @@
     height: 4em;
 }
 
-.dropdown {
-    position: fixed;
-    top: 10px;
-    right: 40px;
-    background-color: #5281BF;
-    padding: 10px;
-    border-radius: 5px;
-    z-index: 990;
-    cursor: pointer;
-}
-
 .dropdown-content {
     display: none;
     position: absolute;
@@ -171,15 +163,15 @@ span{
 
 
 .misreservas {
-    display: flex;
-    justify-content: flex-end; 
+    position: fixed;
     margin-top: -9em;
     right: 40px;
-    padding: 13px;
+    padding: 40px;
     border-radius: 5px;
     cursor: pointer;
-    height: 5em;
+    height:0;
     transition: background-color 0.3s; 
+    background-color: #1a324e;
 }
 
 
@@ -197,20 +189,21 @@ span{
 }
 
 .boton2 {
-    display: inline-block;
-    padding: 5px 20px;
-    background-color:  #335684;
-    color: white;
-    text-align: center;
-    text-decoration: none;
-    border: none;
+    position: fixed;
+    bottom: 100px;
+    right: 50px;
+    padding: 20px;
     border-radius: 4px;
+    color: white;
+    text-decoration: none;
     cursor: pointer;
-    
-    
+    background-color: #1a324e;
+    z-index: 1000000;
 }
-
-.boton2:hover {
+#calendar{
+    padding: 50px;
+}
+.misreservas:hover {
     background-color: #5499e7;
 }
 
@@ -222,4 +215,3 @@ span{
 .boton:hover {
     background-color: #0056b3;
 }
-

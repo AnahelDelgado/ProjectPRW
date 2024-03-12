@@ -15,6 +15,7 @@
     <link rel="stylesheet" href="{{asset('/css/agregar.css')}}">
     <link rel="stylesheet" href="{{asset('/css/editar.css')}}">
     <link rel="stylesheet" href="{{asset('/css/eliminar.css')}}">
+    <link rel="stylesheet" href="{{asset('/css/calendar.css')}}">
 
     <title>Reserva Aula</title>
     @yield('head')
@@ -63,28 +64,18 @@
                 </li>
             </ul>
         </div>
-
-        <!-- contenido -->
-        @yield('content')
-
+        <div>
+            <!-- contenido -->
+            @yield('content')
+        </div>
     </div>
 
     <footer class="footer">
         <p>IES EL RINCÓN</p>
     </footer>
 
-    <div class="misreservas">
-        <a href="/misReservas" class="boton2">Mis reservas</a>
-    </div>
-
-    <!-- Dropdown para cambiar vista -->
-    <div class="dropdown">
-        <span style="font-size: 20px;">Cambiar vista</span>
-        <div class="dropdown-content">
-            <a href="/">Calendario</a>
-            <a href="/grid">Pestañas Grid</a>
-        </div>
-    </div>
+    
+    <a href="/misReservas" class="boton2">Mis reservas</a>
 
     <!-- Stack del calendario -->
     @stack('scripts')
