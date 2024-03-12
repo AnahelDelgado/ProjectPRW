@@ -6,9 +6,6 @@ if (session()->get('user') === null) {
 }
 ?>
 @extends('layout.layout')
-
-    <script src="JS/swiper-bundle.min.js"></script>
-    <script src="JS/slider.js"></script>
 @section('head')
 <link rel="stylesheet" href="CSS/swiper-bundle.min.css">
 <link rel="stylesheet" href="CSS/style.css">
