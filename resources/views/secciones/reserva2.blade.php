@@ -7,20 +7,12 @@ if (session()->get('user') === null) {
 ?>
 
 @extends('layout.layout')
-@section('imagen')
-    <img class="avatar" src="<?php echo $viewData['avatar']?>" alt="" srcset="">
-@endsection
-@section('nombre')
-    <?php echo $viewData['nombre']?>
-@endsection
-
-@extends('layout.layout')
 @section('head')
-    <link rel="stylesheet" href="CSS/swiper-bundle.min.css">
-    <link rel="stylesheet" href="CSS/style.css">
-
-    <script src="JS/swiper-bundle.min.js"></script>
-    <script src="JS/script.js"></script>
+<link rel="stylesheet" href="CSS/swiper-bundle.min.css">
+<link rel="stylesheet" href="CSS/style.css">
+@endsection
+@section('imagen')
+<img class="avatar" src="<?php echo $viewData['avatar'] ?>" alt="" srcset="">
 @endsection
 @section('content')
     <!-- Contenido específico de esta página -->
