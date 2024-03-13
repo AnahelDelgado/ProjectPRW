@@ -28,11 +28,7 @@ Route::get('/grid', 'App\Http\Controllers\menuController@showgrid')->name('secci
 
 
 
-// Ruta para mostrar el formulario de reserva
-Route::get('/reservaAula', [EventController::class, 'añadir'])->name('reservas.añadir');
 
-// Ruta para almacenar la reserva (solicitud POST desde el formulario)
-Route::post('/reservaAula', [EventController::class, 'store'])->name('reservas.store');
 
 // link para la reserva de solo el material sin el aula
 
@@ -70,7 +66,7 @@ Route::get('/reservas/editarmaterial', 'App\Http\Controllers\EventController@edi
 //Eliminar aula y material
 
 
-Route::get('/reservas/eliminar', 'App\Http\Controllers\EventController@mostrarFormularioEliminarAula')->name('reservas.eliminar');
+Route::get('/reservas/eliminar', 'App\Http\Controllers\EventController@mostrarReservas')->name('reservas.eliminar');
 
 Route::delete('/reservas/eliminar', 'App\Http\Controllers\EventController@eliminarReserva')->name('reservas.eliminar');
 
@@ -109,6 +105,11 @@ Route::post('/logout', 'App\Http\Controllers\googleAPIController@logout');
 
 //Consultas para la reserva de aulas
 
+
+// Ruta para mostrar el formulario de reserva
+Route::get('/reservaAula', [EventController::class, 'añadir'])->name('reservas.añadir');
+
+
 Route::get('reservarAula/{fecha}', 'App\Http\Controllers\EventController@horasDisponibles');
 
 Route::get('reservarAula/{fecha}/{aula}', 'App\Http\Controllers\EventController@horafecha');
@@ -120,3 +121,4 @@ Route::post('reservarAula/add', 'App\Http\Controllers\EventController@store')->n
 Route::get('reservaMaterial', 'App\Http\Controllers\EventController@reservaMaterial')->name('secciones.reserva2');
 
 Route::get('reservarMaterial/{fecha}', 'App\Http\Controllers\EventController@materialDisponible')->name('secciones.reserva2');
+
