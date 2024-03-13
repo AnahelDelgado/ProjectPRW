@@ -5,6 +5,11 @@ if (session()->get('user') === null) {
     exit;
 }
 ?>
+
+@section('head')
+<link rel="stylesheet" href="{{asset('/css/eliminar.css')}}">
+@endsection
+
 @extends('layout.layout')
 @section('imagen')
 <img class="avatar" src="<?php echo $viewData['avatar'] ?>" alt="" srcset="">

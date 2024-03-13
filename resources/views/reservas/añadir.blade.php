@@ -5,6 +5,8 @@ if (session()->get('user') === null) {
     exit;
 }
 ?>
+
+
 @extends('layout.layout')
 @section('imagen')
 <img class="avatar" src="<?php echo $viewData['avatar'] ?>" alt="" srcset="">

@@ -167,7 +167,7 @@ span{
     margin-top: -9em;
     right: 40px;
     padding: 40px;
-    border-radius: 5px;
+    border-radius: 8px;
     cursor: pointer;
     height:0;
     transition: background-color 0.3s; 
@@ -199,9 +199,16 @@ span{
     cursor: pointer;
     background-color: #1a324e;
     z-index: 1000000;
+    
 }
 #calendar{
     padding: 50px;
+    margin-left: 4%;
+    margin-top: 2%;
+    background-color: #5281BF;
+    width: 90%;
+    border-radius: 8%;
+    box-shadow: 0 0 10px 1px;
 }
 .misreservas:hover {
     background-color: #5499e7;

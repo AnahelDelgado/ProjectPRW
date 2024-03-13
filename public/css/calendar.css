@@ -1,9 +1,9 @@
 :root {
     --fc-small-font-size: 1em;
-    --fc-page-bg-color: #fff;
+    --fc-page-bg-color: #1a324e;
     --fc-neutral-bg-color: rgba(208, 208, 208, 0.3);
     --fc-neutral-text-color: #808080;
-    --fc-border-color: #ddd;
+    --fc-border-color: #1a324e;
   
     --fc-button-text-color: #fff;
     --fc-button-bg-color: #2C3E50;
@@ -55,7 +55,8 @@
     border-radius: calc(var(--fc-daygrid-event-dot-width) / 2);
 }
 .fc-event-title{
-    color: white;
+    color: rgb(255, 255, 255);
+    
 }
 thead{
     font-size: 22px;

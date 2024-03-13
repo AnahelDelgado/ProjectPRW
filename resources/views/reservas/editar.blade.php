@@ -6,6 +6,9 @@ if (session()->get('user') === null) {
 }
 ?>
 
+@section('head')
+<link rel="stylesheet" href="{{asset('/css/editar.css')}}">
+@endsection
 
 @extends('layout.layout')
 @section('imagen')
