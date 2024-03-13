@@ -103,7 +103,6 @@ Route::post('/logout', 'App\Http\Controllers\googleAPIController@logout');
 
 //Calendario
 
-Route::get('/events',[App\Http\Controllers\reservasController::class, 'getEvents']);
 
 
 
@@ -118,6 +117,6 @@ Route::post('reservarAula/add', 'App\Http\Controllers\EventController@store')->n
 
 //Consutas para la reserva de material
 
-Route::get('reservaMaterial', 'App\Http\Controllers\EventController@reservaMaterial')->name('reservas.material');
+Route::get('reservaMaterial', 'App\Http\Controllers\EventController@reservaMaterial')->name('secciones.reserva2');
 
 Route::get('reservarMaterial/{fecha}', 'App\Http\Controllers\EventController@materialDisponible')->name('secciones.reserva2');

@@ -120,6 +120,8 @@ class EventController extends Controller
     {
         $horas['horasInicio'] = ["08:00","08:55","09:50","11:15","12:10","13:05"];
         $horas['horasFin'] = ["08:55","09:50","11:15","12:10","13:05","14:00"];
+
+        return view ('secciones.reserva2');
     }
     
     public function mostrarFormularioEliminarAula()
