@@ -14,7 +14,7 @@ if (session()->get('user') === null) {
 <?php echo $viewData['nombre'] ?>
 @endsection
 @section('content')
-<div class="cuadrado">
+<div class="cuadrado2">
     <h2 class="titulo">Editar Material</h2>
     <select name="reserva" id="reserva">
         <option value="reserva1">Reserva 1</option>
