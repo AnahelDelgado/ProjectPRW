@@ -227,7 +227,7 @@ class EventController extends Controller
             $endDateTime = $evento->dia . 'T' . $evento->hora_fin;
 
             $events[] = [
-                'title' => 'Reservation',
+                'title' => 'Reserva',
                 'id_profesor' => $evento->id_profesor,
                 'id_aula' => $evento->id_aula,
                 'start' => $startDateTime,

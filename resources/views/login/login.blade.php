@@ -14,9 +14,7 @@
   <div class="CuadradoBlanco">
     <form class="formulario" action="" method="get">
       <h1 class="sesion">INICIAR SESIÓN CON GOOGLE</h1>
-      <div class="f2">
-          <input type="submit" value="Aceptar" class="boton">
-      </div>
+     
     </form>
 
     <!-- Botón de Iniciar sesión con Google -->

@@ -36,6 +36,8 @@ if (session()->get('user') === null) {
 <script src="https://cdn.jsdelivr.net/npm/fullcalendar@6.1.11/index.global.min.js"></script>
 <script src='fullcalendar/core/index.global.js'></script>
 <script src='fullcalendar/core/locales/es.global.js'></script>
+<script src="https://cdn.jsdelivr.net/npm/fullcalendar@5.10.1/locales/es.js"></script>
+
 <script>
     document.addEventListener('DOMContentLoaded', function() {
         let calendarEl = document.getElementById('calendar');
@@ -46,7 +48,7 @@ if (session()->get('user') === null) {
                 center: 'title',
                 right: 'dayGridMonth,timeGridWeek,listWeek'
             },
-            height:900,
+            height:805,
             events: @json($events)
             
         });
