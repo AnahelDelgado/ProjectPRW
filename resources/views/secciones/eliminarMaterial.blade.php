@@ -5,8 +5,6 @@ if (session()->get('user') === null) {
     exit;
 }
 ?>
-
-
 @extends('layout.layout')
 @section('imagen')
 <img class="avatar" src="<?php echo $viewData['avatar'] ?>" alt="" srcset="">
@@ -16,11 +14,7 @@ if (session()->get('user') === null) {
 <?php echo $viewData['nombre'] ?>
 @endsection
 
-
-@extends('layout.layout')
-
 @section('content')
-
 
  <!-- Título -->
  <div  class="contorno" >

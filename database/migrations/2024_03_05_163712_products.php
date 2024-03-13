@@ -16,9 +16,8 @@ return new class extends Migration
             $table->string('nombre');
             $table->string('descripcion');
             $table->string('imagen');
-            $table->boolean('disponible');
+            $table->boolean('disponible')->default(1);
             $table->string('enlace');
-            $table->foreignId('id_reserva')->constrained('reserves');
             $table->timestamps();
         });
     }

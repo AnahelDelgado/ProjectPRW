@@ -1,4 +1,3 @@
-
 <?php $viewData = session()->get('viewData'); ?>
 <?php
 if (session()->get('user') === null) {
@@ -7,19 +6,13 @@ if (session()->get('user') === null) {
 }
 ?>
 
-
 @extends('layout.layout')
 @section('imagen')
 <img class="avatar" src="<?php echo $viewData['avatar'] ?>" alt="" srcset="">
 @endsection
-
 @section('nombre')
 <?php echo $viewData['nombre'] ?>
 @endsection
-
-
-@extends('layout.layout')
-
 @section('content')
 <div class="cuadrado">
         <h2 class="titulo">Editar Material</h2>
@@ -36,10 +29,8 @@ if (session()->get('user') === null) {
                 <!-- Agrega más opciones según los materiales disponibles -->
             </select><br>
            
-          
             <input type="submit" value="Guardar Cambios">
             <input type="submit" value="Cancelar">
         </form>
     </div>
-
  @endsection

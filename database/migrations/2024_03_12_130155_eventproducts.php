@@ -11,9 +11,10 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('classrooms', function (Blueprint $table) {
+        Schema::create('eventsproducts', function (Blueprint $table) {
             $table->id();
-            $table->string('nombre');
+            $table->foreignId('id_reserva')->constrained('events');
+            $table->foreignId('id_product')->constrained('products');
             $table->timestamps();
         });
     }

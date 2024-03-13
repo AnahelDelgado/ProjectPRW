@@ -5,8 +5,6 @@ if (session()->get('user') === null) {
     header("Location: /login");
     exit;
 }
-
-
 ?>
 @extends('layout.layout')
 @section('imagen')
@@ -20,50 +18,18 @@ if (session()->get('user') === null) {
 <section class="">
     <div class="formulario">
 
-        <h3>Añadir Aula</h3>
-        <form method="POST" action="{{ route('reserve.add') }}" >
+        <h3>Reservar Material</h3>
+        <form method="POST" action="">
+
             @csrf
             @method('POST')
+
             <label for="diaReserva">Día de la reserva: </label>
             <input type="date" name="diaReserva" id="diaReserva" value="<?php if (isset($fecha)) echo $fecha ?>" required>
-
             <script>
-                document.getElementById('diaReserva').addEventListener('change', function() {
-                    var newDate = this.value;
-                    location.href = "/reservarAula/" + newDate + "/Ateka";
-                    
-                })
+                
             </script>
 
-            <label for="aula">Aula a reservar: </label>
-            <select name="aula" id="aula" required>
-                <?php
-                if(isset($aulas))
-                    foreach($aulas as $aula)
-                    {
-                        if( isset($aulaSeleccionada)  && $aula == $aulaSeleccionada)
-                            echo "<option value='$aula' selected>$aula</option>";
-                        else
-                            echo "<option value='$aula'>$aula</option>";
-                    }
-                ?>
-            </select>
-            <script>
-                document.getElementById('aula').addEventListener('change', function() {
-                    if(window.location.href.includes('reservarAula') && window.location.href.split('/').length === 6)
-                    {
-                        let url = window.location.href;
-                        let newURL = url.split('/');
-                        newURL.pop();
-                        newURL.push(this.value);
-
-
-                        location.href = newURL.join('/');
-                    }
-                    else
-                        location.href += "/" + this.value;
-                })
-            </script>
 
             <!-- Se mostrarán la horas disponibles del dia seleccionado -->
             <label for="horaInicioReserva">Hora de inicio de la reserva: </label>
@@ -83,9 +49,17 @@ if (session()->get('user') === null) {
                         echo "<option value='$hora'>$hora</option>";
                     }
                 } ?>
+
             </select>
 
-            <input type="submit" value="Reservar">
+
+            <input type="button" value="Continuar" id="continuar">
+                <script>
+                 document.getElementById('continuar').addEventListener('click', function() {
+                    location.href = "/reservarMaterial" + "/" + document.getElementById('diaReserva').value;
+                 })
+                </script>
+
             <input type="submit" value="Cancelar">
         </form>
     </div>
