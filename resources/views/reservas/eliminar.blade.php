@@ -32,6 +32,17 @@ if (session()->get('user') === null) {
         @endforeach
     </select><br>
     <input type="submit" value="Eliminar Reserva">
+    <a class="cancelar" href="/" id="cancelButton">Cancelar</a>
+
+            <script>
+                document.addEventListener('DOMContentLoaded', function() {
+                    document.getElementById('cancelButton').addEventListener('click', function(event) {
+                        event.preventDefault(); // Evitar que se siga el enlace por defecto
+                        window.location.href = "/"; // Redirigir a la página principal
+                    });
+                });
+            </script>
+
 </form>
 
 </div>

@@ -15,11 +15,10 @@ if (session()->get('user') === null) {
 @endsection
 
 
-
 @section('content')
 <!-- Contenido específico de esta página -->
 <section class="">
-    <div class="formulario">
+    <div class="formulario3">
 
         <h3>Añadir Aula y material</h3>
         <form action="/reservaMaterial">
@@ -36,7 +35,18 @@ if (session()->get('user') === null) {
             <input type="number" name="cantidadAlumnos" id="cantidadAlumnos" required>
 
             <input type="submit" value="Continuar">
-            <input type="submit" value="Cancelar">
+            
+            <a class="cancelar" href="/" id="cancelButton">Cancelar</a>
+
+            <script>
+                document.addEventListener('DOMContentLoaded', function() {
+                    document.getElementById('cancelButton').addEventListener('click', function(event) {
+                        event.preventDefault(); // Evitar que se siga el enlace por defecto
+                        window.location.href = "/"; // Redirigir a la página principal
+                    });
+                });
+            </script>
+
         </form>
     </div>
 </section>
