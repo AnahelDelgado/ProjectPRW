@@ -48,7 +48,7 @@ if (session()->get('user') === null) {
                 center: 'title',
                 right: 'dayGridMonth,timeGridWeek,listWeek'
             },
-            height:805,
+            height:750,
             events: @json($events)
             
         });
