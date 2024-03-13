@@ -114,6 +114,21 @@ class EventController extends Controller
     }
 
 
+    public function eliminarReserva(Request $request)
+    {
+        $request->validate([
+            'reserva' => 'required|exists:events,id'
+        ]);
+
+        try {
+            $idReserva = $request->input('reserva');
+            $reserva = event::findOrFail($idReserva);
+            $reserva->delete();
+            return redirect()->route('reservas.eliminar')->with('success', 'Reserva eliminada correctamente');
+        } catch (\Exception $e) {
+            return redirect()->route('reservas.eliminar')->with('error', 'Error al eliminar la reserva');
+        }
+    }
     //eliminar reserva 
 
     public function reservaMaterial()
@@ -121,7 +136,12 @@ class EventController extends Controller
         $horas['horasInicio'] = ["08:00","08:55","09:50","11:15","12:10","13:05"];
         $horas['horasFin'] = ["08:55","09:50","11:15","12:10","13:05","14:00"];
 
-        return view ('secciones.reserva2');
+
+
+        $productosDisponibles = product::all();
+
+
+        return view ('secciones.reserva2', ['productosDisponibles' => $productosDisponibles]);
     }
     
     public function mostrarFormularioEliminarAula()
@@ -130,32 +150,19 @@ class EventController extends Controller
         return view('reservas.eliminar', ['reservas' => $reservas]);
     }
 
-    public function eliminarReserva(Request $request)
+
+
+    
+    public function mostrarReservas(Request $request)
     {
-        // Validar el ID de la reserva recibido
-        $request->validate([
-            'reserva' => 'required|exists:events,id',
-        ]);
+        $reservas = Event::where('id_profesor', function($query) {
+            $query->select('id')
+                ->from('teachers')
+                ->where('email', 'oscarluciomorenojorge@alumno.ieselrincon.es');
+        })->whereNotNull('id_aula')->get();
 
-        try {
-            // Obtener el ID de la reserva a eliminar desde la solicitud
-            $idReserva = $request->input('reserva');
 
-            // Buscar la reserva en la base de datos
-            $reserva = Event::findOrFail($idReserva);
-
-            // Eliminar la reserva
-            $reserva->delete();
-
-            // Obtener todas las reservas nuevamente después de eliminar
-            $reservas = Event::all();
-
-            // Redireccionar con un mensaje de éxito y las reservas actualizadas
-            return redirect()->route('reservas.eliminar')->with(['success' => 'Reserva eliminada correctamente', 'reservas' => $reservas]);
-        } catch (\Exception $e) {
-            // Manejar cualquier error que pueda ocurrir durante la eliminación
-            return redirect()->route('reservas.eliminar')->with('error', 'Error al eliminar la reserva');
-        }
+        return view ('reservas.eliminar', ['reservas' => $reservas]);
     }
 
     //Editar reserva
@@ -210,15 +217,7 @@ class EventController extends Controller
 
     public function materialDisponible($fecha)
     {
-        $productosDisponibles = product::whereNotIn('id', function($query) use ($fecha) {
-            $query->select('id_product')
-                ->from('eventsproducts')
-                ->where('id_reserva', function($subquery) use ($fecha) {
-                    $subquery->select('id')
-                        ->from('events')
-                        ->where('dia', $fecha);
-                });
-        })->get();
+
 
 
         return view('secciones.reserva2', ['productosDisponibles' => $productosDisponibles]);
@@ -232,6 +231,7 @@ class EventController extends Controller
         $viewData["products"] = Product::all();
 
 
+
         return view('secciones.reserva2')->with("viewData", $viewData);
     }
 
@@ -240,10 +240,7 @@ class EventController extends Controller
         return view('secciones.reservaPrueba');
     }
 
-    public function eleccionreserva()
-    {
-        return view('login.eleccion');
-    }
+
 
     public function reserva3()
     {
@@ -321,11 +318,15 @@ class EventController extends Controller
 
     //eleccion editar
 
+    public function eleccionreserva(){
+
+        return view ('login.eleccion');
+    }
 
     public function eleccioneditar()
     {
 
-        return view('reservas.eleccioneditar');
+        return view('reservas.eliminar');
     }
 
 
