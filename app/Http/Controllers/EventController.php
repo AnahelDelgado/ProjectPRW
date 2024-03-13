@@ -252,11 +252,7 @@ class EventController extends Controller
     }
 
 
-    public function misReservas()
-    {
-
-        return view('secciones.misReservas');
-    }
+   
 
     public function index()
     {

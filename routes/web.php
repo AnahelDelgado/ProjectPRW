@@ -48,9 +48,7 @@ Route::get('/reservaAulayMaterial', 'App\Http\Controllers\EventController@reserv
 
 Route::get('/eleccion', 'App\Http\Controllers\EventController@eleccionreserva')->name('login.eleccion');
 
-// link para mis reservas
 
-Route::get('/misReservas', 'App\Http\Controllers\EventController@misReservas')->name('secciones.misResevas');
 
 
 

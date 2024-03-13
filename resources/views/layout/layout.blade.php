@@ -83,8 +83,7 @@
     </footer>
 
 
-    <a href="/misReservas" class="boton2">Mis reservas</a>
-
+    
     <!-- Stack del calendario -->
     @stack('scripts')
 </body>

@@ -162,18 +162,6 @@ span{
 }
 
 
-.misreservas {
-    position: fixed;
-    margin-top: -9em;
-    right: 40px;
-    padding: 40px;
-    border-radius: 8px;
-    cursor: pointer;
-    height:0;
-    transition: background-color 0.3s; 
-    background-color: #1a324e;
-}
-
 
 .boton {
     background-color: #335684; 
@@ -188,19 +176,7 @@ span{
 
 }
 
-.boton2 {
-    position: fixed;
-    bottom: 70px;
-    right: 50px;
-    padding: 20px;
-    border-radius: 4px;
-    color: white;
-    text-decoration: none;
-    cursor: pointer;
-    background-color: #1a324e;
-    z-index: 1000000;
-    
-}
+
 #calendar{
     padding: 50px;
     margin-left: 4%;
