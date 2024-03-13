@@ -225,19 +225,24 @@ class EventController extends Controller
             // Concatenamos las fechas y horas para formar un formato de fecha y hora adecuado.
             $startDateTime = $evento->dia . 'T' . $evento->hora_inicio;
             $endDateTime = $evento->dia . 'T' . $evento->hora_fin;
-
+    
+            // Determinar el color de fondo según el día del evento (por ejemplo, si es hoy)
+            $backgroundColor = ($evento->dia == date('Y-m-d')) ? '#070D29' : '#070D29';
+    
             $events[] = [
                 'title' => 'Reserva',
                 'id_profesor' => $evento->id_profesor,
                 'id_aula' => $evento->id_aula,
                 'start' => $startDateTime,
                 'end' => $endDateTime,
+                'backgroundColor' => $backgroundColor, 
             ];
         }
-
+    
         // Devolvemos la vista con los eventos.
         return view('secciones.horario', compact('events'));
     }
+    
 
 
 

@@ -48,9 +48,8 @@ if (session()->get('user') === null) {
                 center: 'title',
                 right: 'dayGridMonth,timeGridWeek,listWeek'
             },
-            height:750,
+            height: 750,
             events: @json($events)
-            
         });
         calendar.render();
     });

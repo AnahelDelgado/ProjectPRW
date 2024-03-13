@@ -35,6 +35,7 @@
     --fc-daygrid-event-dot-width: 8px;
     --fc-event-border-color: white;
     --fc-list-event-hover-bg-color: rgba(255, 255, 255, 0);
+    
   }
 
 .fc-toolbar-title {
@@ -68,3 +69,4 @@ thead{
 tbody {
     font-size: 18px;
 }
+
