@@ -27,6 +27,7 @@ body {
 .titulo {
     color: white;
     margin-bottom: 2em;
+    text-align: center;
 }
 
 .titulo h2 {
@@ -72,13 +73,35 @@ body {
 /* Logo del footer */
 .logo {
     width: 8em;
-    height: 8em;
-    margin-right: 3%;
     float: right; /* Alinea el logo a la derecha */
+    margin-right: 20%;
 }
 
 /* Enlace */
 .link {
     color: #4BA4ED;
     text-decoration: none;
+    margin-left: 20%;
+    margin-top: 11%;
+}
+
+
+@media screen and (max-width: 767px) {
+    .logo{
+        width: 6em;
+    }
+
+    .link{
+        margin-top: 16%;
+    }
+}
+
+@media screen and (max-width: 576px) {
+    .logo{
+        width: 4em;
+    }
+
+    .link{
+        margin-top: 22%;
+    }
 }
