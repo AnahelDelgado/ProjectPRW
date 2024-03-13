@@ -85,7 +85,7 @@ body {
     width: 8em;
     float: right; /* Alinea el logo a la derecha */
     margin-right: 5%;
-    margin-top: 12%;
+    margin-top: 13%;
 }
 
 
@@ -94,19 +94,13 @@ body {
 @media screen and (max-width: 767px) {
     .logo{
         width: 6em;
-    }
-
-    .link{
-        margin-top: 16%;
+        margin-top: 20%;
     }
 }
 
 @media screen and (max-width: 576px) {
     .logo{
         width: 4em;
-    }
-
-    .link{
-        margin-top: 22%;
+        margin-top: 25%;
     }
 }
