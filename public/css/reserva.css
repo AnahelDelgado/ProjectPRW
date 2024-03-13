@@ -207,8 +207,7 @@ span{
     margin-top: 2%;
     background-color: #5281BF;
     width: 90%;
-    border-radius: 8%;
-    box-shadow: 0 0 10px 1px;
+    border-radius: 2%;
 }
 .misreservas:hover {
     background-color: #5499e7;
