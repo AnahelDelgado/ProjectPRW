@@ -14,8 +14,6 @@
     <link rel="stylesheet" href="{{asset('/css/reserva.css')}}">
     <link rel="stylesheet" href="{{asset('/css/agregar.css')}}">
     <link rel="stylesheet" href="{{asset('/css/editar.css')}}">
-    <link rel="stylesheet" href="{{asset('/css/eliminar.css')}}">
-    <link rel="stylesheet" href="{{asset('/css/calendar.css')}}">
 
     <title>Reserva Aula</title>
     @yield('head')
@@ -43,7 +41,17 @@
                     <input type="submit" value="Cerrar sesión" class="boton">
                 </form>
             </div>
+
             <ul class="menu-options">
+
+                <li>
+                    <a href="/" class="menu-link">
+                        <img src="/icons/inicio.png" alt="Inicio">
+                        <span>Inicio</span>
+                    </a>
+                </li>
+
+
                 <li>
                     <a href="/reservas/editar/eleccioneditar" class="menu-link">
                         <img src="/icons/editar.png" alt="Editar">
@@ -74,7 +82,7 @@
         <p>IES EL RINCÓN</p>
     </footer>
 
-    
+
     <a href="/misReservas" class="boton2">Mis reservas</a>
 
     <!-- Stack del calendario -->

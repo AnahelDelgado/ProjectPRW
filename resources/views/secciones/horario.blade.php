@@ -27,6 +27,11 @@ if (session()->get('user') === null) {
 <div id='calendar'></div>
 @endsection
 
+@section('head')
+
+<link rel="stylesheet" href="css/calendar.css">
+@endsection
+
 @push('scripts')
 <script src="https://cdn.jsdelivr.net/npm/fullcalendar@6.1.11/index.global.min.js"></script>
 <script src='fullcalendar/core/index.global.js'></script>
@@ -41,7 +46,7 @@ if (session()->get('user') === null) {
                 center: 'title',
                 right: 'dayGridMonth,timeGridWeek,listWeek'
             },
-            height:1200,
+            height:900,
             events: @json($events)
             
         });
