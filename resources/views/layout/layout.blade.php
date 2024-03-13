@@ -72,7 +72,7 @@
                 </li>
             </ul>
         </div>
-        <div>
+        <div class="content">
             <!-- contenido -->
             @yield('content')
         </div>
