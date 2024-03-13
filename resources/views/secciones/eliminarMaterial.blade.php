@@ -20,32 +20,40 @@ if (session()->get('user') === null) {
 
 @section('content')
 
- <!-- Título -->
- <div  class="contorno" >
- <h1>Eliminar Material</h1>
-        
-        <!-- Formulario -->
-        <form action= "" >
-            @csrf
-            <label for="material">Seleccionar material a eliminar:</label><br>
-            <select name="material" id="material" required>
-                <option value="material1">Material 1</option>
-                <option value="material2">Material 2</option>
-                <!-- Agrega más opciones según los materiales disponibles -->
-            </select><br>
-            <input type="submit" value="Eliminar Material">
+<!-- Título -->
+<div class="contorno">
+    <h1>Eliminar Material</h1>
 
-            <a class="cancelar" href="/" id="cancelButton">Cancelar</a>
+    <!-- Formulario -->
+    <form action="">
+        @csrf
+        <label for="material">Seleccionar material a eliminar:</label><br>
+        <select name="material" id="material" required>
+            <option value="material1">Material 1</option>
+            <option value="material2">Material 2</option>
 
-            <script>
-                document.addEventListener('DOMContentLoaded', function() {
-                    document.getElementById('cancelButton').addEventListener('click', function(event) {
-                        event.preventDefault(); // Evitar que se siga el enlace por defecto
-                        window.location.href = "/"; // Redirigir a la página principal
-                    });
+        </select><br>
+
+        <label class="checkbox-container">
+            <input type="checkbox">
+            <span class="checkmark"></span>
+            <span class="checkbox-label">Eliminar Aula</span>
+        </label>
+       
+
+        <input type="submit" value="Eliminar Material">
+
+        <a class="cancelar" href="/" id="cancelButton">Cancelar</a>
+
+        <script>
+            document.addEventListener('DOMContentLoaded', function() {
+                document.getElementById('cancelButton').addEventListener('click', function(event) {
+                    event.preventDefault(); // Evitar que se siga el enlace por defecto
+                    window.location.href = "/"; // Redirigir a la página principal
                 });
-            </script>
+            });
+        </script>
 
-        </form>
+    </form>
 </div>
 @endsection
