@@ -11,7 +11,6 @@
 <body class="bodyLogin">
   <div class="cont">
     <h2 class="titulo">Reserva tu aula y material</h2>
-    <p class="titulo">Inicia sesión aquí para poder reservar </p>
 
     <div class="CuadradoBlanco">
       <form class="formulario" action="" method="get">

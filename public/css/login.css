@@ -74,12 +74,18 @@ body {
     text-align: center; /* Alinea el contenido al centro */
 }
 
+.sesion
+{
+
+    font-family:monospace; 
+}
+
 /* Logo del footer */
 .logo {
     width: 8em;
     float: right; /* Alinea el logo a la derecha */
     margin-right: 5%;
-    margin-top: 8%;
+    margin-top: 12%;
 }
 
 
