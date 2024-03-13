@@ -199,6 +199,8 @@ class EventController extends Controller
             // Manejar cualquier error que pueda ocurrir durante la edición
             return redirect()->route('reservas.editar')->with('error', 'Error al editar la reserva');
         }
+
+        
     }
 
 

@@ -19,7 +19,7 @@ if (session()->get('user') === null) {
 @section('content')
 <!-- Contenido específico de esta página -->
 <section id="add-form">
-    <div class="formulario">
+    <div class="formulario2">
 
         <h3>Añadir Aula</h3>
         <form method="POST" action="{{ route('reserve.add') }}">
@@ -84,7 +84,18 @@ if (session()->get('user') === null) {
             </select>
 
             <input type="submit" value="Reservar">
-            <input type="submit" value="Cancelar">
+
+            <a class="cancelar" href="/" id="cancelButton">Cancelar</a>
+
+            <script>
+                document.addEventListener('DOMContentLoaded', function() {
+                    document.getElementById('cancelButton').addEventListener('click', function(event) {
+                        event.preventDefault(); // Evitar que se siga el enlace por defecto
+                        window.location.href = "/"; // Redirigir a la página principal
+                    });
+                });
+            </script>
+
         </form>
     </div>
 </section>

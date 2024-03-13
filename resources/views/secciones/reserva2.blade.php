@@ -52,6 +52,17 @@ if (session()->get('user') === null) {
         </div>
         <div>
             <button type="submit" class="button">Reservar </button>
+
+            <a class="cancelar" href="/" id="cancelButton">Cancelar</a>
+
+            <script>
+                document.addEventListener('DOMContentLoaded', function() {
+                    document.getElementById('cancelButton').addEventListener('click', function(event) {
+                        event.preventDefault(); // Evitar que se siga el enlace por defecto
+                        window.location.href = "/"; // Redirigir a la página principal
+                    });
+                });
+            </script>
         </div>
 
     @section('scriptProducts')
