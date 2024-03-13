@@ -1,6 +1,10 @@
-/* CSS para login */
 
-/* Estilos generales */
+.cont
+{
+margin-top: 2%;
+}
+
+
 body {
     margin: 0;
     padding: 0;
@@ -28,6 +32,8 @@ body {
     color: white;
     margin-bottom: 2em;
     text-align: center;
+    font-size: 2.5em;
+    font-family:monospace;
 }
 
 .titulo h2 {
@@ -35,9 +41,7 @@ body {
     margin-bottom: 0.5em;
 }
 
-.tp {
-    font-size: 1.5em; /* Tamaño de fuente original */
-}
+
 
 /* Botón de iniciar sesión con Google */
 .google-login {
@@ -74,16 +78,11 @@ body {
 .logo {
     width: 8em;
     float: right; /* Alinea el logo a la derecha */
-    margin-right: 20%;
+    margin-right: 5%;
+    margin-top: 8%;
 }
 
-/* Enlace */
-.link {
-    color: #4BA4ED;
-    text-decoration: none;
-    margin-left: 20%;
-    margin-top: 11%;
-}
+
 
 
 @media screen and (max-width: 767px) {
