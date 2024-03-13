@@ -14,6 +14,10 @@ if (session()->get('user') === null) {
 <?php echo $viewData['nombre'] ?>
 @endsection
 
+@section('head')
+<link rel="stylesheet" href="{{asset('/css/eliminar.css')}}">
+@endsection
+
 @section('content')
 
  <!-- Título -->
@@ -30,6 +34,18 @@ if (session()->get('user') === null) {
                 <!-- Agrega más opciones según los materiales disponibles -->
             </select><br>
             <input type="submit" value="Eliminar Material">
+
+            <a class="cancelar" href="/" id="cancelButton">Cancelar</a>
+
+            <script>
+                document.addEventListener('DOMContentLoaded', function() {
+                    document.getElementById('cancelButton').addEventListener('click', function(event) {
+                        event.preventDefault(); // Evitar que se siga el enlace por defecto
+                        window.location.href = "/"; // Redirigir a la página principal
+                    });
+                });
+            </script>
+
         </form>
 </div>
 @endsection

@@ -14,7 +14,7 @@ return new class extends Migration
         Schema::create('events', function (Blueprint $table) {
             $table->id();
             $table->foreignId('id_profesor')->constrained('teachers');
-            $table->foreignId('id_aula')->constrained('classrooms');
+            $table->string('id_aula')->nullable();
             $table->date('dia');
             $table->time('hora_inicio');
             $table->time('hora_fin');

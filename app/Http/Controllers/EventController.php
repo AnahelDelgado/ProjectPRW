@@ -20,8 +20,10 @@ class EventController extends Controller
 
     public function horasDisponibles($fecha)
     {
-        $horas['horasInicio'] = ["08:00", "08:55", "09:50", "11:15", "12:10", "13:05"];
-        $horas['horasFin'] = ["08:55", "09:50", "11:15", "12:10", "13:05", "14:00"];
+
+
+        $horas['horasInicio'] = ["08:00","08:55","09:50","11:15","12:10","13:05"];
+        $horas['horasFin'] = ["08:55","09:50","11:15","12:10","13:05","14:00"];
 
         $hayReservas = event::where('dia', $fecha)->count();
 
@@ -40,36 +42,47 @@ class EventController extends Controller
         }
 
         $aulas = classroom::all()->pluck('nombre');
+        $primerAula = classroom::first()->nombre;
 
-        return view('reservas.añadir', ['horas' => $horas, 'fecha' => $fecha, 'aulas' => $aulas]);
+
+
+        return view('reservas.añadir', ['horas' => $horas, 'fecha' => $fecha, 'aulas' => $aulas, 'primerAula' => $primerAula]);
     }
 
     public function horafecha($fecha, $aula)
     {
         $idaula = classroom::where('nombre', $aula)->first()->id;
 
-        $horas['horasInicio'] = ["08:00", "08:55", "09:50", "11:15", "12:10", "13:05"];
-        $horas['horasFin'] = ["08:55", "09:50", "11:15", "12:10", "13:05", "14:00"];
+
+        $horas['horasInicio'] = ["08:00","08:55","09:50","11:15","12:10","13:05"];
+        $horas['horasFin'] = ["08:55","09:50","11:15","12:10","13:05","14:00"];
 
         $hayReservas = event::where('dia', $fecha)
             ->where('id_aula', $idaula)
             ->count();
 
         $reservas = event::where('dia', $fecha)
-            ->where('id_aula', $idaula)
-            ->select('hora_inicio', 'hora_fin')
-            ->get();
+        ->where('id_aula', $idaula)
+        ->selectRaw("TIME_FORMAT(hora_inicio, '%H:%i') as hora_inicio, TIME_FORMAT(hora_fin, '%H:%i') as hora_fin")
+        ->get();
 
-        if ($hayReservas == 0) {
-            $horas['horasInicio'] = ["08:00", "08:55", "09:50", "11:15", "12:10", "13:05"];
-            $horas['horasFin'] = ["08:55", "09:50", "11:15", "12:10", "13:05", "14:00"];
-        } else {
+
+        
+        if($hayReservas == 0){
+            $horas['horasInicio'] = ["08:00","08:55","09:50","11:15","12:10","13:05"];
+            $horas['horasFin'] = ["08:55","09:50","11:15","12:10","13:05","14:00"];
+        }
+        else
+        {
             foreach ($reservas as $reserva) {
                 $horas['horasInicio'] = array_diff($horas['horasInicio'], [$reserva['hora_inicio']]);
                 $horas['horasFin'] = array_diff($horas['horasFin'], [$reserva['hora_fin']]);
+
             }
         }
+
         $aulas = classroom::all()->pluck('nombre');
+
         return view('reservas.añadir', ['horas' => $horas, 'fecha' => $fecha, 'aulas' => $aulas, 'aulaSeleccionada' => $aula]);
     }
 
@@ -103,7 +116,12 @@ class EventController extends Controller
 
     //eliminar reserva 
 
-
+    public function reservaMaterial()
+    {
+        $horas['horasInicio'] = ["08:00","08:55","09:50","11:15","12:10","13:05"];
+        $horas['horasFin'] = ["08:55","09:50","11:15","12:10","13:05","14:00"];
+    }
+    
     public function mostrarFormularioEliminarAula()
     {
         $reservas = Event::all();
@@ -181,9 +199,28 @@ class EventController extends Controller
             // Manejar cualquier error que pueda ocurrir durante la edición
             return redirect()->route('reservas.editar')->with('error', 'Error al editar la reserva');
         }
+
+        
     }
 
 
+
+
+    public function materialDisponible($fecha)
+    {
+        $productosDisponibles = product::whereNotIn('id', function($query) use ($fecha) {
+            $query->select('id_product')
+                ->from('eventsproducts')
+                ->where('id_reserva', function($subquery) use ($fecha) {
+                    $subquery->select('id')
+                        ->from('events')
+                        ->where('dia', $fecha);
+                });
+        })->get();
+
+
+        return view('secciones.reserva2', ['productosDisponibles' => $productosDisponibles]);
+    }
 
 
 
@@ -191,6 +228,8 @@ class EventController extends Controller
     {
         $viewData = [];
         $viewData["products"] = Product::all();
+
+
         return view('secciones.reserva2')->with("viewData", $viewData);
     }
 
@@ -225,19 +264,24 @@ class EventController extends Controller
             // Concatenamos las fechas y horas para formar un formato de fecha y hora adecuado.
             $startDateTime = $evento->dia . 'T' . $evento->hora_inicio;
             $endDateTime = $evento->dia . 'T' . $evento->hora_fin;
-
+    
+            // Determinar el color de fondo según el día del evento (por ejemplo, si es hoy)
+            $backgroundColor = ($evento->dia == date('Y-m-d')) ? '#070D29' : '#070D29';
+    
             $events[] = [
                 'title' => 'Reserva',
                 'id_profesor' => $evento->id_profesor,
                 'id_aula' => $evento->id_aula,
                 'start' => $startDateTime,
                 'end' => $endDateTime,
+                'backgroundColor' => $backgroundColor, 
             ];
         }
-
+    
         // Devolvemos la vista con los eventos.
         return view('secciones.horario', compact('events'));
     }
+    
 
 
 

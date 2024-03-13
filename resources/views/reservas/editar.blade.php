@@ -27,7 +27,7 @@ if (session()->get('user') === null) {
         <label for="reserva">Seleccionar reserva a editar:</label><br>
         <select name="reserva" id="reserva">
             @foreach($reservas as $reserva)
-                <option value="{{ $reserva->id }}">{{ $reserva->dia }} - {{ $reserva->horaInicio }} a {{ $reserva->horaFin }}</option>
+            <option value="{{ $reserva->id }}">{{ $reserva->dia }} - {{ $reserva->horaInicio }} a {{ $reserva->horaFin }}</option>
             @endforeach
         </select><br>
         <!-- Aquí van los campos para editar la reserva -->
@@ -38,7 +38,16 @@ if (session()->get('user') === null) {
         <label for="horaFinalReserva">Hora final de la reserva:</label><br>
         <input type="time" name="horaFinalReserva" id="horaFinalReserva" required><br>
         <input type="submit" value="Guardar Cambios">
-        <input type="submit" value="Cancelar">
+        <a class="cancelar" href="/" id="cancelButton">Cancelar</a>
+
+        <script>
+            document.addEventListener('DOMContentLoaded', function() {
+                document.getElementById('cancelButton').addEventListener('click', function(event) {
+                    event.preventDefault(); // Evitar que se siga el enlace por defecto
+                    window.location.href = "/"; // Redirigir a la página principal
+                });
+            });
+        </script>
     </form>
 </div>
 

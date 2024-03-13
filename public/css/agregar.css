@@ -1,21 +1,27 @@
-#add-form{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    min-height: 100dvh;
-    inset: 0;
-}
-
 form {
     text-align: center;
-    margin-top:3em;
+    margin-top: 3em;
 }
 
-.formulario {
+.formulario2 {
     background-color: #84B2D8;
     height: 40em;
-    width: 45em; 
-    border-radius:10px; 
+    width: 50%;
+    border-radius: 10px;
+    margin-left: 20%;
+    margin-top: 6%;
+}
+   
+
+
+.formulario3
+{
+    background-color: #84B2D8;
+    height: 40em;
+    width: 50%;
+    border-radius: 10px;
+    margin-left: 20%;
+    margin-top: 6%;
 }
 
 label {
@@ -26,16 +32,28 @@ input[type="date"],
 input[type="time"],
 input[type="number"],
 input[type="submit"] {
-    width: 80%;
+    width: 70%;
     padding: 10px;
     margin-bottom: 10px 0px 30px 0px;
     border: 1px solid #ccc;
     border-radius: 5px;
     background-color: #335684;
-    color:#fff;
+    color: #fff;
     text-align: center;
-    font-size: 1em
-    
+    font-size: 1em;
+}
+
+/* Estilos para el botón Cancelar */
+.cancelar {
+    width: 70%;
+    padding: 10px;
+    margin-bottom: 10px 0px 30px 0px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background-color: #335684;
+    color: #fff;
+    text-align: center;
+    font-size: 1em;
 }
 
 input[type="submit"] {
@@ -49,7 +67,7 @@ input[type="submit"]:hover {
 }
 
 
-h3{
+h3 {
 
     text-align: center;
     font-size: 1.5em
