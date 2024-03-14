@@ -41,7 +41,7 @@ if (session()->get('user') === null) {
 
     
 
-            <input type="submit" value="Continuar">
+            <input type="submit" value="Reservar">
             
             <a class="cancelar" href="/" id="cancelButton">Cancelar</a>
 
