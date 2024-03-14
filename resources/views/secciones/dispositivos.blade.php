@@ -33,17 +33,17 @@ if (session()->get('user') === null) {
 
         @if(isset($productosDisponibles))
             @foreach ($productosDisponibles as $producto)
-<div class="card swiper-slide">
+                <div class="card swiper-slide">
                     <div class="image-content">
                         <span class="overlay"></span>
                         <div class="card-image">
-                            <img src="img/Impresora3D.jpg" alt="" class="card-img">
+                            <img src="{{ $producto->imagen }}" alt="" class="card-img">
                         </div>
                     </div>
                     <div class="card-content">
-                        <h2 class="name">Impresora 3D</h2>
-                        <p class="description">Impresora 3D la cual se le puede dar uso para la impresión de casi cualquier diseño realizado por el alumnado.</p>
-                        <button class="button add-product" id_producto="1">Añadir</button>
+                        <h2 class="name">{{ $producto->nombre }}</h2>
+                        <p class="description">{{ $producto->descripcion }}</p>
+                        <button class="button add-product" id_producto="{{ $producto->id }}">Añadir</button>
                     </div>
                 </div>
             @endforeach
