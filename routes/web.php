@@ -59,6 +59,8 @@ Route::post('/logout', 'App\Http\Controllers\googleAPIController@logout');
 // Ruta para mostrar el formulario de reserva
 Route::get('/reservaAula', [EventController::class, 'añadir'])->name('reservas.añadir');
 
+// Ruta para almacenar la reserva (solicitud POST desde el formulario)
+
 Route::get('reservarAula/{fecha}', 'App\Http\Controllers\EventController@horasDisponibles');
 Route::get('reservarAula/{fecha}/{aula}', 'App\Http\Controllers\EventController@horafecha');
 Route::post('reservarAula/add', 'App\Http\Controllers\EventController@store')->name("reserve.add");

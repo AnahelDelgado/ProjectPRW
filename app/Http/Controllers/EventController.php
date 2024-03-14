@@ -14,7 +14,6 @@ class EventController extends Controller
 {
     public function añadir()
     {
-
         return view('reservas.añadir');
     }
 

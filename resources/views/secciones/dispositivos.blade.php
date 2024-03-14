@@ -18,12 +18,13 @@ if (session()->get('user') === null) {
 
 
 @section('head')
-<link rel="stylesheet" href="CSS/swiper-bundle.min.css">
-<link rel="stylesheet" href="CSS/style.css">
+<link rel="stylesheet" href="{{ asset('css/swiper-bundle.min.css') }}">
+<link rel="stylesheet" href="{{ asset('css/slider.css') }}">
 @endsection
 @section('imagen')
 <img class="avatar" src="<?php echo $viewData['avatar'] ?>" alt="" srcset="">
 @endsection
+
 @section('content')
     <!-- Contenido específico de esta página -->
     <div class="slide-container swiper">
@@ -31,23 +32,24 @@ if (session()->get('user') === null) {
         <div class="slide-content">
             <div class="card-wrapper swiper-wrapper">
 
-        @if(isset($productosDisponibles))
-            @foreach ($productosDisponibles as $producto)
-<div class="card swiper-slide">
-                    <div class="image-content">
-                        <span class="overlay"></span>
-                        <div class="card-image">
-                            <img src="img/Impresora3D.jpg" alt="" class="card-img">
+            <?php if(isset($productosDisponibles)): ?>
+                @foreach ($productosDisponibles as $producto)
+                    <div class="card swiper-slide">
+                        <div class="image-content">
+                            <span class="overlay"></span>
+                            <div class="card-image">
+                                <img src="{{ asset($producto->imagen) }}" alt="" class="card-img">
+                            </div>
+                        </div>
+                        <div class="card-content">
+                            <h2 class="name">{{ $producto->nombre }}</h2>
+                            <p class="description">{{ $producto->descripcion }}</p>
+                            <button class="button add-product" id_producto="{{ $producto->id }}">Añadir</button>
                         </div>
                     </div>
-                    <div class="card-content">
-                        <h2 class="name">Impresora 3D</h2>
-                        <p class="description">Impresora 3D la cual se le puede dar uso para la impresión de casi cualquier diseño realizado por el alumnado.</p>
-                        <button class="button add-product" id_producto="1">Añadir</button>
-                    </div>
-                </div>
-            @endforeach
-        @endif
+                @endforeach
+            <?php endif; ?>
+
 
             </div>
         </div>
@@ -56,8 +58,8 @@ if (session()->get('user') === null) {
         </div>
 
     @section('scriptProducts')
-        <script src="JS/swiper-bundle.min.js"></script>
-        <script src="JS/slider.js"></script>
+        <script src="{{ asset('JS/swiper-bundle.min.js') }}"></script>
+        <script src="{{ asset('JS/slider.js') }}"></script>
     @endsection
     <div class="swiper-button-next swiper-navBtn"></div>
     <div class="swiper-button-prev swiper-navBtn"></div>
