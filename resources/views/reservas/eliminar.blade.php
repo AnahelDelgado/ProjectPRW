@@ -26,7 +26,7 @@ if (session()->get('user') === null) {
 <!-- Título -->
 <h1>Eliminar reserva de aula</h1>
 <!-- Formulario -->
-<form action="{{ route('reservas.eliminar') }}" method="POST">
+<form action="{{ route('reservas.eliminar') }}" method="POST" id="eliminarReserva">
     @csrf
     @method('DELETE')
     <label for="reserva">Seleccionar reserva a eliminar:</label><br>
@@ -36,6 +36,18 @@ if (session()->get('user') === null) {
         @endforeach
     </select><br>
     <input type="submit" value="Eliminar Reserva" id="eliminarButton">
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            document.getElementById('eliminarButton').addEventListener('click', function(event) {
+                event.preventDefault(); // Evitar que se siga el enlace por defecto
+                if (confirm('¿Estás seguro de que quieres eliminar la reserva?')) {
+                    document.getElementById('eliminarReserva').submit();
+                }
+            });
+        });
+    </script>
+    
     <a class="cancelar" href="/" id="cancelButton">Cancelar</a>
 
             <script>

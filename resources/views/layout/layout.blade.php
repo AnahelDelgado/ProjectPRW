@@ -53,7 +53,7 @@
 
 
                 <li>
-                    <a href="/reservas/editar/eleccioneditar" class="menu-link">
+                    <a href="/reservas/editar" class="menu-link">
                         <img src="/icons/editar.png" alt="Editar">
                         <span>Editar</span>
                     </a>

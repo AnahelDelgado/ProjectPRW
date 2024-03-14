@@ -13,6 +13,34 @@ use PhpParser\Node\Stmt\TryCatch;
 
 class EventController extends Controller
 {
+
+    //Calendario
+    public function index()
+    {
+        $events = [];
+        $bookings = Event::all();
+        foreach ($bookings as $evento) {
+            // Concatenamos las fechas y horas para formar un formato de fecha y hora adecuado.
+            $startDateTime = $evento->dia . 'T' . $evento->hora_inicio;
+            $endDateTime = $evento->dia . 'T' . $evento->hora_fin;
+
+            // Determinar el color de fondo según el día del evento (por ejemplo, si es hoy)
+            $backgroundColor = ($evento->dia == date('Y-m-d')) ? '#070D29' : '#070D29';
+
+            $events[] = [
+                'title' => 'Reserva',
+                'id_profesor' => $evento->id_profesor,
+                'id_aula' => $evento->id_aula,
+                'start' => $startDateTime,
+                'end' => $endDateTime,
+                'backgroundColor' => $backgroundColor,
+            ];
+        }
+
+        // Devolvemos la vista con los eventos.
+        return view('secciones.horario', compact('events'));
+    }
+
     // Añadir reserva
     public function añadir()
     {
@@ -21,8 +49,6 @@ class EventController extends Controller
 
     public function horasDisponibles($fecha)
     {
-
-
         $horas['horasInicio'] = ["08:00", "08:55", "09:50", "11:15", "12:10", "13:05"];
         $horas['horasFin'] = ["08:55", "09:50", "11:15", "12:10", "13:05", "14:00"];
 
@@ -198,16 +224,7 @@ class EventController extends Controller
         ]);
     }
 
-
-
-    public function mostrarFormularioEliminarAula()
-    {
-        $reservas = Event::all();
-        return view('reservas.eliminar', ['reservas' => $reservas]);
-    }
-
-
-    public function mostrarReservas(Request $request)
+    public function mostrarReservasEliminar(Request $request)
     {
         $reservas = event::where('id_profesor', function ($query) {
             $query->select('id')
@@ -216,17 +233,26 @@ class EventController extends Controller
                 ->first()->id;
         })->get();
 
-        
-
-
         return view('reservas.eliminar', ['reservas' => $reservas]);
     }
 
+
+
     // Editar reserva
-    public function mostrarFormularioEditarReserva()
+    public function mostrarReservasEditar()
     {
-        $reservas = Event::all(); // Obtener todas las reservas
-        return view('reservas.editar', ['reservas' => $reservas]);
+
+        $horas['horasInicio'] = ["08:00", "08:55", "09:50", "11:15", "12:10", "13:05"];
+        $horas['horasFin'] = ["08:55", "09:50", "11:15", "12:10", "13:05", "14:00"];
+
+        $reservas = event::where('id_profesor', function ($query) {
+            $query->select('id')
+                ->from('teachers')
+                ->where('email', session()->get('user'))
+                ->first()->id;
+        })->get();
+
+        return view('reservas.editar', ['reservas' => $reservas, 'horas' => $horas]);
     }
 
 
@@ -289,31 +315,6 @@ class EventController extends Controller
     
 
 
-    public function index()
-    {
-        $events = [];
-        $bookings = Event::all();
-        foreach ($bookings as $evento) {
-            // Concatenamos las fechas y horas para formar un formato de fecha y hora adecuado.
-            $startDateTime = $evento->dia . 'T' . $evento->hora_inicio;
-            $endDateTime = $evento->dia . 'T' . $evento->hora_fin;
-
-            // Determinar el color de fondo según el día del evento (por ejemplo, si es hoy)
-            $backgroundColor = ($evento->dia == date('Y-m-d')) ? '#070D29' : '#070D29';
-
-            $events[] = [
-                'title' => 'Reserva',
-                'id_profesor' => $evento->id_profesor,
-                'id_aula' => $evento->id_aula,
-                'start' => $startDateTime,
-                'end' => $endDateTime,
-                'backgroundColor' => $backgroundColor,
-            ];
-        }
-
-        // Devolvemos la vista con los eventos.
-        return view('secciones.horario', compact('events'));
-    }
 
     // Editar
     public function editar()
@@ -365,5 +366,12 @@ class EventController extends Controller
     {
 
         return view('reservas.eleccioneliminar');
+    }
+
+
+    public function mostrarFormularioEliminarAula()
+    {
+        $reservas = Event::all();
+        return view('reservas.eliminar', ['reservas' => $reservas]);
     }
 }
