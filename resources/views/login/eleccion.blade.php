@@ -5,7 +5,7 @@
 @section('content')
 <div class="buttons">
     <a href="/reservaAulayMaterial" class="button">Reservar aula + material</a>
-    <a href="/agregarMaterial" class="button">Reservar material</a>
+    <a href="/reservarMaterial" class="button">Reservar material</a>
     <a href="/reservaAula" class="button">Reservar aula</a>
 </div>
 @endsection

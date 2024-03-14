@@ -32,7 +32,7 @@
                     @yield('imagen')
 
                     <!-- Nombre del usuario -->
-                    <h4 class="user-name">@yield('nombre')</h4>
+                    <span class="user-name">@yield('nombre')</span>
                 </a>
             </div>
             <div class="cerrar sesion">
@@ -59,7 +59,7 @@
                     </a>
                 </li>
                 <li>
-                    <a href="/reservas/editar/eleccioneliminar" class="menu-link">
+                    <a href="/reservas/eliminar" class="menu-link">
                         <img src="/icons/borrar.png" alt="Eliminar">
                         <span>Eliminar</span>
                     </a>

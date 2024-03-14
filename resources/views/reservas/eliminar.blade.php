@@ -1,4 +1,5 @@
 <?php $viewData = session()->get('viewData'); ?>
+
 <?php
 if (session()->get('user') === null) {
     header("Location: /login");
@@ -6,21 +7,24 @@ if (session()->get('user') === null) {
 }
 ?>
 
+@extends('layout.layout')
+
 @section('head')
 <link rel="stylesheet" href="{{asset('/css/eliminar.css')}}">
 @endsection
 
-@extends('layout.layout')
 @section('imagen')
 <img class="avatar" src="<?php echo $viewData['avatar'] ?>" alt="" srcset="">
 @endsection
+
 @section('nombre')
 <?php echo $viewData['nombre'] ?>
 @endsection
+
 @section('content')
 <div class="contorno">
 <!-- Título -->
-<h1>Eliminar Aula</h1>
+<h1>Eliminar reserva de aula</h1>
 <!-- Formulario -->
 <form action="{{ route('reservas.eliminar') }}" method="POST">
     @csrf
@@ -31,7 +35,7 @@ if (session()->get('user') === null) {
             <option value="{{ $reserva->id }}">{{ $reserva->dia }} - {{ $reserva->hora_inicio }} a {{ $reserva->hora_fin }}</option>
         @endforeach
     </select><br>
-    <input type="submit" value="Eliminar">
+    <input type="submit" value="Eliminar Reserva" id="eliminarButton">
     <a class="cancelar" href="/" id="cancelButton">Cancelar</a>
 
             <script>
@@ -44,7 +48,6 @@ if (session()->get('user') === null) {
 
               
             </script>
-
 </form>
 
 </div>
