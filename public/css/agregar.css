@@ -84,5 +84,6 @@ input[type="submit"]:hover {
 h3 {
 
     text-align: center;
-    font-size: 1.5em
+    font-size: 35px ;
+    padding-top: 2em;
 }

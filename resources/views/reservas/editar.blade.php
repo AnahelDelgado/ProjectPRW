@@ -31,6 +31,7 @@ if (session()->get('user') === null) {
             @endforeach
         </select><br>
         <!-- Aquí van los campos para editar la reserva -->
+        
         <label for="diaReserva">Día de la reserva:</label><br>
         <input type="date" name="diaReserva" id="diaReserva" required><br>
         <label for="horaInicioReserva">Hora de inicio de la reserva:</label><br>

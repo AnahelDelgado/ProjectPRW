@@ -21,8 +21,9 @@
 }
 
 .titulo {
-    font-size: 24px;
-    margin-top: 30px;
+    font-size: 35px;
+    color: rgb(0, 0, 0);
+    padding-top: 2em;
 }
 
 select, input[type="date"], input[type="time"], input[type="number"] {
@@ -46,3 +47,4 @@ input[type="submit"] {
 input[type="submit"]:hover {
     background-color: #0056b3;
 }
+
