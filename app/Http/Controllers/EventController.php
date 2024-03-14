@@ -212,9 +212,6 @@ class EventController extends Controller
         
     }
 
-
-
-
     public function materialDisponible($fecha)
     {
 
@@ -280,15 +277,10 @@ class EventController extends Controller
         // Devolvemos la vista con los eventos.
         return view('secciones.horario', compact('events'));
     }
-    
-
-
-
 
     //editar
     public function editar()
     {
-
         return view('reservas.editar');
     }
 
