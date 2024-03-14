@@ -7,6 +7,7 @@
     text-align: center;
     height: 30em;
     margin-top: 14em;
+    font-weight: bold;
 }
 
 .contorno h1 {
@@ -77,10 +78,10 @@
     display: block;
   }
   
-  /* Estilos para el texto del checkbox */
+  
   .checkbox-label {
-    color: #fffcfc; /* Color del texto */
-    font-family: Verdana, Geneva, Tahoma, sans-serif; /* Fuente del texto */
+    color:black; 
+    font-family: Verdana, Geneva, Tahoma, sans-serif; 
   }
   
   
