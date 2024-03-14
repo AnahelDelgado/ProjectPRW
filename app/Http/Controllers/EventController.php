@@ -149,12 +149,13 @@ class EventController extends Controller
         $nuevaReserva->id_profesor = teacher::where('email', session()->get('user'))->first()->id;
         $nuevaReserva->save();
 
-        $productosInput = (array) $request->input('productos', []);
+        $productosInput = explode(",",$request->input('productos', []));
+
 
         foreach ($productosInput as $producto) {
-            $id = explode(':"', $producto)[1];
-            $id = explode('"', $id)[0];
-
+            $id = explode(':"', $producto);
+            $id = explode('"', $id[1])[0];
+            
             $nuevaReservaDispositivo = new eventproduct();
             $nuevaReservaDispositivo->id_reserva = $nuevaReserva->id;
             $nuevaReservaDispositivo->id_product = $id;
@@ -166,7 +167,17 @@ class EventController extends Controller
 
     public function materialDisponible($fecha, $horaInicio, $horaFinal)
     {
-        $products = product::all();
+        $products = product::whereNotIn('id', function ($query) use ($fecha, $horaInicio, $horaFinal) {
+            $query->select('id_product')
+                ->from('eventproducts')
+                ->whereIn('id_reserva', function ($subQuery) use ($fecha, $horaInicio, $horaFinal) {
+                    $subQuery->select('id')
+                        ->from('events')
+                        ->where('dia', $fecha)
+                        ->where('hora_inicio', $horaInicio)
+                        ->where('hora_fin', $horaFinal);
+                });
+        })->get();
 
         return view('secciones.dispositivos', [
         'productosDisponibles' => $products, 
