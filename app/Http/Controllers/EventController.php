@@ -6,6 +6,7 @@ use App\Models\classroom;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\View;
 use App\Models\event;
+use App\Models\eventproduct;
 use App\Models\product;
 use App\Models\teacher;
 use PhpParser\Node\Stmt\TryCatch;
@@ -139,38 +140,36 @@ class EventController extends Controller
     }
 
     public function storeMaterial(Request $request) {
-        $request->input('diaReserva', 'horaInicioReserva', 'horaFinalReserva', );
-
-        if (empty($request->input('diaReserva'))) {
-            echo 'No se ha seleccionado una fecha';
-        }
-
-        $request->validate([
-            'diaReserva' => 'required|date',
-            'horaInicioReserva' => 'required',
-            'horaFinalReserva' => 'required',
-            'aula' => 'required'
-        ]);
+        
+        $request->input('fecha', 'horaInicio', 'horaFinal', 'productosInput');
 
         $nuevaReserva = new event();
-        $nuevaReserva->dia = $request->input('diaReserva');
-        $nuevaReserva->hora_inicio = $request->input('horaInicioReserva');
-        $nuevaReserva->hora_fin = $request->input('horaFinalReserva');
-        $nuevaReserva->id_aula = classroom::where('nombre', $request->input('aula'))->first()->id;
+        $nuevaReserva->dia = $request->input('fecha');
+        $nuevaReserva->hora_inicio = $request->input('horaInicio');
+        $nuevaReserva->hora_fin = $request->input('horaFinal');
         $nuevaReserva->id_profesor = teacher::where('email', session()->get('user'))->first()->id;
         $nuevaReserva->save();
 
+        $productosInput = $request->input('productosInput');
+
+        foreach ($productosInput as $producto) {
+            $nuevaReservaDispositivo = new eventproduct();
+            $nuevaReservaDispositivo->id_reserva = $nuevaReserva->id;
+            $nuevaReservaDispositivo->id_producto = $producto;
+            $nuevaReservaDispositivo->save();
+        }
+
         return redirect()->route('secciones.index');
-        
     }
 
     public function materialDisponible($fecha, $horaInicio, $horaFinal)
     {
         $products = product::all();
+
         return view('secciones.dispositivos', [
         'productosDisponibles' => $products, 
         'fecha' => $fecha, 
-        'horaInicial' => $horaInicio, 
+        'horaInicio' => $horaInicio, 
         'horaFinal' => $horaFinal
         ]);
     }

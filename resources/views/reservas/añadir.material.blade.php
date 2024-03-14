@@ -22,7 +22,7 @@ if (session()->get('user') === null) {
     <div class="formulario2">
 
         <h3>Añadir Aula</h3>
-        <form method="POST" action="{{ route('reserve.add') }}">
+        <form method="POST" action="">
             @csrf
             @method('POST')
             <label for="diaReserva">Día de la reserva: </label>

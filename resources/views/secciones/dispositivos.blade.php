@@ -6,7 +6,7 @@ if (session()->get('user') === null) {
     exit;
 }
 
-$request->request->add(['fecha'=> $fecha, 'horaInicial' => $horaInicio, 'horaFinal' => $horaFinal]);
+
 ?>
 
 @extends('layout.layout')
@@ -57,35 +57,43 @@ $request->request->add(['fecha'=> $fecha, 'horaInicial' => $horaInicio, 'horaFin
         </div>
     </div>
     <div>
-        <button type="submit" class="button">Reservar </button>
+        <form method="POST" action="{{ route('reservarMaterial.add',) }}">
+            @csrf
+            @method('POST')
+            <input type="hidden" name="fecha" value="<?php if (isset($fecha)) echo $fecha ?>">
+            <input type="hidden" name="horaInicio" value="<?php if (isset($horaInicio)) echo $horaInicio?>">
+            <input type="hidden" name="horaFinal" value="<?php if (isset($horaFinal)) echo $horaFinal?>">
+
+
+            <button type="submit" class="button">Reservar</button>
+        </form>
+
+        
     </div>
-    <script>
-        document.addEventListener('DOMContentLoaded', function() {
-            // Obtener todos los elementos con la clase 'button' y la clase 'add-product'
-            let botones = document.querySelectorAll('.button.add-product');
-            let arrayProductos = [];
-            // Iterar sobre todos los botones y agregar un evento de clic a cada uno
-            botones.forEach(function(boton) {
-                boton.addEventListener('click', function() {
-                    // Obtener el id_producto del atributo id
-                    let idProducto = this.getAttribute('id_producto');
-
-                    // Crear un objeto de producto y agregar el id_producto
-                    let producto = {
-                        id_producto: idProducto
-                        // Puedes agregar más propiedades del producto aquí si lo necesitas
-                    };
-
-                    // Agregar el producto al array de productos (si el array de productos ya existe)
-                    // Si no existe, puedes crear uno nuevo y luego agregar el producto
-                    arrayProductos.push(producto);
-
-                    // Hacer algo con el array de productos, como enviarlo a través de una solicitud AJAX o almacenarlo en algún lugar
-                    console.log(arrayProductos);
-                });
-            });
-        });
-    </script>
+    <?php
+    echo "<script>";
+    echo "document.addEventListener('DOMContentLoaded', function() {";
+    echo "    let botones = document.querySelectorAll('.button.add-product');";
+    echo "    let productos = [];";
+    echo "    botones.forEach(function(boton) {";
+    echo "        boton.addEventListener('click', function() {";
+    echo "            let idProducto = this.getAttribute('id_producto');";
+    echo "            let producto = [";
+    echo "                'id_producto' => idProducto";
+    echo "                // You can add more product properties here if needed";
+    echo "            ];";
+    echo "            input = document.createElement('input');";
+    echo "            input.type = 'hidden';";
+    echo "            input.name = 'productos[]';";
+    echo "            input.value = idProducto;";
+    echo "            document.querySelector('form').appendChild(input);";
+    echo "            productos.push(producto);";
+    echo "            console.log(productos);";
+    echo "        });";
+    echo "    });";
+    echo "});";
+    echo "</script>";
+    ?>
     @section('scriptProducts')
     <script src="{{ asset('JS/swiper-bundle.min.js') }}"></script>
     <script src="{{ asset('JS/slider.js') }}"></script>

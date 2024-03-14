@@ -68,3 +68,4 @@ Route::post('reservarAula/add', 'App\Http\Controllers\EventController@store')->n
 // Rutas para la reserva de material
 Route::get('reservaMaterial', 'App\Http\Controllers\EventController@reservaMaterial');
 Route::get('reservarMaterial/{fecha}/{hora_inicio}/{hora_fin}', 'App\Http\Controllers\EventController@materialDisponible')->name('secciones.dispositivos');
+Route::post('reservarMaterial/add', [EventController::class, 'storeMaterial'])->name('reservarMaterial.add');
