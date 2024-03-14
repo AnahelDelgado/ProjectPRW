@@ -18,39 +18,22 @@ use App\Http\Controllers\EventController;
 */
 
 // link para el menú principal 
-
 Route::get('/', [App\Http\Controllers\EventController::class, 'index'])->name('secciones.index');
-// Route::get('/mostrar', [App\Http\Controllers\EventController::class, 'show']);
 
-Route::get('/login', 'App\Http\Controllers\menuController@showLogin')->name('login.login');
-
-Route::get('/grid', 'App\Http\Controllers\menuController@showgrid')->name('secciones.grid');
-
-
-
-
-
+Route::get('/login', function () {
+    return view('login.login');
+})->name('login');
 // link para la reserva de solo el material sin el aula
-
-
-//link de prueba para la reserva de solo el material sin el aula
 Route::get('/reservaPrueba', 'App\Http\Controllers\reservasController@reservaPrueba')->name('secciones.reservaPrueba');
 
 // link para la reserva del aula y el material
-
 Route::get('/reservaAulayMaterial', 'App\Http\Controllers\EventController@reserva3')->name('secciones.reserva3');
 
 // link para la elección del tipo de reserva
-
 Route::get('/eleccion', 'App\Http\Controllers\EventController@eleccionreserva')->name('login.eleccion');
 
 // link para mis reservas
-
 Route::get('/misReservas', 'App\Http\Controllers\EventController@misReservas')->name('secciones.misResevas');
-
-
-
-//Editar aula y material
 
 // Ruta para mostrar el formulario de edición de reservas
 Route::get('/reservas/editarAula', [EventController::class, 'mostrarFormularioEditarReserva'])->name('reservas.editar');
@@ -58,53 +41,20 @@ Route::get('/reservas/editarAula', [EventController::class, 'mostrarFormularioEd
 // Ruta para procesar la edición de la reserva
 Route::post('/reservas/editarAula', [EventController::class, 'editarReserva'])->name('reservas.editar');
 
-
-
-
+// Ruta para editar el material
 Route::get('/reservas/editarmaterial', 'App\Http\Controllers\EventController@editarMaterial')->name('secciones.editarMaterial');
 
-//Eliminar aula y material
-
-
+// Ruta para eliminar una reserva
 Route::get('/reservas/eliminar', 'App\Http\Controllers\EventController@mostrarReservas')->name('reservas.eliminar');
-
 Route::delete('/reservas/eliminar', 'App\Http\Controllers\EventController@eliminarReserva')->name('reservas.eliminar');
 
-
-
+// Ruta para eliminar material
 Route::get('/reservas/eliminarMaterial', 'App\Http\Controllers\EventController@eliminarMaterial')->name('reservas.eliminarMaterial');
 
-
-//eleccion de editar y eliminar
-
-Route::get('/reservas/editar/eleccioneliminar', 'App\Http\Controllers\EventController@eleccioneliminar')->name('reservas.eleccioneliminar');
-
-Route::get('/reservas/editar/eleccioneditar', 'App\Http\Controllers\EventController@eleccioneditar')->name('reservas.eleccioneditar');
-
-
-
-
-
-
-//Rutas para la API de Google.
-
+// Rutas para la API de Google.
 Route::get('/auth/google','App\Http\Controllers\googleAPIController@redirectToGoogle');
-
 Route::get('/auth/google/callback', 'App\Http\Controllers\googleAPIController@handleGoogleCallback');
-
 Route::post('/logout', 'App\Http\Controllers\googleAPIController@logout');
-
-
-
-
-//Calendario
-
-
-
-
-
-//Consultas para la reserva de aulas
-
 
 // Ruta para mostrar el formulario de reserva
 Route::get('/reservaAula', [EventController::class, 'añadir'])->name('reservas.añadir');
@@ -112,14 +62,9 @@ Route::get('/reservaAula', [EventController::class, 'añadir'])->name('reservas.
 // Ruta para almacenar la reserva (solicitud POST desde el formulario)
 
 Route::get('reservarAula/{fecha}', 'App\Http\Controllers\EventController@horasDisponibles');
-
 Route::get('reservarAula/{fecha}/{aula}', 'App\Http\Controllers\EventController@horafecha');
-
 Route::post('reservarAula/add', 'App\Http\Controllers\EventController@store')->name("reserve.add");
 
-//Consutas para la reserva de material
-
-Route::get('reservaMaterial', 'App\Http\Controllers\EventController@reservaMaterial')->name('secciones.reserva2');
-
-Route::get('reservarMaterial/{fecha}', 'App\Http\Controllers\EventController@materialDisponible')->name('secciones.reserva2');
-
+// Rutas para la reserva de material
+Route::get('reservaMaterial', 'App\Http\Controllers\EventController@reservaMaterial');
+Route::get('reservarMaterial/{fecha}/{hora_inicio}/{hora_fin}', 'App\Http\Controllers\EventController@materialDisponible')->name('secciones.dispositivos');
