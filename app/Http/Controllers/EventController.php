@@ -251,8 +251,16 @@ class EventController extends Controller
         return view('secciones.reserva3');
     }
 
+    public function agregar()
+    {
+
+        return view('secciones.agregarMaterial');
+    }
+
 
    
+    
+
 
     public function index()
     {

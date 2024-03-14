@@ -7,20 +7,28 @@ if (session()->get('user') === null) {
 ?>
 
 @extends('layout.layout')
+
 @section('imagen')
-    <img class="avatar" src="<?php echo $viewData['avatar']?>" alt="" srcset="">
+<img class="avatar" src="<?php echo $viewData['avatar'] ?>" alt="" srcset="">
 @endsection
+
 @section('nombre')
-    <?php echo $viewData['nombre']?>
+<?php echo $viewData['nombre'] ?>
 @endsection
 
 
+@section('head')
+<link rel="stylesheet" href="css/agregar.css">
+@endsection
+@section('imagen')
+<img class="avatar" src="<?php echo $viewData['avatar'] ?>" alt="" srcset="">
+@endsection
 @section('content')
-<!-- Contenido específico de esta página -->
+
 <section class="">
     <div class="formulario3">
 
-        <h3>Añadir Aula y material</h3>
+        <h3>Añadir material</h3>
         <form action="/reservaMaterial">
             <label for="diaReserva">Día de la reserva: </label>
             <input type="date" name="diaReserva" id="diaReserva" required>
@@ -49,4 +57,5 @@ if (session()->get('user') === null) {
         </form>
     </div>
 </section>
+
 @endsection

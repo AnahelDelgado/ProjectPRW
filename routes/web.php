@@ -34,8 +34,9 @@ Route::get('/reservaAula', [EventController::class, 'añadir'])->name('reservas.
 // Ruta para almacenar la reserva (solicitud POST desde el formulario)
 Route::post('/reservaAula', [EventController::class, 'store'])->name('reservas.store');
 
-// link para la reserva de solo el material sin el aula
+// link para la reserva del material
 
+Route::get('/agregarMaterial', 'App\Http\Controllers\EventController@agregar')->name('secciones.agregarMaterial');
 
 //link de prueba para la reserva de solo el material sin el aula
 Route::get('/reservaPrueba', 'App\Http\Controllers\reservasController@reservaPrueba')->name('secciones.reservaPrueba');
