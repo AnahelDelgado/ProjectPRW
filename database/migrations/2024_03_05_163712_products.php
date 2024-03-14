@@ -16,7 +16,6 @@ return new class extends Migration
             $table->string('nombre');
             $table->string('descripcion');
             $table->string('imagen');
-            $table->boolean('disponible')->default(1);
             $table->string('enlace');
             $table->timestamps();
         });
