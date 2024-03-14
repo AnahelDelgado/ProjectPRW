@@ -41,7 +41,7 @@ if (session()->get('user') === null) {
         </label>
        
 
-        <input type="submit" value="Eliminar Material">
+        <input type="submit" value="Eliminar">
 
         <a class="cancelar" href="/" id="cancelButton">Cancelar</a>
 

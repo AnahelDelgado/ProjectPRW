@@ -31,7 +31,7 @@ if (session()->get('user') === null) {
             <option value="{{ $reserva->id }}">{{ $reserva->dia }} - {{ $reserva->hora_inicio }} a {{ $reserva->hora_fin }}</option>
         @endforeach
     </select><br>
-    <input type="submit" value="Eliminar Reserva">
+    <input type="submit" value="Eliminar">
     <a class="cancelar" href="/" id="cancelButton">Cancelar</a>
 
             <script>
@@ -41,6 +41,8 @@ if (session()->get('user') === null) {
                         window.location.href = "/"; // Redirigir a la página principal
                     });
                 });
+
+              
             </script>
 
 </form>

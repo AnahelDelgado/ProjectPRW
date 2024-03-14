@@ -21,7 +21,7 @@ if (session()->get('user') === null) {
 
 @section('content')
 <div class="cuadrado">
-    <h2 class="titulo">Editar Reserva</h2>
+    <h2 class="titulo">Editar Aula</h2>
     <form action="{{ route('reservas.editar') }}" method="POST">
         @csrf
         <label for="reserva">Seleccionar reserva a editar:</label><br>
