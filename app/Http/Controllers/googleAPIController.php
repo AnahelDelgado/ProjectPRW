@@ -39,8 +39,10 @@ class GoogleAPIController extends Controller
             'nombre' => $user->name,
         ];
 
+
         session()->put('user', $user->email);
         session()->put('viewData', $viewData);
+        
 
 
         return redirect('/');

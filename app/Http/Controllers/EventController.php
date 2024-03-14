@@ -131,18 +131,24 @@ class EventController extends Controller
     }
     //eliminar reserva 
 
+
     public function reservaMaterial()
     {
-        $horas['horasInicio'] = ["08:00","08:55","09:50","11:15","12:10","13:05"];
-        $horas['horasFin'] = ["08:55","09:50","11:15","12:10","13:05","14:00"];
-
-
-
         $productosDisponibles = product::all();
+        $horas['horasInicio'] = ["08:00","08:55","09:50","11:15","12:10","13:05"];
+            $horas['horasFin'] = ["08:55","09:50","11:15","12:10","13:05","14:00"];
 
-
-        return view ('secciones.reserva2', ['productosDisponibles' => $productosDisponibles]);
+        return view ('reservas.reservarDispositivo', ['productosDisponibles' => $productosDisponibles, 'horas' => $horas]);
     }
+
+    public function materialDisponible($fecha, $hora)
+    {
+        $products = product::all();
+
+        return view('secciones.dispositivos', ['productosDisponibles' => $products]);
+    }
+
+ 
     
     public function mostrarFormularioEliminarAula()
     {
@@ -151,8 +157,6 @@ class EventController extends Controller
     }
 
 
-
-    
     public function mostrarReservas(Request $request)
     {
         $reservas = Event::where('id_profesor', function($query) {
@@ -212,25 +216,8 @@ class EventController extends Controller
         
     }
 
-    public function materialDisponible($fecha)
-    {
 
 
-
-        return view('secciones.reserva2', ['productosDisponibles' => $productosDisponibles]);
-    }
-
-
-
-    public function reserva2()
-    {
-        $viewData = [];
-        $viewData["products"] = Product::all();
-
-
-
-        return view('secciones.reserva2')->with("viewData", $viewData);
-    }
 
     public function reservaPrueba()
     {

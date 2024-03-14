@@ -31,21 +31,23 @@ if (session()->get('user') === null) {
         <div class="slide-content">
             <div class="card-wrapper swiper-wrapper">
 
-        <?php foreach ($productosDisponibles as $producto): ?>
-            <div class='card swiper-slide'>
-                <div class='image-content'>
-                    <span class='overlay'></span>
-                    <div class='card-image'>
-                        <img src='<?php echo $producto->imagen ?>' alt='' class='card-img'>
+        @if(isset($productosDisponibles))
+            @foreach ($productosDisponibles as $producto)
+<div class="card swiper-slide">
+                    <div class="image-content">
+                        <span class="overlay"></span>
+                        <div class="card-image">
+                            <img src="img/Impresora3D.jpg" alt="" class="card-img">
+                        </div>
+                    </div>
+                    <div class="card-content">
+                        <h2 class="name">Impresora 3D</h2>
+                        <p class="description">Impresora 3D la cual se le puede dar uso para la impresión de casi cualquier diseño realizado por el alumnado.</p>
+                        <button class="button add-product" id_producto="1">Añadir</button>
                     </div>
                 </div>
-                <div class='card-content'>
-                    <h2 class='name'><?php echo $producto->nombre ?></h2>
-                    <p class='description'><?php echo $producto->descripcion ?></p>
-                    <button class='button add-product' id_producto='<?php echo $producto->id ?>'>Añadir</button>
-                </div>
-            </div>
-        <?php endforeach; ?>
+            @endforeach
+        @endif
 
             </div>
         </div>
