@@ -24,7 +24,7 @@ if (session()->get('user') === null) {
 @section('content')
 <div class="contorno">
 <!-- Título -->
-<h1>Eliminar reserva de aula</h1>
+<h1>Eliminar reserva</h1>
 <!-- Formulario -->
 <form action="{{ route('reservas.eliminar') }}" method="POST" id="eliminarReserva">
     @csrf

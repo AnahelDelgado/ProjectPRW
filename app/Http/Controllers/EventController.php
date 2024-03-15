@@ -362,13 +362,6 @@ class EventController extends Controller
     //eleccion eliminar
 
 
-    public function eleccioneliminar()
-    {
-
-        return view('reservas.eleccioneliminar');
-    }
-
-
     public function mostrarFormularioEliminarAula()
     {
         $reservas = Event::all();

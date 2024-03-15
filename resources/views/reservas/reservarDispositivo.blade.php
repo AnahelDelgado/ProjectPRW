@@ -21,7 +21,7 @@ if (session()->get('user') === null) {
 <section id="add-form">
     <div class="formulario2">
 
-        <h3>Añadir Aula</h3>
+        <h3>Añadir Material</h3>
         <?php if(isset($fecha))
         {
             $actionUrl = route("secciones.dispositivos", ["fecha" => $fecha, "hora_inicio-hora_final" => $horas["horasInicio"][0] . "-" . $horas["horasFin"][0]]);
@@ -56,7 +56,7 @@ if (session()->get('user') === null) {
                 } ?>
             </select>
 
-            <input type="button" value="Continuar" id="continuar">
+            <input class="continuar" type="button" value="Continuar" id="continuar">
 
             <script>
                 document.addEventListener('DOMContentLoaded', function() {

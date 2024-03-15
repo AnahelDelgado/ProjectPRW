@@ -83,7 +83,7 @@ if (session()->get('user') === null) {
                 } ?>
             </select>
 
-            <input type="submit" value="Reservar">
+            <input class="continuar" type="submit" value="Reservar">
 
             <a class="cancelar" href="/" id="cancelButton">Cancelar</a>
 
